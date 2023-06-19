@@ -20,7 +20,7 @@
 <body>
 <!-- NAV -->
 <div class="row">
-    <div class="col-4 barnav">Menu</div>
+    <div class="col-3 barnav">Menu</div>
     <div>Icono</div>
 </div>
 </div>
