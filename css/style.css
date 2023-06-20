@@ -29,14 +29,14 @@ body::-webkit-scrollbar-thumb {
 
 main {
   margin-left: 5rem;
-  padding: 1rem;
+  padding: 0rem;
 }
 
 .navbar {
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 600ms ease;
-  overflow: scroll;
+  overflow: hidden;
 }
 
 .navbar-nav {
