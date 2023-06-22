@@ -27,10 +27,10 @@ body::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
 
-main {
+/* main {
   margin-left: 5rem;
   padding: 0rem;
-}
+} */
 
 .navbar {
   position: fixed;
