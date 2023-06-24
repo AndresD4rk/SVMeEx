@@ -26,7 +26,6 @@
 
 
 <script>
-  alert(1);
   if (navigator.geolocation) {
   navigator.geolocation.watchPosition(showPosition);
 } else {
@@ -39,7 +38,7 @@ function showPosition(position) {
   var lng = position.coords.longitude;
   console.log(lat," ",lng);
   var cor=lat+" "+lng;
-  alert(cor);
+ /*  alert(cor); */
 
     
  
@@ -77,7 +76,7 @@ function showPosition(position) {
 <script>
   // Llamar a la función initMap() una vez que la página se haya cargado
   window.addEventListener('load', initMap);
-  alert (2);
+
 </script>
 
 
