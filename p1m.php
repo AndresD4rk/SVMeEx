@@ -19,13 +19,22 @@
   <link rel="stylesheet" href="css/style.css?v=1" />
   <link rel="stylesheet" href="fonts/font.css?v=1">
   <link rel="stylesheet" href="bt/css/bootstrap-grid.css">
-  
+
+  <script src="js/theme.js"></script>
+  <script src="js/base.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc"></script>
+  <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+
 
 
 </head>
 
-<body >
+<body>
   <script src="js/theme.js"></script>
+  <script src="js/base.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc"></script>
   <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   <!-- NAV -->
@@ -109,18 +118,48 @@
   </nav>
   <!-- Close NAV -->
 
-  <main class="prinav" style="background-color:aqua; margin-left: 80px;">
+  <main class="prinav" style="background-color:aqua;">
     <!-- Ini Bar Top -->
     <div class="row d-flex" style="background-color: #ea3f6f;">
       <div class="col-2 mx-auto">
         <img src="img/logoMER.png" alt="logo1" class="col-3">
       </div>
     </div>
+
+    <div class="row">
+    <div class="col-md-5 mx">
+      <div id="map" style="height: 400px;"></div>
+    </div>
+  </div>
     <!-- End Bar Top -->
-  
+
 
   </main>
 
 </body>
+
+
+<script>
+  function initMap() {
+    // Coordenadas para centrar el mapa
+    var center = {
+      lat: 37.7749,
+      lng: -122.4194
+    };
+
+    // Opciones de configuración del mapa
+    var mapOptions = {
+      center: center,
+      zoom: 12
+    };
+
+    // Crear instancia del mapa
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+  }
+</script>
+<script>
+  // Llamar a la función initMap() una vez que la página se haya cargado
+  window.addEventListener('load', initMap);
+</script>
 
 </html>
