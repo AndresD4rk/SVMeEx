@@ -23,12 +23,26 @@
 
 </body>
 
-<script>
-var latitud = position.coords.latitude;
-var longitud = position.coords.longitude;
 
-// Generar un identificador único para el nombre del archivo
-var uniqueId = Date.now().toString();
+<script>
+  if (navigator.geolocation) {
+  navigator.geolocation.watchPosition(showPosition);
+} else {
+  console.log("La geolocalización no es compatible con este navegador.");
+}
+
+function showPosition(position) {
+  
+  var lat = position.coords.latitude;
+  var lng = position.coords.longitude;
+  console.log(lat," ",lng);
+  var cor=lat+" "+lng;
+ /*  alert(cor); */
+
+    
+ 
+  // Aquí puedes hacer lo que necesites con las coordenadas, como actualizar el mapa en tiempo real.
+  var uniqueId = Date.now().toString();
 var nombreArchivo = 'localizacion_' + uniqueId + '.csv';
 
 // Datos de localización
@@ -53,28 +67,6 @@ enlaceDescarga.style.display = 'none';
 document.body.appendChild(enlaceDescarga);
 enlaceDescarga.click();
 document.body.removeChild(enlaceDescarga);
-
-
-</script>
-
-<script>
-  if (navigator.geolocation) {
-  navigator.geolocation.watchPosition(showPosition);
-} else {
-  console.log("La geolocalización no es compatible con este navegador.");
-}
-
-function showPosition(position) {
-  
-  var lat = position.coords.latitude;
-  var lng = position.coords.longitude;
-  console.log(lat," ",lng);
-  var cor=lat+" "+lng;
- /*  alert(cor); */
-
-    
- 
-  // Aquí puedes hacer lo que necesites con las coordenadas, como actualizar el mapa en tiempo real.
 }
 
       
