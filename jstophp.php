@@ -8,7 +8,7 @@ $lng = $_POST['lng'];
 
 // Por ejemplo, puedes crear un archivo plano con las variables y mantener los datos existentes
 $nombreArchivo = 'localizacion_' . "Hola" . '.txt';
-$contenidoArchivo = "Latitud: " . $lat . ", Longitud: " . $lng;
+$contenidoArchivo = "Latitud: " . $lat . ", Longitud: " . $lng . "\n";
 
 // Agregar el contenido al final del archivo
 file_put_contents($nombreArchivo, $contenidoArchivo, FILE_APPEND);
