@@ -40,33 +40,28 @@ function showPosition(position) {
  /*  alert(cor); */
 
     
- 
-  // Aquí puedes hacer lo que necesites con las coordenadas, como actualizar el mapa en tiempo real.
-  var uniqueId = Date.now().toString();
-var nombreArchivo = 'localizacion_' + uniqueId + '.csv';
+ // Crear un objeto XMLHttpRequest
+var xhr = new XMLHttpRequest();
 
-// Datos de localización
-var localizaciones = [
-  { latitud: latitud, longitud: longitud }
-  // Agrega más localizaciones según tus necesidades
-];
+// Definir la función de manejo de la respuesta
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    // Recibir la respuesta del servidor
+    var respuesta = xhr.responseText;
+    console.log(respuesta);
+  }
+};
 
-// Crear el contenido del archivo CSV
-var contenidoArchivo = 'Latitud,Longitud\n';
-localizaciones.forEach(function(localizacion) {
-  contenidoArchivo += localizacion.latitud + ',' + localizacion.longitud + '\n';
-});
+// Configurar la petición
+xhr.open("POST", "jstophp.php", true);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-// Crear un enlace de descarga del archivo
-var enlaceDescarga = document.createElement('a');
-enlaceDescarga.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(contenidoArchivo));
-enlaceDescarga.setAttribute('download', nombreArchivo);
+// Convertir las variables en una cadena de consulta
+var data = "lat=" + lat + "&lng=" + lng;
 
-// Simular clic en el enlace para descargar el archivo
-enlaceDescarga.style.display = 'none';
-document.body.appendChild(enlaceDescarga);
-enlaceDescarga.click();
-document.body.removeChild(enlaceDescarga);
+// Enviar la petición
+xhr.send(data);
+  
 }
 
       
