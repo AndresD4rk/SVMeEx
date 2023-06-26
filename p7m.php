@@ -28,8 +28,8 @@ foreach ($lines as $line) {
   $data = explode(',', $line);
 
   // Obtén los valores de nombre, latitud y longitud
-  $latitud = trim($data[2]);
-  $longitud = trim($data[4]);
+  $latitud = trim($data[1]);
+  $longitud = trim($data[2]);
 
   // Agrega la ubicación al arreglo de ubicaciones
   $locations[] = array($latitud, $longitud);
