@@ -11,6 +11,38 @@
 </head>
 <body>
   <div id="map"></div>
+  <?php
+
+// Lee el contenido del archivo de texto
+$fileContents = file_get_contents('localizacion_Hola.txt');
+
+// Divide el contenido del archivo por saltos de línea
+$lines = explode("\n", $fileContents);
+
+// Crea un arreglo para almacenar las ubicaciones
+$locations = array();
+
+// Recorre cada línea del archivo
+foreach ($lines as $line) {
+  // Divide cada línea por comas
+  $data = explode(',', $line);
+
+  // Obtén los valores de nombre, latitud y longitud
+  $latitud = trim($data[2]);
+  $longitud = trim($data[4]);
+
+  // Agrega la ubicación al arreglo de ubicaciones
+  $locations[] = array($latitud, $longitud);
+}
+
+// Genera el código JavaScript para el arreglo de ubicaciones
+$jsLocations = 'var locations = ' . json_encode($locations) . ';';
+
+// Guarda el código JavaScript en un archivo temporal
+$tempFile = tempnam(sys_get_temp_dir(), 'locations');
+file_put_contents($tempFile, $jsLocations);
+ print_r($jsLocations)
+?>
   <script>
     function initMap() {
       // Crear el mapa
