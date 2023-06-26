@@ -6,12 +6,12 @@ $lat = $_POST['lat'];
 $lng = $_POST['lng'];
 
 // Verificar si las variables han cambiado
-if ($_SESSION['lat'] != $lat || $_SESSION['lng'] != $lng) {
+if (abs($_SESSION['lat'] - $lat) > 0.0003 || abs($_SESSION['lng'] - $lng) > 0.0003){
   // Hacer el proceso que deseas cuando las variables han cambiado
   // ...
 
   // Por ejemplo, crear un archivo plano con las variables y mantener los datos existentes
-  $nombreArchivo = 'localizacion_' . "Hola" . '.txt';
+  $nombreArchivo = 'localizacion_' . "P2" . '.txt';
   $contenidoArchivo = $lat . "," . $lng . "\n";
 
   // Agregar el contenido al final del archivo

@@ -15,7 +15,7 @@
   <?php
 
 // Lee el contenido del archivo de texto
-$fileContents = file_get_contents('localizacion_Hola.txt');
+$fileContents = file_get_contents('localizacion_P2.txt');
 
 // Divide el contenido del archivo por saltos de línea
 $lines = explode("\n", $fileContents);
@@ -74,11 +74,11 @@ print_r($jsLocations);
         var latLng = new google.maps.LatLng(location[1], location[2]);
         points.push(latLng);
 
-        var marker = new google.maps.Marker({
+        /* var marker = new google.maps.Marker({
           position: latLng,
           map: map,
           title: location[0]
-        });
+        }); */
       }
 
       // Crear una polilínea para unir los puntos
