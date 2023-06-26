@@ -10,6 +10,7 @@
   </style>
 </head>
 <body>
+
   <div id="map"></div>
   <?php
 
@@ -18,46 +19,51 @@ $fileContents = file_get_contents('localizacion_Hola.txt');
 
 // Divide el contenido del archivo por saltos de línea
 $lines = explode("\n", $fileContents);
-
+$nombre=0;
 // Crea un arreglo para almacenar las ubicaciones
 $locations = array();
-
 // Recorre cada línea del archivo
 foreach ($lines as $line) {
   // Divide cada línea por comas
   $data = explode(',', $line);
 
   // Obtén los valores de nombre, latitud y longitud
-  $latitud = trim($data[1]);
-  $longitud = trim($data[2]);
-
+  if (isset($data[0]) && isset($data[1])) {
+  $nombre=$nombre++;
+  $latitud = trim($data[0]);
+  $longitud = trim($data[1]);
+  }
   // Agrega la ubicación al arreglo de ubicaciones
-  $locations[] = array($latitud, $longitud);
+  $locations[] = array($nombre,$latitud, $longitud);
 }
 
 // Genera el código JavaScript para el arreglo de ubicaciones
-$jsLocations = 'var locations = ' . json_encode($locations) . ';';
+$jsLocations = json_encode($locations);
 
 // Guarda el código JavaScript en un archivo temporal
 $tempFile = tempnam(sys_get_temp_dir(), 'locations');
 file_put_contents($tempFile, $jsLocations);
- print_r($jsLocations)
+print_r($jsLocations);
+ 
 ?>
+<script>
+  // Convertir la cadena JSON en un objeto JavaScript
+  var locations = JSON.parse('<?php echo $jsLocations; ?>');
+
+  // Usar el array en JavaScript
+  console.log(locations);
+</script>
+
   <script>
     function initMap() {
       // Crear el mapa
       var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: {lat: 40.7128, lng: -74.0060} // Coordenadas del centro del mapa
+        zoom: 17,
+        center: {lat: 6.4735016, lng: -73.259444} // Coordenadas del centro del mapa
       });
 
       // Leer el archivo CSV y obtener las ubicaciones
-      var locations = [
-        ['Lugar A', 40.1234, -74.5678],
-        ['Lugar B', 40.9876, -74.4321],
-        ['Lugar C', 41.1876, -74.4321],
-        // Agrega más ubicaciones aquí en el formato ['Nombre', latitud, longitud]
-      ];
+      
 
       // Crear un arreglo para almacenar las coordenadas de los puntos
       var points = [];
@@ -68,11 +74,11 @@ file_put_contents($tempFile, $jsLocations);
         var latLng = new google.maps.LatLng(location[1], location[2]);
         points.push(latLng);
 
-        /* var marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
           position: latLng,
           map: map,
           title: location[0]
-        }); */
+        });
       }
 
       // Crear una polilínea para unir los puntos
