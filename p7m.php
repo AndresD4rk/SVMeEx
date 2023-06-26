@@ -23,6 +23,7 @@
       var locations = [
         ['Lugar A', 40.1234, -74.5678],
         ['Lugar B', 40.9876, -74.4321],
+        ['Lugar C', 41.1876, -74.4321],
         // Agrega más ubicaciones aquí en el formato ['Nombre', latitud, longitud]
       ];
 
