@@ -36,11 +36,11 @@
         var latLng = new google.maps.LatLng(location[1], location[2]);
         points.push(latLng);
 
-        var marker = new google.maps.Marker({
+        /* var marker = new google.maps.Marker({
           position: latLng,
           map: map,
           title: location[0]
-        });
+        }); */
       }
 
       // Crear una polilínea para unir los puntos
