@@ -7,7 +7,7 @@ $lng = $_POST['lng'];
 // ...
 
 // Por ejemplo, puedes crear un archivo plano con las variables
-$nombreArchivo = 'localizacion_' . uniqid() . '.txt';
+$nombreArchivo = 'localizacion_' . "Hola" . '.txt';
 $contenidoArchivo = "Latitud: " . $lat . ", Longitud: " . $lng;
 file_put_contents($nombreArchivo, $contenidoArchivo);
 
