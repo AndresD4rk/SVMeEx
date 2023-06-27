@@ -12,53 +12,49 @@
 <body>
 
   <div id="map"></div>
-  <?php
-
-// Lee el contenido del archivo de texto
-$fileContents = file_get_contents('localizacion_UwU.txt');
-
-// Divide el contenido del archivo por saltos de línea
-$lines = explode("\n", $fileContents);
-$nombre=0;
-// Crea un arreglo para almacenar las ubicaciones
-$locations = array();
-// Recorre cada línea del archivo
-foreach ($lines as $line) {
-  // Divide cada línea por comas
-  $data = explode(',', $line);
-
-  // Obtén los valores de nombre, latitud y longitud
-  if (isset($data[0]) && isset($data[1])) {
-  $nombre=$nombre+1;
-  $latitud = trim($data[0]);
-  $longitud = trim($data[1]);
-  }
-  // Agrega la ubicación al arreglo de ubicaciones
-  $locations[] = array($nombre,$latitud, $longitud);
-}
-
-// Genera el código JavaScript para el arreglo de ubicaciones
-$jsLocations = json_encode($locations);
-
-// Guarda el código JavaScript en un archivo temporal
-$tempFile = tempnam(sys_get_temp_dir(), 'locations');
-file_put_contents($tempFile, $jsLocations);
-
-print_r($jsLocations);
-?>
-<script>
-  // Convertir la cadena JSON en un objeto JavaScript
-  var locations = JSON.parse('<?php echo $jsLocations; ?>');
-
-  // Usar el array en JavaScript
-  console.log(locations);
-</script>
-
-<script>
   
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    var locations;
+  $(document).ready(function() {
+    // Función para actualizar el contenido
+    function actualizarContenido() {
+      $.ajax({
+        url: 'actualizar_localizacion.php', // Archivo PHP que actualiza la localización
+        success: function(data) {
+          // Procesa los datos recibidos y actualiza la página según sea necesario
+          // Aquí puedes agregar tu lógica para actualizar el mapa u otros elementos de la página
+          
+
+          // Ejemplo: Actualizar el mapa con los nuevos datos de localización
+          // Aquí deberías utilizar la biblioteca o el código específico para tu mapa
+          // para actualizar las ubicaciones con los datos recibidos en `data`
+          locations=data;
+          console.log(locations);
+          dibujarRuta()
+        },
+        complete: function() {
+          // Vuelve a llamar a la función después de cierto tiempo
+          setTimeout(actualizarContenido, 5000); // Actualiza cada 5 segundos (ajusta el tiempo según tus necesidades)
+        }
+      });
+    }
+
+    // Inicia la actualización inicial del contenido
+    actualizarContenido();
+  });
+
+  
+
+
+
+
+  alert(locations);
     var map, directionsService, directionsRenderer, latitud, longitud;
     function initMap() {
-        
       // Crear el mapa
       map = new google.maps.Map(document.getElementById('map'), {
         // zoom: 16,
@@ -79,7 +75,9 @@ print_r($jsLocations);
       
       // Asociar el objeto de renderizado de direcciones con el mapa
       directionsRenderer.setMap(map);
+    }
 
+    function dibujarRuta(){
 // Configurar la solicitud de ruta
 var request = {
         origin: {lat: parseFloat(locations[0][1]),lng: parseFloat(locations[0][2])}, // Coordenadas del origen
