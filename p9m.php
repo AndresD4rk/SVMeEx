@@ -42,7 +42,7 @@
              latitud = latLng.lat();
              longitud = latLng.lng();
             //marker.setPosition(latLng);
-            
+            //map.setCenter(latLng);
            // window.alert(latitud +" "+ longitud);
 
 // Configurar la solicitud de ruta
