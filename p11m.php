@@ -52,7 +52,7 @@
 
 
 
-  alert(locations);
+  //alert(locations);
     var map, directionsService, directionsRenderer, latitud, longitud;
     function initMap() {
       // Crear el mapa
