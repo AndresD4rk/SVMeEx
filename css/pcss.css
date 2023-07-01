@@ -1,0 +1,38 @@
+:root {
+    --color-clvr: #01e600;
+    --color-clrj: #ea3f6f;
+    --color-claz: #1eb2f2;
+    --color-clgr: #717a85;
+    --color-clam: #fedc00;
+    --color-clng: #24262d;
+  }
+
+body{
+background-image: url(../img/ibg1.png);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+
+#loginform{
+    width: 45%;
+    height: 100vh;
+   
+}
+#formid{
+    background-color:rgba(113,122,133,0.7);
+    margin-top: 100px;
+}
+
+@media (max-width: 767px) {
+    #loginform {
+      width: 85%;
+      height: 100%;
+    }
+    #formid{
+        margin-top: 5px;
+    }
+}
+
+  
