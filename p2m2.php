@@ -53,7 +53,7 @@ xhr.onreadystatechange = function() {
 };
 
 // Configurar la petición
-xhr.open("POST", "jstophp.php", true);
+xhr.open("POST", "jstophp2.php", true);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
 // Convertir las variables en una cadena de consulta

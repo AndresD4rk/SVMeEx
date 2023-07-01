@@ -17,7 +17,7 @@
   <?php
 
 // Lee el contenido del archivo de texto
-$fileContents = file_get_contents('localizacion_Hola.txt');
+$fileContents = file_get_contents('localizacion_P2.txt');
 
 // Divide el contenido del archivo por saltos de línea
 $lines = explode("\n", $fileContents);
