@@ -57,7 +57,7 @@
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa la contraseña">
   </div>
   <div class="col-6 mb-3">
-    <label for="exampleInputPassword1" class="form-label">Verifica tu Contraseña</label>
+    <label for="exampleInputPassword1" class="form-label">Verifica la Contraseña</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa la nuevamente contraseña">
   </div>
   </div>
