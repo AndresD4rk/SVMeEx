@@ -74,7 +74,5 @@ toggleButton.addEventListener('click', function() {
     elementToToggle.style.width = '0vw';
   }
 });
-
-
 </script>
 </html>
