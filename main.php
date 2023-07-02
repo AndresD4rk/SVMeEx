@@ -61,11 +61,17 @@
     var toggleButton = document.getElementById('toggleButton');
 var elementToToggle = document.getElementById('menulat');
 
-toggleButton.addEventListener('click', function() {
+toggleButton.addEventListener('click', function() {    
   if (elementToToggle.style.visibility === 'hidden') {
     elementToToggle.style.visibility = 'visible';
+    if (window.innerWidth >= 767) {
+    elementToToggle.style.width = '40vw';
+}else {
+    elementToToggle.style.width = '95vw';
+}
   } else {
     elementToToggle.style.visibility = 'hidden';
+    elementToToggle.style.width = '0vw';
   }
 });
 

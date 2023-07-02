@@ -6,7 +6,7 @@
     --color-clam: #fedc00;
     --color-clng: #24262d;
   }
-
+ 
 body{
     background-color: var(--color-clgr);
 }
@@ -15,11 +15,14 @@ body{
     width: 40vw;
     background-color: var(--color-clrj);
     visibility: hidden;
+    transition: width 1s ease-in;
+    
 }
 
 #formid{
     background-color:rgba(113,122,133,0.7);
     margin-top: 100px;
+    
 }
 
 @media (max-width: 767px) {
