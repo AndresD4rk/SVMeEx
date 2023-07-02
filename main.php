@@ -23,8 +23,8 @@
 
     <nav id="mynav" class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="" type="button" id="toggleButton">
+            <a class="navbar-brand">Navbar</a>
+            <button class="" type="button" id="toggleButton1">
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
@@ -58,11 +58,14 @@
 
 </body>
 <script>
-    var toggleButton = document.getElementById('toggleButton');
-var elementToToggle = document.getElementById('menulat');
-
-toggleButton.addEventListener('click', function() {    
+    var toggleButton = document.getElementById('toggleButton1');
+    var elementToToggle = document.getElementById('menulat');
+    elementToToggle.style.visibility = 'hidden';
+    elementToToggle.style.width = '0vw';
+toggleButton.addEventListener('click', function() { 
+    
   if (elementToToggle.style.visibility === 'hidden') {
+    
     elementToToggle.style.visibility = 'visible';
     if (window.innerWidth >= 767) {
     elementToToggle.style.width = '40vw';
@@ -70,8 +73,11 @@ toggleButton.addEventListener('click', function() {
     elementToToggle.style.width = '95vw';
 }
   } else {
-    elementToToggle.style.visibility = 'hidden';
     elementToToggle.style.width = '0vw';
+    
+    setTimeout(function() {
+    elementToToggle.style.visibility = 'hidden';
+  }, 500);
   }
 });
 </script>

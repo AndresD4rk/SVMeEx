@@ -14,26 +14,14 @@ body{
 #menulat{
     width: 40vw;
     background-color: var(--color-clrj);
-    visibility: hidden;
-    transition: width 1s ease-in;
-    
+    transition: width 0.5s ease-in;
 }
 
-#formid{
-    background-color:rgba(113,122,133,0.7);
-    margin-top: 100px;
-    
-}
+
 
 @media (max-width: 767px) {
-    #menulat{
-        width: 90vw;
-        background-color: var(--color-clrj);
-        visibility: hidden;
-    }
-    #formid{
-        margin-top: 5px;
-    }
+    
+   
 }
 
   
