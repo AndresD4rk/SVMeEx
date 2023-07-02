@@ -1,0 +1,36 @@
+:root {
+    --color-clvr: #01e600;
+    --color-clrj: #ea3f6f;
+    --color-claz: #1eb2f2;
+    --color-clgr: #717a85;
+    --color-clam: #fedc00;
+    --color-clng: #24262d;
+  }
+
+body{
+    background-color: var(--color-clgr);
+}
+
+#menulat{
+    width: 40vw;
+    background-color: var(--color-clrj);
+    visibility: hidden;
+}
+
+#formid{
+    background-color:rgba(113,122,133,0.7);
+    margin-top: 100px;
+}
+
+@media (max-width: 767px) {
+    #menulat{
+        width: 90vw;
+        background-color: var(--color-clrj);
+        visibility: hidden;
+    }
+    #formid{
+        margin-top: 5px;
+    }
+}
+
+  
