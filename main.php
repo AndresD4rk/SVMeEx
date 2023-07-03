@@ -93,7 +93,9 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div style="background-color: red;">
+    </div>
+        <div class="container col-9 me-0">
             <div class="card-group">
                 <div class="card">
                     <img src="..." class="card-img-top" alt="...">
