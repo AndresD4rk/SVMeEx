@@ -11,17 +11,27 @@ body{
     background-color: var(--color-clgr);
 }
 
-#menulat{
-    width: 40vw;
-    background-color: var(--color-clrj);
-    transition: width 0.5s ease-in;
+.menulat{
+    background-image: url(../img/ibg1.png);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
 }
-
-
-
-@media (max-width: 767px) {
-    
-   
+#bgimgrespon{
+    background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+@media (max-width: 575.98px) {
+    .offcanvas.offcanvas-start {
+        top: 0;
+        left: 0;
+        width: 90vw;
+        border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+        transform: translateX(-100%);
+      }
 }
 
   

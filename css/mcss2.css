@@ -1,0 +1,27 @@
+:root {
+    --color-clvr: #01e600;
+    --color-clrj: #ea3f6f;
+    --color-claz: #1eb2f2;
+    --color-clgr: #717a85;
+    --color-clam: #fedc00;
+    --color-clng: #24262d;
+  }
+ 
+body{
+    background-color: var(--color-clgr);
+}
+
+#menulat{
+    height: fit-content;
+    background-color: var(--color-clrj);
+    transition: height 0.5s ease-in;
+}
+
+
+
+@media (max-width: 767px) {
+    
+   
+}
+
+  
