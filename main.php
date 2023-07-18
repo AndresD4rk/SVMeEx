@@ -85,7 +85,7 @@
         <!-- Fin Menu LATERAL -->
         <div class="container-fluid ">
             <div class="row mx-auto">
-                <div id="bgimgrespon" class="col-8 mx-auto" style="background-image: url(img/ibg1.png);">
+                <div id="bgimgrespon" class="col-8 mx-auto" style="background-image: url(img/ibg1.png); height:80px;">
                     <h1 class="text-center">Aquí Van Anuncios XD</h1>
                 </div>
                 <div class="col-4 mx-auto" style="background-color:aqua;">
@@ -97,7 +97,7 @@
     </div>
         <div class="container-fluid">
             <div class="row">
-                <div class="card mx-auto">
+                <div class="card ">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tinks Thats is a Product</h5>
@@ -107,7 +107,7 @@
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                <div class="card mx-auto">
+                <div class="card" id="carprod">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tinks Thats is a Product</h5>
@@ -117,7 +117,7 @@
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                <div class="card mx-auto">
+                <div class="card ">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tinks Thats is a Product</h5>
@@ -127,7 +127,7 @@
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                <div class="card mx-auto">
+                <div class="card ">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tinks Thats is a Product</h5>
@@ -137,7 +137,7 @@
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                <div class="card mx-auto">
+                <div class="card ">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tinks Thats is a Product</h5>
@@ -147,7 +147,27 @@
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                <div class="card mx-auto">
+                <div class="card ">
+                    <img src="img/producto.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tinks Thats is a Product</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card ">
+                    <img src="img/producto.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tinks Thats is a Product</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+                <div class="card ">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tinks Thats is a Product</h5>

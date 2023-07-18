@@ -4411,6 +4411,9 @@ textarea.form-control-lg {
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
 }
+  .card {
+    max-width: calc((100vw/8.1));
+  }
 @media (max-width: 1400px) {
   .card {
     max-width: calc((100vw/7.1));
