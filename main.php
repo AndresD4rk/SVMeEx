@@ -93,10 +93,21 @@
                 </div>
             </div>
         </div>
-        <div style="background-color: red;">
-    </div>
         <div class="container-fluid">
             <div class="row">
+            <div class="col-2">
+            <div class="card">
+                    <img src="img/producto.webp" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tinks Thats is a Product</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-body-secondary">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row col-10">
                 <div class="card ">
                     <img src="img/producto.webp" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -177,11 +188,11 @@
                         <small class="text-body-secondary">Last updated 3 mins ago</small>
                     </div>
                 </div>
-                
+
 
             </div>
-            
-        
+            </div>
+
 
             <p>
 
