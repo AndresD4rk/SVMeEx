@@ -20,7 +20,7 @@
 <body>
 <main class="d-flex align-items-center justify-content-center"> 
   <div id="loginform"> 
-<form id="formid">
+<form id="formid" action="#Procesos/newusureg.php" method="POST" enctype="multipart/form-data">
 <div  class="mb-4">
   <h1 class="text-center">MercaExpress</h1>
   <img src="img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
