@@ -52,7 +52,7 @@ function enviarFormularioFam() {
         })
         .then(data => {
             // Se recibió una respuesta exitosa del servidor
-            alert(data);
+            //alert(data);
             //actualizarSelect(data);
         })
         .catch(error => {

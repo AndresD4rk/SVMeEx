@@ -26,7 +26,7 @@
 <body>
     <main class="d-flex align-items-center justify-content-center">
         <div id="loginform">
-            <form id="formid" action="#Procesos/newusureg.php" method="POST" enctype="multipart/form-data">
+            <form id="formid" action="../procesos/newprod.php" method="POST">
                 <div class="mb-4">
                     <h1 class="text-center">MercaExpress</h1>
                     <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
@@ -34,10 +34,11 @@
                 <div class="col-11 mx-auto">
                     <h2 class="text-center">Registro de Productos</h2>
                     <div class="row">
+                        <!-- CATEGORIA DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label ">Categoria</label>
-                            <select class="form-select" aria-label="Default select example" id="SelCat">
-                            <option selected>Elija una Categoria</option>
+                            <select class="form-select" aria-label="Default select example" name="SelCat" required>
+                            <option value="">Elija una Categoria</option>
                                 <?php
                                 $sql = $conexion->query("SELECT * 
                                 FROM categoria");
@@ -48,10 +49,11 @@
                             </select>
                             <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
                         </div>
+                        <!-- FAMILIA DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label ">Familia</label>
-                            <select class="form-select" aria-label="Default select example" id="SelFam">
-                            <option selected>Elija una Familia</option>
+                            <select class="form-select" aria-label="Default select example" name="SelFam" required>
+                            <option value="">Elija una Familia</option>
                                 <?php
                                 $sql = $conexion->query("SELECT * 
                                 FROM familia");
@@ -62,49 +64,42 @@
                             </select>
                             <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(2)">Agregar Familia</button>
                         </div>
+                        <!-- NOMBRE DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label ">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="PriNom" aria-describedby="emailHelp" placeholder="Ingresa el nombre del Producto">
+                            <input type="text" class="form-control" name="NomPro" placeholder="Ingresa el nombre del Producto" required>
                         </div>
+                        <!-- VALOR DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label ">Valor del Producto</label>
-                            <input type="number" class="form-control" id="SegNom" placeholder="Ingresa el valor del producto">
+                            <input type="number" class="form-control" name="Precio" placeholder="Ingresa el valor del producto" required>
                         </div>
-
+                        <!-- CANTIDAD DEL PRODUCTO -->            
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label">Cantidad del producto</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Ingresa el stock inicial del producto">
+                            <input type="number" class="form-control" name="CanSto"  placeholder="Ingresa el stock inicial del producto" required>
                         </div>
+                        <!-- STOCK MINIMO DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label">Cantidad minima del producto</label>
-                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Ingresa el stock minimo del producto">
+                            <input type="number" class="form-control" name="MinSto" placeholder="Ingresa el stock minimo del producto" required>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 text-start"><button type="submit" class="btn btn-warning">Regresar</button></div>
+                        <div class="col-6 text-start"><button class="btn btn-warning">Regresar</button></div>
                         <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
                     </div>
-
-
                 </div>
             </form>
-
-
-
             <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body" id="formularioContainer">
-
-
-
                 </div>
             </div>
         </div>
-
-
     </main>
 </body>
 
