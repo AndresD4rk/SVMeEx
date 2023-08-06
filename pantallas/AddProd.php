@@ -106,59 +106,6 @@
 
 
     </main>
-    <script>
-        function mostrarFormulario(formulario) {
-            // Obtenemos la referencia al contenedor del formulario
-            const formularioContainer = document.getElementById('formularioContainer');
-
-            // Limpiamos el contenido actual del contenedor
-            formularioContainer.innerHTML = '';
-
-            // Creamos el contenido del formulario según el botón pulsado
-            if (formulario === 1) {
-                formularioContainer.innerHTML = `
-        <!-- Formulario 1 -->
-            <form id="CatForm">  
-                <div class="col-11 mx-auto">
-                    <h2 class="text-center">Registro de Categoria</h2>
-                    <div class="row">
-                        <div class="mb-3 mt-3">
-                            <label class="form-label ">Nombre de la Categoria</label>
-                            <input type="text" class="form-control" name="NomCat" placeholder="Ingresa el nombre de la categoria">
-                        </div>
-                        <div class="text-end mb-2"><button class="btn btn-success" onclick="enviarFormularioCat()">Registrar</button></div>
-                    </div>
-                </div> 
-            </form>
-      `;
-            } else if (formulario === 2) {
-                formularioContainer.innerHTML = `
-        <!-- Formulario 2 -->
-            <form id="FamForm">  
-                <div class="col-11 mx-auto">
-                    <h2 class="text-center">Registro de Familia</h2>
-                    <div class="row">
-                        <div class="mb-3 mt-3">
-                            <label class="form-label ">Nombre de la Familia</label>
-                            <input type="text" class="form-control" name="NomFam" placeholder="Ingresa el nombre de la familia">
-                        </div>
-                        <div class="text-end mb-2"><button class="btn btn-success" onclick="enviarFormularioFam()">Registrar</button></div>
-                    </div>
-                </div> 
-            </form>
-      `;
-            }
-
-            // Mostramos el "offcanvas"
-            const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
-            offcanvas.show();
-        }
-    </script>
-
-    
-
-
-
 </body>
 
 </html>
