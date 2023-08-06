@@ -1,0 +1,8 @@
+SELECT * FROM producto as p
+INNER JOIN categoria as c on p.idcat = c.idcat
+INNER JOIN familia as f on p.idfam = f.idfam
+INNER JOIN stock as s on p.idsto = s.idsto
+
+
+INSERT INTO producto (idpro, nompro, precio, idcat, idfam, idsto)
+VALUES (@idpro, @nompro, @precio, @idcat, @idfam, @idsto);
