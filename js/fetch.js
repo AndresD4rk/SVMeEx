@@ -109,3 +109,4 @@ function mostrarFormulario(formulario) {
     const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
     offcanvas.show();
 }
+

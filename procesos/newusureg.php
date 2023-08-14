@@ -1,46 +1,47 @@
 <?php
 
  include "conexion.php";
- if (empty($_POST['idUsu'])) {    
+ 
+ if (empty($_POST['email'])) {    
     echo'<script type="text/javascript">
     alert("Error Informe a Soporte");
     history.back();
     </script>';
-}else{
-    $idUsu = $_POST["idUsu"];
+}else if($_POST["clave"] == $_POST["clave2"]){
+    $email = $_POST["email"];
     $nom1 = $_POST["nom1"];
     $nom2 = $_POST["nom2"];
     $ape1 = $_POST["ape1"];
     $ape2 = $_POST["ape2"];
-    $edad = $_POST["edad"];
-    $rol = $_POST["rol"];
-    $correo = $_POST["correo"];
     $clave = $_POST["clave"];
-    
-    if(isset($_FILES['imagen']['name'])){
-        $foto= addslashes(file_get_contents($_FILES['imagen']['tmp_name']));
-        
+    $rol = $_POST["rol"];
 
-
-        $sql = $conexion->query("INSERT INTO
-        Seguridad (idSeg, email, clave, Rol_idRol)
-        VALUES ('$idUsu','$correo','$clave','$rol')");
-         if ($sql) {           
-           $sql = $conexion->query("INSERT INTO
-        Usuario (idUsu,nom1, nom2, ape1, ape2, eda, foto, Seguridad_idSeg,Suscripcion_idSus)
-        VALUES ('$idUsu','$nom1','$nom2','$ape1','$ape2','$edad','$foto','$idUsu','1')");
-         if ($sql) {
-          echo'<script type="text/javascript">
-          alert("Usuario Registrado");
-          </script>';
-          header("location:../administrador/listcuentas.php");
-         } else {
+    $sql = $conexion->query("INSERT INTO
+    seguridad (email, nom1, nom2,ape1, ape2, clave , rol)
+    VALUES ('$email', '$nom1', '$nom2','$ape1', '$ape2', '$clave' , '$rol')");
+        if ($sql) {     
+            $_SESSION['email'] = $email;
+            $_SESSION['nom1'] = $nom1;
+            $_SESSION['nom2'] = $nom2;
+            $_SESSION['ape1'] = $ape1;
+            $_SESSION['ape2'] = $ape2;
+            $_SESSION['rol'] = $rol;      
+        echo'<script type="text/javascript">
+        alert("REGISTRO EXITOSO, BIENVENIDO! '.$_SESSION['nom1'].'");
+        window.location= "../pantallas/main.php";
+        </script>';
+        } else {
+            echo'<script type="text/javascript">
+            alert("Fallo el resgistro!");
+            window.location= "../pantallas/Regis.php";
+            </script>';
+        }         
          
-         }         
-         } else {
-         
-         }
 
+}else{
+    echo'<script type="text/javascript">
+    alert("Las claves no coinciden");
+    history.back();
+    </script>';
 }
-}
-?>
+

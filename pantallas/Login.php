@@ -13,35 +13,36 @@
   <meta property="og:title" content="Supermercado Virtual MercaExpress" />
   <meta property="og:url" content="" />
   <meta property="og:site_name" content="SVMeEx" />
-  <link rel="shortcut icon" href="img/logoMER.webp" />
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/pcss.css">
+  <link rel="shortcut icon" href="../img/logoMER.webp" />
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/pcss.css">
+  <script src="../js/fetch.js"></script>
 </head>
 
 <body>
 <main class="d-flex align-items-center justify-content-center"> 
   <div id="loginform"> 
-<form id="formid">
+<form id="formid" action="../procesos/valilogin.php" method="POST">
 <div  class="mb-4">
   <h1 class="text-center">MercaExpress</h1>
   <img src="img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
 </div>
 <div class="col-11 mx-auto">
   <div  class="mb-3 mt-5">
-    <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresa el correo">
+    <label class="form-label">Correo Electronico</label>
+    <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingresa el correo">
     <div id="emailHelp" class="form-text">Su correo electrónico está seguro con nosotros. Nunca lo compartiremos con terceros.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresa la contraseña">
+    <input type="password" class="form-control" name="pass" placeholder="Ingresa la contraseña">
   </div>
   <!-- <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1">
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
   <div class="row">
-    <div class="col-6 text-start"><button type="submit" class="btn btn-warning">Registrarse</button></div>
+    <div class="col-6 text-start"><a onclick="irregistrar()" class="btn btn-warning">Registrarse</a></div>
     <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Ingresar</button></div>
   </div>
   
@@ -54,7 +55,9 @@
 </body>
 
 </html>
-
-
-
+<script>
+function irregistrar(){
+    window.location= "Regis.php";
+}
+</script>
 
