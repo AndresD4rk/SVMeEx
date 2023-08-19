@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-6 text-start"><button class="btn btn-warning">Regresar</button></div>
+                        <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
                         <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
                     </div>
                 </div>
