@@ -2,18 +2,31 @@
 <html>
 
 <head>
-    <title>Mapa con líneas</title>
-    <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-    </style>
+<base href="" />
+    <title>SVMeEx</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Supermercado Virtual MercaExpress" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Supermercado Virtual MercaExpress" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="SVMeEx" />
+    <link rel="shortcut icon" href="../img/logoMER.webp" />
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <!-- <link rel="stylesheet" href="./css/pcss.css"> -->
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/fetch.js"></script>    
+    
 </head>
 
 <body>
-
-    <div id="map"></div>
+<div class="row">
+    <div class="col-8"></div>
+    <div class="col-4" style="height: 100vh;" id="map"></div>
+  </div>
+    <!-- <div class="" style="height: 100vh; width: 50vh;" ></div> -->
 
 
 
