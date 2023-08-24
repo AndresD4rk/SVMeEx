@@ -58,10 +58,18 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col">
+                        <div style="background-color:whitesmoke;">                        
+                            <div class="card-body">
+                                <h5 class="card-title">Seguimiento de Pedido</h5>
+                                <a href="SegPed.php" class="card-text">Ver Seguimiento de Pedidos</A>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
         <!-- Fin Menu LATERAL -->
-        <div class="container-fluid ">
+        <!-- <div class="container-fluid ">
             <div class="row mx-auto">
                 <div id="bgimgrespon" class="col-8 mx-auto" style="background-image: url(img/ibg1.png); height:80px;">
                     <h1 class="text-center">Aquí Van Anuncios XD</h1>
@@ -174,7 +182,7 @@
 
             <p>
 
-            </p>
+            </p> -->
 
     </main>
     <!-- Fin Main -->

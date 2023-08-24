@@ -23,8 +23,13 @@
 
 <body>
 <div class="row">
-    <div class="col-8"></div>
-    <div class="col-4" style="height: 100vh;" id="map"></div>
+    <div class="col-7">
+        Datos del Envio
+        <br>
+        xxxxx
+        <a href="main.php">Regresar</a>
+    </div>
+    <div class="col-5" style="height: 100vh;" id="map"></div>
   </div>
     <!-- <div class="" style="height: 100vh; width: 50vh;" ></div> -->
 
@@ -91,6 +96,7 @@
 
             // Asociar el objeto de renderizado de direcciones con el mapa
             directionsRenderer.setMap(map);
+            dibujarRuta();
         }
 
         function dibujarRuta() {
