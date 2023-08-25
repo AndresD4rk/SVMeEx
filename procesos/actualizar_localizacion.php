@@ -1,31 +1,30 @@
 <?php
-// Lee el contenido del archivo de texto
-$fileContents = file_get_contents('../localizacion_UwU.txt');
+// Lee el contenido del archivo JSON
+$jsonFilePath = '../rutdat.json';
+$jsonContents = file_get_contents($jsonFilePath);
 
-// Divide el contenido del archivo por saltos de línea
-$lines = explode("\n", $fileContents);
+// Decodifica el contenido JSON en un arreglo asociativo
+$locations = json_decode($jsonContents, true);
 $nombre = 0;
 // Crea un arreglo para almacenar las ubicaciones
 $locations = array();
-// Recorre cada línea del archivo
-foreach ($lines as $line) {
-  // Divide cada línea por comas
+// Recorre cada ubicación en el arreglo
+foreach ($locations as $location) {
+    $nombre = ;
+    $latitud = $location["latitud"];
+    $longitud = $location["longitud"];
+    
+    // Hacer algo con las variables, por ejemplo, imprimirlas
+   // Divide cada línea por comas
   $data = explode(',', $line);
 
   // Obtén los valores de nombre, latitud y longitud
   if (isset($data[0]) && isset($data[1])) {
     $nombre = $nombre + 1;
-    $latitud = trim($data[0]);
-    $longitud = trim($data[1]);
+    $latitud = trim($location["latitud"]);
+    $longitud = trim($location["longitud"]);
     // Agrega la ubicación al arreglo de ubicaciones
     $locations[] = array($nombre, $latitud, $longitud);
   }
-}
-
-// Genera el código JavaScript para el arreglo de ubicaciones
-$jsLocations = json_encode($locations);
-
-// Devuelve los datos de localización como respuesta JSON
-header('Content-Type: application/json');
-echo $jsLocations;
+} echo $locations;
 ?>

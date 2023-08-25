@@ -4,7 +4,7 @@ session_start();
 // Obtener las variables lat y lng
 $lat = $_POST['lat'];
 $lng = $_POST['lng'];
-
+$nombreArchivo="rutdat.json";
 // Verificar si las variables han cambiado
 if (abs($_SESSION['lat'] - $lat) > 0.0003 || abs($_SESSION['lng'] - $lng) > 0.0003) {
   // Hacer el proceso que deseas cuando las variables han cambiado

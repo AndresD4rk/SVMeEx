@@ -43,7 +43,7 @@
             // Función para actualizar el contenido
             function actualizarContenido() {
                 $.ajax({
-                    url: '../procesos/actualizar_localizacion.php', // Archivo PHP que actualiza la localización
+                    url: '../actualizar_localizacion.php', // Archivo PHP que actualiza la localización
                     success: function(data) {
                         // Procesa los datos recibidos y actualiza la página según sea necesario
                         // Aquí puedes agregar tu lógica para actualizar el mapa u otros elementos de la página
