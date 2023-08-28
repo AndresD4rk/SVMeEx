@@ -94,9 +94,21 @@ include "../procesos/conexion.php";
                         </div>
                     </div>
                 </div>
-                  <!-- Fin Card De Carrito -->
+                <!-- Fin Card De Carrito -->
             </div>
             <!-- Fin Card Grupo De Carrito -->
+            <div class="card mt-2" style=" background: none; border:none;">
+                <div class="d-flex justify-content-end align-content-end">
+                    <div class="justify-content-end align-items-end">
+                        <button class="btn btn-success   float-right">Relizar Compra</button>
+                    </div>
+                    <div class="justify-content-end align-items-end">
+                        <button class="btn btn-success  float-right">Relizar Compra</button>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
 
