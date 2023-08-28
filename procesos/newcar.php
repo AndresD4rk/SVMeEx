@@ -1,13 +1,13 @@
 <?php
  include "conexion.php";
- if ($_SERVER['REQUEST_METHOD'] === 'POST') {
- if (empty($_POST['NomCat'])) {    
-    echo'Ingrese el Nombre';
+ session_start();
+ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+ if (empty($_SESSION['email'])) {    
+    echo 'Necesita Iniciar Sesion';
 }else{
-    $nomcat = $_POST["NomCat"];
         $sql = $conexion->query("INSERT INTO
-        categoria (nomcat)
-        VALUES ('$nomcat')");
+        xxxx (xxx)
+        VALUES ('$nomxxxcat')");
          if ($sql) {
             echo "Categoria Registrada";
          } else {

@@ -206,3 +206,27 @@ function mostrarFormularioLP(formulario, idProd) {
     const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
     offcanvas.show();
 }
+
+
+function enviarFormularioCarrito(idprod) {
+    const url = '../procesos/newcar.php?idprod=${idprod}';
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Se recibió una respuesta exitosa del servidor
+            alert(data);
+            // ...
+
+        })
+        .catch(error => {
+            // Ocurrió un error en la solicitud
+            console.error('Error en la solicitud:', error);
+            alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+        });
+}

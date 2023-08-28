@@ -25,6 +25,7 @@ include "../procesos/conexion.php";
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/mcss.css">
     <script src="../js/bootstrap.js"></script>
+    <script src="../js/fetch.js"></script>
 </head>
 <header class="bg-success">
         <div class="container-fluid">
@@ -144,9 +145,10 @@ include "../procesos/conexion.php";
                                 <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
                                 <div class="card-body">
                                 <p class="card-title">' . $nompro . '</p>
-                                <p class="card-text" >$ ' . number_format($precio) . '</p>                              
+                                <p class="card-text" >$ ' . number_format($precio) . '</p>      
+                                <p class="card-text text-end"> ' . number_format($cansto) . '</p>                            
                                 <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                    <button class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                <button onclick="enviarFormularioCarrito('.$idpro.')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
                                 </div>
                                 </div></div>';                    
                 }
@@ -157,7 +159,7 @@ include "../procesos/conexion.php";
             </div>
         </div>
 
-
+        
 
 
     </main>
