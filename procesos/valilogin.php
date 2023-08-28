@@ -24,8 +24,7 @@
                 alert("BIENVENIDO! '.$_SESSION['nom1'].'");
                 window.location= "../pantallas/main.php";
                 </script>
-                ';
-            
+                ';   
          } else {
             echo "Error al Registrar Familia";
          }         

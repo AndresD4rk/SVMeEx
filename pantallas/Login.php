@@ -42,7 +42,7 @@
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
   <div class="row">
-    <div class="col-6 text-start"><a onclick="irregistrar()" class="btn btn-warning">Registrarse</a></div>
+    <div class="col-6 text-start"><a onclick="registrar()" class="btn btn-warning">Registrarse</a></div>
     <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Ingresar</button></div>
   </div>
   
@@ -56,7 +56,7 @@
 
 </html>
 <script>
-function irregistrar(){
+function registrar(){
     window.location= "Regis.php";
 }
 </script>

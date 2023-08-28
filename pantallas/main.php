@@ -1,3 +1,11 @@
+<?php
+// if (empty($_SESSION['rol'])) {
+//     header("location:page-404.html");
+// }
+include "../procesos/conexion.php";
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -14,22 +22,54 @@
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
     <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/mcss.css">
     <script src="../js/bootstrap.js"></script>
 </head>
+<header class="bg-success">
+        <div class="container-fluid">
+        <div class="row mb-1"></div>
+            <div class="row">
+                <div class="col mb-1 ">
+                    <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <span class="fa-solid fa-bars"></span>
+                    </button>
+                    <img src="../img/logoMER.webp" alt="..." style="height:40px;">
+                    <span class="navbar-brand">ercaexpress</span>
+                </div>
+                <div class="col-sm-12 col-md-8">
+                    <div class="input-group ">
+                        <a class="input-group-text"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
+                        <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Buscar Producto">
+                    </div>
+                </div>
+                <div class="d-none d-lg-block col-1 ">
+                    <div class="d-flex justify-content-end mt-2">
+                    <div class="d-none d-lg-block  me-1 mb-1 ">
+                        <a href="" class="">
+                            <span class="fa-solid fa-cart-shopping"></span>
+                        </a>
+                    </div>
+                    <div class="d-none d-lg-block  me-1 mb-1 ">
+                        <a href="" class="">
+                            <span class="fa-solid fa-cart-shopping"></span>
+                        </a>
+                    </div>
+                    <div class="d-none d-lg-block  me-1 mb-1 ">
+                        <a href="" class="">
+                            <span class="fa-solid fa-cart-shopping"></span>
+                        </a>
+                    </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </header>
 <body>
     <!-- Inicio Menu TOP -->
-    <nav id="mynav" class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand">Navbar</a>
-            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        </div>
-    </nav>
+    
+
     <!-- Fin Menu TOP -->
 
     <!-- Inicio Main -->
@@ -38,38 +78,111 @@
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
                 <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
-                <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Menu</h2>
+                <div><img src="../img/logoMER.webp" alt="..." style="height:55px;">
+                    <a class="navbar-brand mx-auto" style="font-size: 20px;">-----Menu-----</a>
+                </div>
             </div>
             <div class="offcanvas-body">
                 <p>Try scrolling the rest of the page to see this option in action.</p>
-                    <div class="col">
-                        <div style="background-color:whitesmoke;">                        
-                            <div class="card-body">
-                                <h5 class="card-title">Productos</h5>
-                                <a href="ListProd.php" class="card-text">Ver productos existentes</A>
-                            </div>
+                <div class="col">
+                    <div style="background-color:whitesmoke;">
+                        <div class="card-body">
+                            <h5 class="card-title">Productos</h5>
+                            <a href="ListProd.php" class="card-text">Ver productos existentes</A>
                         </div>
                     </div>
-                    <div class="col">
-                        <div style="background-color:whitesmoke;">                        
-                            <div class="card-body">
-                                <h5 class="card-title">Usuarios</h5>
-                                <a href="ListUsu.php" class="card-text">Ver Usuarios existentes</A>
-                            </div>
+                </div>
+                <div class="col">
+                    <div style="background-color:whitesmoke;">
+                        <div class="card-body">
+                            <h5 class="card-title">Usuarios</h5>
+                            <a href="ListUsu.php" class="card-text">Ver Usuarios existentes</A>
                         </div>
                     </div>
-                    <div class="col">
-                        <div style="background-color:whitesmoke;">                        
-                            <div class="card-body">
-                                <h5 class="card-title">Seguimiento de Pedido</h5>
-                                <a href="SegPed.php" class="card-text">Ver Seguimiento de Pedidos</A>
-                            </div>
+                </div>
+                <div class="col">
+                    <div style="background-color:whitesmoke;">
+                        <div class="card-body">
+                            <h5 class="card-title">Seguimiento de Pedido</h5>
+                            <a href="SegPed.php" class="card-text">Ver Seguimiento de Pedidos</A>
                         </div>
                     </div>
+                </div>
+
+                <div class="col">
+                    <div style="background-color:whitesmoke;">
+                        <div class="card-body">
+                            <h5 class="card-title">Salir</h5>
+                            <a href="../procesos/CerSes.php" class="card-text">Ver Seguimiento de Pedidos</A>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <!-- Fin Menu LATERAL -->
-        <!-- <div class="container-fluid ">
+
+
+        <div class="content-wrapper mt-5">
+            <div class="container-fluid">
+                <?php
+                $cont = 0;
+                $sql = $conexion->query("SELECT * FROM producto as p
+                                        INNER JOIN categoria as c on p.idcat = c.idcat
+                                        INNER JOIN familia as f on p.idfam = f.idfam
+                                        INNER JOIN stock as s on p.idsto = s.idsto");
+                while ($datos = $sql->fetch_array()) {
+                    $idpro = $datos['idpro'];
+                    $nompro = $datos['nompro'];
+                    $precio = $datos['precio'];
+                    $nomcat = $datos['nomcat'];
+                    $nomfam = $datos['nomfam'];
+                    $cansto = $datos['cansto'];
+                    $minsto = $datos['minsto'];
+                    if ($cont == 0) {
+                        echo '<div class="card-group">
+                            <div class="card mx-1" style="width: 18rem;">
+                            <img class="card-img-top" src="..." alt="Card image cap">
+                            <div class="card-body">
+                            <p class="card-text">' . $nompro . '</p>
+                            </div>
+                            </div>';
+                        $cont++;
+                    } elseif ($cont > 5) {
+                        $cont = 0;
+                        echo '<div class="card mx-1" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text">' . $nompro . '</p>
+                        </div></div></div>';
+                    } else {
+                        echo '<div class="card mx-1" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                        <p class="card-text">' . $nompro . '</p>
+                        </div>
+                        </div>';
+                        $cont++;
+                    }
+                }
+                ?>
+
+
+            </div>
+        </div>
+
+
+
+
+    </main>
+    <!-- Fin Main -->
+</body>
+<script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
+
+
+</html>
+
+<!-- Fin Menu LATERAL -->
+<!-- <div class="container-fluid ">
             <div class="row mx-auto">
                 <div id="bgimgrespon" class="col-8 mx-auto" style="background-image: url(img/ibg1.png); height:80px;">
                     <h1 class="text-center">Aquí Van Anuncios XD</h1>
@@ -183,9 +296,3 @@
             <p>
 
             </p> -->
-
-    </main>
-    <!-- Fin Main -->
-</body>
-
-</html>
