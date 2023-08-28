@@ -27,27 +27,26 @@ include "../procesos/conexion.php";
     <script src="../js/bootstrap.js"></script>
 </head>
 <header class="bg-success">
-    <div class="container-fluid">
-        <div class="row mb-1"></div>
-        <div class="row">
-            <div class="col mb-1 ">
+    <div class="container-fluid">        
+        <div class="row p-1">
+            <div class="col my-auto p-1">
                 <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <span class="fa-solid fa-bars"></span>
                 </button>
-                <img src="../img/logoMER.webp" alt="..." style="height:40px;">
-                <span class="navbar-brand">ercaexpress</span>
+                <img src="../img/logoME.webp" alt="..." style="height:50px;">
+                <!-- <span class="navbar-brand">ercaexpress</span> -->
             </div>
-            <div class="col-sm-12 col-md-8">
+            <div class="col-sm-12 col-lg-7 my-auto p-1">
                 <div class="input-group ">
                     <a class="input-group-text"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Buscar Producto">
                 </div>
             </div>
-            <div class="d-none d-lg-block col-1 ">
+            <div class="d-none d-lg-block col-2 my-auto p-1">
                 <div class="d-flex justify-content-end mt-2">
                     <div class="d-none d-lg-block  me-1 mb-1 ">
-                        <a href="" class="">
-                            <span class="fa-solid fa-cart-shopping"></span>
+                        <a href="" class="me-1">
+                            <span style="color:f5f1f0;" class="fa-solid fa-cart-shopping bg"></span>
                         </a>
                     </div>
                     <div class="d-none d-lg-block  me-1 mb-1 ">

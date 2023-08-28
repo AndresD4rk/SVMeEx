@@ -130,6 +130,8 @@ include "../procesos/conexion.php";
                                         INNER JOIN categoria as c on p.idcat = c.idcat
                                         INNER JOIN familia as f on p.idfam = f.idfam
                                         INNER JOIN stock as s on p.idsto = s.idsto");
+                echo '  <div class="card-group">
+                        <div class="row align-content-center justify-content-center">';
                 while ($datos = $sql->fetch_array()) {
                     $idpro = $datos['idpro'];
                     $nompro = $datos['nompro'];
@@ -137,33 +139,18 @@ include "../procesos/conexion.php";
                     $nomcat = $datos['nomcat'];
                     $nomfam = $datos['nomfam'];
                     $cansto = $datos['cansto'];
-                    $minsto = $datos['minsto'];
-                    if ($cont == 0) {
-                        echo '<div class="card-group">
-                            <div class="card mx-1" style="width: 18rem;">
-                            <img class="card-img-top" src="..." alt="Card image cap">
-                            <div class="card-body">
-                            <p class="card-text">' . $nompro . '</p>
-                            </div>
-                            </div>';
-                        $cont++;
-                    } elseif ($cont > 5) {
-                        $cont = 0;
-                        echo '<div class="card mx-1" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                        <p class="card-text">' . $nompro . '</p>
-                        </div></div></div>';
-                    } else {
-                        echo '<div class="card mx-1" style="width: 18rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                        <p class="card-text">' . $nompro . '</p>
-                        </div>
-                        </div>';
-                        $cont++;
-                    }
+                    $minsto = $datos['minsto'];                 
+                        echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
+                                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                                <div class="card-body">
+                                <p class="card-title">' . $nompro . '</p>
+                                <p class="card-text" >$ ' . number_format($precio) . '</p>                              
+                                <div class="col-12 d-flex justify-content-end align-items-end">                                    
+                                    <button class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                </div>
+                                </div></div>';                    
                 }
+                echo '</div></div>';
                 ?>
 
 
