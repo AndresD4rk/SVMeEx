@@ -99,8 +99,8 @@ include "../procesos/conexion.php";
             <!-- Fin Card Grupo De Carrito -->
             <div class="card mt-2" style=" background: none; border:none;">
                 <div class="d-flex justify-content-end align-content-end">
-                    <div class="justify-content-end align-items-end">
-                        <button class="btn btn-success   float-right">Relizar Compra</button>
+                    <div class="justify-content-end align-items-end me-1">
+                        <button class="btn btn-danger float-right">Cancelar</button>
                     </div>
                     <div class="justify-content-end align-items-end">
                         <button class="btn btn-success  float-right">Relizar Compra</button>
