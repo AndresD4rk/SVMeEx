@@ -1,4 +1,5 @@
 <?php
+session_start();
 // if (empty($_SESSION['rol'])) {
 //     header("location:page-404.html");
 // }
