@@ -137,19 +137,17 @@ include "../procesos/conexion.php";
                 <?php
                 $cont = 0;
                 $sql = $conexion->query("SELECT * FROM producto as p
-                                        INNER JOIN categoria as c on p.idcat = c.idcat
-                                        INNER JOIN familia as f on p.idfam = f.idfam
-                                        INNER JOIN stock as s on p.idsto = s.idsto");
+                                        INNER JOIN categoria as c on p.idcat = c.idcat                                        
+                                        INNER JOIN inventario as s on p.idpro = s.idpro");
                 echo '  <div class="card-group">
                         <div class="row align-content-center justify-content-center">';
                 while ($datos = $sql->fetch_array()) {
                     $idpro = $datos['idpro'];
                     $nompro = $datos['nompro'];
                     $precio = $datos['precio'];
-                    $nomcat = $datos['nomcat'];
-                    $nomfam = $datos['nomfam'];
-                    $cansto = $datos['cansto'];
-                    $minsto = $datos['minsto'];                 
+                    $nomcat = $datos['nomcat'];                
+                    $cansto = $datos['caninv'];
+                    $minsto = $datos['mininv'];                 
                         echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
                                 <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
                                 <div class="card-body">

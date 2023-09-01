@@ -33,7 +33,27 @@
                 </div>
                 <div class="col-11 mx-auto">
                     <h2 class="text-center">Registro de Productos</h2>
-                    <div class="row">
+                    <div class="row">                        
+                        <!-- FAMILIA DEL PRODUCTO
+                        <div class="col-6 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label ">Familia</label>
+                            <select class="form-select" aria-label="Default select example" name="SelFam" required>
+                            <option value="">Elija una Familia</option>
+                                <?php
+                                // $sql = $conexion->query("SELECT * 
+                                // FROM familia");
+                                // while ($datos = $sql->fetch_array()) {
+                                //     echo '<option value="' . $datos['idfam'] . ';">' . $datos['nomfam'] . '</option>';
+                                // }
+                                ?>
+                            </select>
+                            <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(2)">Agregar Familia</button>
+                        </div> -->
+                        <!-- NOMBRE DEL PRODUCTO -->
+                        <div class="col-6 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label ">Nombre del Producto</label>
+                            <input type="text" class="form-control" name="NomPro" placeholder="Ingresa el nombre del Producto" required>
+                        </div>
                         <!-- CATEGORIA DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label ">Categoria</label>
@@ -48,26 +68,6 @@
                                 ?>
                             </select>
                             <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
-                        </div>
-                        <!-- FAMILIA DEL PRODUCTO -->
-                        <div class="col-6 mb-3 mt-3">
-                            <label for="exampleInputEmail1" class="form-label ">Familia</label>
-                            <select class="form-select" aria-label="Default select example" name="SelFam" required>
-                            <option value="">Elija una Familia</option>
-                                <?php
-                                $sql = $conexion->query("SELECT * 
-                                FROM familia");
-                                while ($datos = $sql->fetch_array()) {
-                                    echo '<option value="' . $datos['idfam'] . ';">' . $datos['nomfam'] . '</option>';
-                                }
-                                ?>
-                            </select>
-                            <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(2)">Agregar Familia</button>
-                        </div>
-                        <!-- NOMBRE DEL PRODUCTO -->
-                        <div class="col-6 mb-3 mt-3">
-                            <label for="exampleInputEmail1" class="form-label ">Nombre del Producto</label>
-                            <input type="text" class="form-control" name="NomPro" placeholder="Ingresa el nombre del Producto" required>
                         </div>
                         <!-- VALOR DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
@@ -91,9 +91,8 @@
                     </div>
                 </div>
             </form>
-            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
+            <div class="offcanvas offcanvas-top h-50" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" class>                
+            <div class="offcanvas-header">                    
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body" id="formularioContainer">
