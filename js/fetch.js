@@ -230,3 +230,28 @@ function enviarFormularioCarrito(idprod) {
             alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
         });
 }
+
+function enviarUbicacion(ident,lat,lng) {
+    const url = '../procesos/actubi.php?ident=${ident}&lat=${lat}&lng=${lng}';
+
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Se recibió una respuesta exitosa del servidor
+            //alert(data);
+            // ...
+
+        })
+        .catch(error => {
+            // Ocurrió un error en la solicitud
+            console.error('Error en la solicitud:', error);
+            alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+        });
+}
+
+

@@ -110,6 +110,14 @@ include "../procesos/conexion.php";
                         </div>
                     </div>
                 </div>
+                <div class="col">
+                    <div style="background-color:whitesmoke;">
+                        <div class="card-body">
+                            <h5 class="card-title">Seguimiento de Pedido</h5>
+                            <a href="SegEnv.php" class="card-text">Ver Seguimiento de Envio</A>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col">
                     <div style="background-color:whitesmoke;">
