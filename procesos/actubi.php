@@ -9,6 +9,7 @@
        $ident = $_POST['ident'];
        $lat = $_POST['lat'];
        $lng = $_POST['lng'];
+       $idrep = $_POST['idrep'];
     //    $ident =0;
     //    $lat = 7.477705955505371;
     //    $lng = -73.25914764404297;
@@ -23,7 +24,7 @@
        // Buscar el objeto con idrep igual a "x"
        foreach ($data as &$item) {
            if ($item['ident'] == $ident) {
-                    $item['idrep'] =  1234415;
+                    $item['idrep'] =  $idrep;
                     $item['latrep'] =  floatval($lat);        
                     $item['lonrep'] =  floatval($lng);                            
            }

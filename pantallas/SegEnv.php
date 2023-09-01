@@ -1,5 +1,18 @@
 <?php 
 session_start();
+if (empty($_SESSION['idusu'])) {    
+  echo '<script type="text/javascript">
+  alert("Necesita iniciar sesión");
+  history.back();
+  </script>';}
+  if (!(isset($_GET['ident']))) {  
+    echo '<script type="text/javascript">
+    alert("No se registran entrega");
+    history.back();
+    </script>';
+  }  
+  $ident=$_GET['ident']; 
+
 ?>
 <!DOCTYPE html>
 <head>
@@ -12,23 +25,11 @@ session_start();
 <body>
 <div class="container text-center">
   <div class="row">
-    <div class="col" id="map" style="height: 500px;">
-      Column
-    </div>
-    <div class="col">
-      Column
-     
-    </div>
-    <div class="col">
-      Column
-    </div>
+    <div class="col" id="map" style="height: 500px;">    
+    </div>    
   </div>
 </div>
-
 </body>
-
-
-
 <script>
   if (navigator.geolocation) {
   navigator.geolocation.watchPosition(showPosition);
@@ -39,17 +40,13 @@ session_start();
 function showPosition(position) {  
   var lat = position.coords.latitude;
   var lng = position.coords.longitude;
-  var ident=0;
+  // var ident=0;
   console.log(lat," ",lng);
   var cor=lat+" "+lng;
   //enviarUbicacion(0,lat,lng);
- 
- /*  alert(cor); */
-
-    
+ /*  alert(cor); */  
  // Crear un objeto XMLHttpRequest
 var xhr = new XMLHttpRequest();
-
 // Definir la función de manejo de la respuesta
 xhr.onreadystatechange = function() {
   if (xhr.readyState === 4 && xhr.status === 200) {
@@ -58,20 +55,14 @@ xhr.onreadystatechange = function() {
     console.log(respuesta);
   }
 };
-
 // Configurar la petición
 xhr.open("POST", "../procesos/actubi.php", true);
 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
 // Convertir las variables en una cadena de consulta
-var data = "lat=" + lat + "&lng=" + lng  + "&ident=" + ident;
-
+var data = "lat=" + lat + "&lng=" + lng  + "&ident=" + <?php echo $ident;?>+ "&idrep=" + <?php echo $_SESSION['idusu'];?>;
 // Enviar la petición
 xhr.send(data);
-  
-}
-
-      
+}      
     </script>
 
     
