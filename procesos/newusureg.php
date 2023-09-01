@@ -43,4 +43,3 @@ include "conexion.php";
     history.back();
     </script>';
 }
-
