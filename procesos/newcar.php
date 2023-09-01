@@ -1,8 +1,8 @@
 <?php
+session_start();
  include "conexion.php";
- session_start();
  if ($_SERVER['REQUEST_METHOD'] === 'GET') {
- if (empty($_SESSION['email'])) {    
+ if (empty($_SESSION['idusu'])) {    
     echo 'Necesita Iniciar Sesion';
 }else{
         $sql = $conexion->query("INSERT INTO

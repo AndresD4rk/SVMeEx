@@ -35,7 +35,6 @@
                           <th>Producto</th>
                           <th>Precio</th>
                           <th>Categoria</th>
-                          <th>Familia</th>
                           <th>Stock</th>
                           <th>Min Stock</th>
                           <th>Action</th>
@@ -44,23 +43,20 @@
                       <tbody>
                         <?php
                         $sql = $conexion->query("SELECT * FROM producto as p
-                        INNER JOIN categoria as c on p.idcat = c.idcat
-                        INNER JOIN familia as f on p.idfam = f.idfam
-                        INNER JOIN stock as s on p.idsto = s.idsto");
+                        INNER JOIN categoria as c on p.idcat = c.idcat                                        
+                        INNER JOIN inventario as s on p.idpro = s.idpro");
                         while ($datos = $sql->fetch_array()) {
                           $idpro = $datos['idpro'];
                           $nompro = $datos['nompro'];
                           $precio = $datos['precio'];
-                          $nomcat = $datos['nomcat'];
-                          $nomfam = $datos['nomfam'];
-                          $cansto = $datos['cansto'];        
-                          $minsto = $datos['minsto'];                       
+                          $nomcat = $datos['nomcat'];                        
+                          $cansto = $datos['caninv'];        
+                          $minsto = $datos['mininv'];                       
                         echo  "<tr style='text-align: center;''> 
                         <td>$idpro</td>
                         <td>$nompro</td>  
                         <td>$precio</td> 
                         <td>$nomcat</td> 
-                        <td>$nomfam</td>  
                         <td>$cansto</td> 
                         <td>$minsto</td>                          
                        ";

@@ -54,6 +54,16 @@
                             <label for="exampleInputEmail1" class="form-label ">Nombre del Producto</label>
                             <input type="text" class="form-control" name="NomPro" placeholder="Ingresa el nombre del Producto" required>
                         </div>
+                        <!-- DESCRIPCION DEL PRODUCTO -->
+                        <div class="col-6 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label">Descripción del producto</label>
+                            <input type="text" class="form-control" name="despro" placeholder="Ingresa la descripción del producto" required>
+                        </div>                                            
+                        <!-- VALOR DEL PRODUCTO -->
+                        <div class="col-6 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label ">Valor del Producto</label>
+                            <input type="number" class="form-control" name="Precio" placeholder="Ingresa el valor del producto" required>
+                        </div>
                         <!-- CATEGORIA DEL PRODUCTO -->
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label ">Categoria</label>
@@ -63,17 +73,12 @@
                                 $sql = $conexion->query("SELECT * 
                                 FROM categoria");
                                 while ($datos = $sql->fetch_array()) {
-                                    echo '<option value="' . $datos['idcat'] . ';">' . $datos['nomcat'] . '</option>';
+                                    echo '<option value="' . $datos['idcat'] . '">' . $datos['nomcat'] . '</option>';
                                 }
                                 ?>
                             </select>
                             <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
-                        </div>
-                        <!-- VALOR DEL PRODUCTO -->
-                        <div class="col-6 mb-3 mt-3">
-                            <label for="exampleInputEmail1" class="form-label ">Valor del Producto</label>
-                            <input type="number" class="form-control" name="Precio" placeholder="Ingresa el valor del producto" required>
-                        </div>
+                        </div>    
                         <!-- CANTIDAD DEL PRODUCTO -->            
                         <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label">Cantidad del producto</label>
@@ -84,6 +89,7 @@
                             <label for="exampleInputEmail1" class="form-label">Cantidad minima del producto</label>
                             <input type="number" class="form-control" name="MinSto" placeholder="Ingresa el stock minimo del producto" required>
                         </div>
+                        
                     </div>
                     <div class="row">
                         <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
