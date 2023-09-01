@@ -85,7 +85,7 @@ include "../procesos/conexion.php";
                 </div>
             </div>
             <div class="offcanvas-body">
-                <p>Try scrolling the rest of the page to see this option in action.</p>
+                <p><?php echo $_SESSION['nom1']." ".$_SESSION['ape1'] ?></p>
                 <div class="col">
                     <div style="background-color:whitesmoke;">
                         <div class="card-body">
