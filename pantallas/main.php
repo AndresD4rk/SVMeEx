@@ -36,7 +36,7 @@ include "../procesos/conexion.php";
                     <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                         <span class="fa-solid fa-bars"></span>
                     </button>
-                    <img src="../img/logoME.webp" alt="..." style="height:40px;">
+                    <img class="logonav" src="../img/logoME.webp" alt="..." style="height:40px;">
                     <!-- <span class="navbar-brand">ercaexpress</span> -->
                 </div>
                 <div class="col-sm-12 col-md-8">
