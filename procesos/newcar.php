@@ -5,7 +5,7 @@ session_start();
  if (empty($_SESSION['idusu'])) {    
     echo 'Necesita Iniciar Sesion';
 }else{
-   $sql = $conexion->query("SELECT idcar FROM carrito WHERE idusu='.$_SESSION['idusu'].'");
+   $sql = $conexion->query("SELECT idcar FROM carrito WHERE idusu='".$_SESSION['idusu']."'");
         $sql = $conexion->query("INSERT INTO
         xxxx (xxx)
         VALUES ('$nomxxxcat')");
