@@ -25,7 +25,7 @@
 <form id="formid" action="../procesos/valilogin.php" method="POST">
 <div  class="mb-4">
   <h1 class="text-center">MercaExpress</h1>
-  <img src="img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
+  <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
 </div>
 <div class="col-11 mx-auto">
   <div  class="mb-3 mt-5">
