@@ -21,13 +21,13 @@
 
 <body>
 <main class="d-flex align-items-center justify-content-center"> 
-  <div id="loginform"> 
-<form id="formid" action="../procesos/valilogin.php" method="POST">
+  <div  id="loginform" > 
+<form class="logo" id="formid" action="../procesos/valilogin.php" method="POST">
 <div  class="mb-4">
-  <h1 class="text-center">MercaExpress</h1>
-  <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
+  <!-- <h1 class="text-center">MercaExpress</h1> -->
+  <img src="../img/logoME.webp" class="col-6 rounded mx-auto d-block" alt="...">
 </div>
-<div class="col-11 mx-auto">
+<div class="col-12 mx-auto">
   <div  class="mb-3 mt-5">
     <label class="form-label">Correo Electronico</label>
     <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingresa el correo">
