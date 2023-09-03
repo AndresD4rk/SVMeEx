@@ -11,8 +11,18 @@ body{
     background-color: var(--color-clgr);
 }
 .header-bg-color{
-    background-color: rgb(1, 230, 0);
+    /* background-color: rgb(1, 230, 0); rgb(0, 179, 0) rgb(0, 153, 0)*/
+    background-color: rgb(0, 179, 0);
 }
+.car-bg-color{
+    background-color: rgba(254, 220, 0,0.5);
+    /* background-color: rgb(177, 153, 0); rgb(254, 220, 0) rgb(203, 175, 0)*/
+}
+.car-img-list{
+    max-height: 150px;
+    max-width: 150px;    
+}
+
 .logonav{
     /* filter: grayscale(100%); */
     filter: brightness(0);
@@ -20,8 +30,8 @@ body{
 .menulat{
 
     /* background-color: rgb(245, 241, 240); */
-
-    background: rgba(245, 241, 240,1);
+    background-color: rgb(0, 153, 0);
+    /* background: rgba(245, 241, 240,1); */
     /* background-color: rgba(30, 178, 242,0.5); */
 /* background: linear-gradient(180deg, rgba(245, 241, 240,1) 0%, rgba(168, 165, 165,1) 100%); */
     /* background-image: url(../img/SKYFOND.jpg);
@@ -45,7 +55,15 @@ background-attachment: fixed;
         border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
         transform: translateX(-100%);
       }
+      .offcanvas.offcanvas-end {
+        top: 0;
+        right: 0;
+        width: 90vw;
+        border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+        transform: translateX(100%);
+      }
 }
+
 
 
 
