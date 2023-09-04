@@ -103,7 +103,7 @@ function mostrarFormulario(formulario) {
                 </div> 
             </form>
       `;
-    } 
+    }
 
     // Mostramos el "offcanvas"
     const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
@@ -200,7 +200,7 @@ function mostrarFormularioLP(formulario, idProd) {
                 </div> 
             </form>
       `;
-    } 
+    }
 
     // Mostramos el "offcanvas"
     const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
@@ -208,45 +208,50 @@ function mostrarFormularioLP(formulario, idProd) {
 }
 
 
-function enviarFormularioCarrito(idprod,idusu) {
-// Usar la función prompt() para solicitar la cantidad
-var cantidad = prompt("Ingrese la cantidad de producto que desea:");
+function enviarFormularioCarrito(idprod, stock) {
+    // Usar la función prompt() para solicitar la cantidad
+    var cantidad = prompt("Ingrese la cantidad de producto que desea menor a "+stock+":");
+    // Comprobar si el usuario ingresó una cantidad válida
+    if (cantidad !== null) {
+        if (cantidad <= stock) {
+            // Realizar operaciones con la cantidad ingresada
+            // alert("Ha seleccionado " + cantidad + " unidades del producto.");
+            // Puedes enviar la cantidad al servidor o realizar otras acciones aquí
+            const url = '../procesos/newcar.php?idprod=' + idprod + '&canpro=' + cantidad + '';
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud.');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Se recibió una respuesta exitosa del servidor
+                    // alert(data);
+                    // ...
+                    alert("Producto añadido al carrito");
 
-// Comprobar si el usuario ingresó una cantidad válida
-if (cantidad !== null) {
-    // Realizar operaciones con la cantidad ingresada
-    // alert("Ha seleccionado " + cantidad + " unidades del producto.");
-    // Puedes enviar la cantidad al servidor o realizar otras acciones aquí
-    const url = '../procesos/newcar.php?idprod=${idprod}idusu=${idusu}';
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud.');
-            }
-            return response.text();
-        })
-        .then(data => {
-            // Se recibió una respuesta exitosa del servidor
-            alert(data);
-            // ...
+                })
+                .catch(error => {
+                    // Ocurrió un error en la solicitud
+                    console.error('Error en la solicitud:', error);
+                    alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+                });
+        } else {
+        // El usuario canceló la entrada
+        alert("Se cancelo la solicitud stock no disponible.");
+        }
+    } else {
+        // El usuario canceló la entrada
+        alert("Ha cancelado la solicitud de cantidad.");
+    }
 
-        })
-        .catch(error => {
-            // Ocurrió un error en la solicitud
-            console.error('Error en la solicitud:', error);
-            alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
-        });
-} else {
-    // El usuario canceló la entrada
-    alert("Ha cancelado la solicitud de cantidad.");
+
+
+
 }
 
-
-
-    
-}
-
-function enviarUbicacion(ident,lat,lng) {
+function enviarUbicacion(ident, lat, lng) {
     const url = '../procesos/actubi.php?ident=${ident}&lat=${lat}&lng=${lng}';
 
     fetch(url)

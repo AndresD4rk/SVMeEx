@@ -144,7 +144,7 @@ include "../procesos/conexion.php";
                     $sql = $conexion->query("SELECT * FROM carrito as c 
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
                 INNER JOIN producto AS p ON d.idpro=p.idpro
-                WHERE c.idusu=2 AND estado = 1");
+                WHERE c.idusu= ".$_SESSION['idusu']." AND estado = 1");
                     if (mysqli_num_rows($sql) > 0) {
                         while ($datos = $sql->fetch_array()) { ?>
                             <div class="card">
@@ -211,6 +211,7 @@ include "../procesos/conexion.php";
                     $nomcat = $datos['nomcat'];
                     $cansto = $datos['caninv'];
                     $minsto = $datos['mininv'];
+                    $vensto=$cansto-$minsto;
                     echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
                                 <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
                                 <div class="card-body">
@@ -218,7 +219,7 @@ include "../procesos/conexion.php";
                                 <p class="card-text" >$ ' . number_format($precio) . '</p>      
                                 <p class="card-text text-end"> ' . number_format($cansto) . '</p>                            
                                 <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                <button onclick="enviarFormularioCarrito('.$idpro.','.$_SESSION['idusu'].')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                <button onclick="enviarFormularioCarrito('.$idpro.','.$vensto.')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
                                 </div>
                                 </div></div>';
                 }
