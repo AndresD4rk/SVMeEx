@@ -208,9 +208,16 @@ function mostrarFormularioLP(formulario, idProd) {
 }
 
 
-function enviarFormularioCarrito(idprod) {
-    const url = '../procesos/newcar.php?idprod=${idprod}';
+function enviarFormularioCarrito(idprod,idusu) {
+// Usar la función prompt() para solicitar la cantidad
+var cantidad = prompt("Ingrese la cantidad de producto que desea:");
 
+// Comprobar si el usuario ingresó una cantidad válida
+if (cantidad !== null) {
+    // Realizar operaciones con la cantidad ingresada
+    // alert("Ha seleccionado " + cantidad + " unidades del producto.");
+    // Puedes enviar la cantidad al servidor o realizar otras acciones aquí
+    const url = '../procesos/newcar.php?idprod=${idprod}idusu=${idusu}';
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -229,6 +236,14 @@ function enviarFormularioCarrito(idprod) {
             console.error('Error en la solicitud:', error);
             alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
         });
+} else {
+    // El usuario canceló la entrada
+    alert("Ha cancelado la solicitud de cantidad.");
+}
+
+
+
+    
 }
 
 function enviarUbicacion(ident,lat,lng) {

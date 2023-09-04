@@ -218,7 +218,7 @@ include "../procesos/conexion.php";
                                 <p class="card-text" >$ ' . number_format($precio) . '</p>      
                                 <p class="card-text text-end"> ' . number_format($cansto) . '</p>                            
                                 <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                <button onclick="enviarFormularioCarrito(' . $idpro . ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                <button onclick="enviarFormularioCarrito('.$idpro.','.$_SESSION['idusu'].')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
                                 </div>
                                 </div></div>';
                 }
