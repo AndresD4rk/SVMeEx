@@ -5,10 +5,11 @@
     --color-clgr: #717a85;
     --color-clam: #fedc00;
     --color-clng: #24262d;
+    --color-clbl2: #f5f1f0;
   }
  
 body{
-    background-color: var(--color-clgr);
+    background-color: var(--color-clbl2);
 }
 .header-bg-color{
     /* background-color: rgb(1, 230, 0); rgb(0, 179, 0) rgb(0, 153, 0)*/

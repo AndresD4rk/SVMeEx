@@ -119,7 +119,7 @@ include "../procesos/conexion.php";
                             <button onclick="" class="btn btn-danger float-right">Cancelar</button>
                         </div>
                         <div class="justify-content-end align-items-end">
-                            <button onclick="enviarFormularioCompra()" class="btn btn-success  float-right">Comprar</button>
+                            <button onclick="" class="btn btn-success  float-right">Comprar</button>
                         </div>
                     </div>
                 </div><?php
@@ -136,89 +136,83 @@ include "../procesos/conexion.php";
         </div>
 
 
-        <div class="container-fluid" >
+        <div class="container-fluid">
             <div class="row">
-            <form class="row" action="../procesos/newprod.php" method="POST">
-            <div class="col-12">
-                <h1 class="text-center">Confirmacion de Compra y Entrega</h1>
-                <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
-                <h2 class="text-center">Registro de Productos</h2>
-            </div>
-            <!-- NOMBRE DEL PRODUCTO -->
-            <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate">Dirección</label>
-                <input type="text" class="form-control" name="NomPro" placeholder="Ingresa el nombre del Producto" required>
-            </div>
-            <!-- Direccio entrega -->
-            <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
-                <select class="form-select" aria-label="Default select example" name="SelCat" required>
-                    <option value="">Elija su Dirrección</option>
-                    <?php
-                    $sql = $conexion->query("SELECT * 
+                <form class="row" action="../procesos/newcom.php" method="POST">
+                    <div class="col-12">
+                        <h1 class="text-center">Confirmacion de Compra y Entrega</h1>
+                        <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
+                        <h2 class="text-center">Registro de Productos</h2>
+                    </div>                   
+                    <!-- Direccio entrega -->
+                    <div class="col-lg-4 col-12">
+                        <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
+                        <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
+                            <option value="">Elija su Dirrección</option>
+                            <?php
+                            $sql = $conexion->query("SELECT * 
                                 FROM categoria");
-                    while ($datos = $sql->fetch_array()) {
-                        echo '<option value="' . $datos['idcat'] . '">' . $datos['nomcat'] . '</option>';
-                    }
-                    ?>
-                </select>
-                <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
-                <input type="checkbox">
-            </div>
-            <!-- DESCRIPCION DEL PRODUCTO -->
-            <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate">Descripción del producto</label>
-                <input type="text" class="form-control" name="despro" placeholder="Ingresa la descripción del producto" required>
-            </div>
-            <!-- VALOR DEL PRODUCTO -->
-            <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate ">Valor del Producto</label>
-                <input type="number" class="form-control" name="Precio" placeholder="Ingresa el valor del producto" required>
-            </div>
-            <!-- IMAGEN DEL PRODUCTO -->
-            <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate">Imagen del producto</label>
-                <input type="file" class="form-control" name="imagen" accept="image/*" required>
-            </div>
-            <!-- CANTIDAD DEL PRODUCTO -->
-            <div class="col">
-                <label for="exampleInputEmail1" class="form-label text-truncate">Cantidad del producto</label>
-                <input type="number" class="form-control" name="CanSto" placeholder="Ingresa el stock inicial del producto" required>
-            </div>
-            <!-- STOCK MINIMO DEL PRODUCTO -->
-            <div class="col">
-                <label for="exampleInputEmail1" class="form-label text-truncate text-truncate">Cantidad minima del producto</label>
-                <input type="number" class="form-control" name="MinSto" placeholder="Ingresa el stock minimo del producto" required>
-            </div>
-            <!-- CATEGORIA DEL PRODUCTO -->
-            <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate ">Categoria</label>
-                <select class="form-select" aria-label="Default select example" name="SelCat" required>
-                    <option value="">Elija una Categoria</option>
-                    <?php
-                    $sql = $conexion->query("SELECT * 
-                                FROM categoria");
-                    while ($datos = $sql->fetch_array()) {
-                        echo '<option value="' . $datos['idcat'] . '">' . $datos['nomcat'] . '</option>';
-                    }
-                    ?>
-                </select>
-                <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
-            </div>
+                            while ($datos = $sql->fetch_array()) {
+                                echo '<option value="' . $datos['idcat'] . '">' . $datos['nomcat'] . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <input type="text" class="form-control" id="dirmanual" name="dirm" placeholder="Ingresa la Dirección" style="display: none;">
+                        <button id="btnewdir" type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="dircambiar" checked>
+                            <label class="form-check-label" for="dircambiar">Manual/Auto</label>
+                        </div>
+                    </div>
+                    <!-- Descripcion de entrega -->
+                    <div class="col-lg-4 col-12">
+                        <label for="exampleInputEmail1" class="form-label text-truncate">Descripción dirrección/entrega</label>
+                        <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto" required>
+                    </div>
+                    <!-- VALOR DEL PRODUCTO -->
+                    <div class="col-lg-4 col-12">
+                        <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
+                        <input type="number" class="form-control" name="Precio" value="100000" required disabled>
+                    </div>
 
-            <div class="row mt-5">
-                <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
-                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
-            </div>
 
-        </form>
+                    <div class="row mt-5">
+                        <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
+                        <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
+                    </div>
+
+                </form>
             </div>
         </div>
-
-
     </main>
 </body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 
+<script>
+    // Obtiene referencias a los elementos del DOM
+    var checkbox = document.getElementById('dircambiar');
+    var dirauto = document.getElementById('dirauto');
+    var dirmanual = document.getElementById('dirmanual');
+    var btnewdir = document.getElementById('btnewdir');
+    // Agrega un evento de cambio al checkbox
+    checkbox.addEventListener('change', function() {
+        // Muestra u oculta el input activo según el estado del checkbox
+        if (checkbox.checked) {
+            dirauto.style.display = 'block';
+            btnewdir.style.display = 'block';
+            dirmanual.style.display = 'none';
+            dirmanual.value = '';            
+            dirauto.required = true;
+            dirmanual.required = false;                   
+        } else {
+            dirauto.style.display = 'none';
+            btnewdir.style.display = 'none';
+            dirmanual.style.display = 'block';
+            dirauto.value = 0;
+            dirauto.required = false;
+            dirmanual.required = true;           
+        }
+    });
+</script>
 
 </html>

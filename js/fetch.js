@@ -309,4 +309,11 @@ function enviarUbicacion(ident, lat, lng) {
         });
 }
 
+function irCompras(){
+// Construye la URL con los datos como parámetros
+var urlDestino = '../pantallas/Compras.php';
+
+// Redirige a la página de destino
+window.location.href = urlDestino;
+}
 

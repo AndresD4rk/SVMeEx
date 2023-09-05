@@ -100,14 +100,6 @@ include "../procesos/conexion.php";
                 <div class="col">
                     <div style="background-color:whitesmoke;">
                         <div class="card-body">
-                            <h5 class="card-title">Entregas</h5>
-                            <a href="Entregas.php" class="card-text">Ver productos existentes</A>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div style="background-color:whitesmoke;">
-                        <div class="card-body">
                             <h5 class="card-title">Usuarios</h5>
                             <a href="ListUsu.php" class="card-text">Ver Usuarios existentes</A>
                         </div>
@@ -205,36 +197,51 @@ include "../procesos/conexion.php";
         <!-- Fin Carrito -->
         <div class="content-wrapper mt-5">
             <div class="container-fluid">
-                <?php
-                $cont = 0;
-                $sql = $conexion->query("SELECT * FROM producto as p
-                                        INNER JOIN categoria as c on p.idcat = c.idcat                                        
-                                        INNER JOIN inventario as s on p.idpro = s.idpro");
-                echo '  <div class="card-group">
-                        <div class="row align-content-center justify-content-center">';
-                while ($datos = $sql->fetch_array()) {
-                    $idpro = $datos['idpro'];
-                    $nompro = $datos['nompro'];
-                    $precio = $datos['precio'];
-                    $nomcat = $datos['nomcat'];
-                    $cansto = $datos['caninv'];
-                    $minsto = $datos['mininv'];
-                    $vensto=$cansto-$minsto;
-                    echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
-                                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
-                                <div class="card-body">
-                                <p class="card-title">' . $nompro . '</p>
-                                <p class="card-text" >$ ' . number_format($precio) . '</p>      
-                                <p class="card-text text-end"> ' . number_format($cansto) . '</p>                            
-                                <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                <button onclick="enviarFormularioCarrito('.$idpro.','.$vensto.')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
-                                </div>
-                                </div></div>';
-                }
-                echo '</div></div>';
-                ?>
+            <form class="row" action="../procesos/" method="POST">
+                    <div class="col-12">
+                        <h1 class="text-center">Iniciar Entrega</h1>
+                        <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 120px; max-width: 120px;">
+                        <h2 class="text-center">Registro de Productos</h2>
+                    </div>                   
+                    <!-- Direccio entrega -->
+                    <div class="col-lg-4 col-12">
+                        <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
+                        <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
+                            <option value="">Elija su Dirrección</option>
+                            <?php
+                            $sql = $conexion->query("SELECT * 
+                                FROM usuario WHERE rol=3");
+                            while ($datos = $sql->fetch_array()) {
+                                $nombre=$datos['prinom']." ".$datos['segnom']." ".$datos['priape']." ".$datos['segape'];
+                                echo '<option value="' . $datos['idusu'] . '">' . $nombre . '</option>';
+                            }
+                            ?>
+                        </select>
+                        <input type="text" class="form-control" id="dirmanual" name="dirm" placeholder="Ingresa la Dirección" style="display: none;">
+                        <button id="btnewdir" type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="dircambiar" checked>
+                            <label class="form-check-label" for="dircambiar">Manual/Auto</label>
+                        </div>
+                    </div>
+                    <!-- Descripcion de entrega -->
+                    <div class="col-lg-4 col-12">
+                        <label for="exampleInputEmail1" class="form-label text-truncate">Descripción dirrección/entrega</label>
+                        <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto" required>
+                    </div>
+                    <!-- VALOR DEL PRODUCTO -->
+                    <div class="col-lg-4 col-12">
+                        <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
+                        <input type="number" class="form-control" name="Precio" value="100000" required disabled>
+                    </div>
 
 
+                    <div class="row mt-5">
+                        <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
+                        <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
+                    </div>
+
+                </form>
             </div>
         </div>
 
@@ -253,119 +260,3 @@ function redirigirAPagina() {
 </script>
 
 </html>
-
-<!-- Fin Menu LATERAL -->
-<!-- <div class="container-fluid ">
-            <div class="row mx-auto">
-                <div id="bgimgrespon" class="col-8 mx-auto" style="background-image: url(img/ibg1.png); height:80px;">
-                    <h1 class="text-center">Aquí Van Anuncios XD</h1>
-                </div>
-                <div class="col-4 mx-auto" style="background-color:aqua;">
-                    <h1>A</h1>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row">
-            <div class="col-2">
-            <div class="card">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-            </div>
-            <div class="row col-10">
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card" id="carprod">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-                <div class="card ">
-                    <img src="../img/producto.webp" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Tinks Thats is a Product</h5>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-body-secondary">Last updated 3 mins ago</small>
-                    </div>
-                </div>
-
-
-            </div>
-            </div>
-
-
-            <p>
-
-            </p> -->
