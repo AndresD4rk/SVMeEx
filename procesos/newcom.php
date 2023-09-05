@@ -6,22 +6,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    } else {
       $timestamp = time();
       $idcom = 0;
-      $presql = $conexion->query("SELECT MAX(idcom) FROM carrito  ");
-      if ($datos = $presql->fetch_array()) {
+      $sql = $conexion->query("SELECT MAX(idcom) FROM carrito  ");
+      if ($datos = $sql->fetch_array()) {
          $idcom = $datos['MAX(idcom)'];
          $idcom++;
       } else {
          $idcom = 1;
       }
-      $sql = $conexion->query("UPDATE carrito
+      $sql1 = $conexion->query("UPDATE carrito
       SET estado = 2 WHERE idcar=1;");
-      if ($sql) {
+      if ($sql1) {
       }
-      $sql = $conexion->query("INSERT INTO
+      $sql2 = $conexion->query("INSERT INTO
          compra (idcom,idcar,feccom)
         VALUES ('$idcom','$idcar',$timestamp)");
-      if ($sql) {
-         $sql = $conexion->query("INSERT INTO
+      if ($sql2) {
+         $sql3 = $conexion->query("INSERT INTO
          entrega (idcom,estent,dirent,detent)
         VALUES ('$idcom',0,'$dirent','$detent')");
       } else {

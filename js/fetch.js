@@ -245,10 +245,45 @@ function enviarFormularioCarrito(idprod, stock) {
         // El usuario canceló la entrada
         alert("Ha cancelado la solicitud de cantidad.");
     }
+}
 
+function enviarFormularioCompra() {
+    // Usar la función prompt() para solicitar la cantidad
+    var cantidad = prompt("Ingrese la cantidad de producto que desea menor a "+stock+":");
+    // Comprobar si el usuario ingresó una cantidad válida
+    if (cantidad !== null) {
+        if (cantidad <= stock) {
+            // Realizar operaciones con la cantidad ingresada
+            // alert("Ha seleccionado " + cantidad + " unidades del producto.");
+            // Puedes enviar la cantidad al servidor o realizar otras acciones aquí
+            const url = '../procesos/newcom.php?idprod=' + idprod + '&canpro=' + cantidad + '';
+            fetch(url)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud.');
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Se recibió una respuesta exitosa del servidor
+                    // alert(data);
+                    // ...
+                    alert("Producto añadido al carrito");
 
-
-
+                })
+                .catch(error => {
+                    // Ocurrió un error en la solicitud
+                    console.error('Error en la solicitud:', error);
+                    alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+                });
+        } else {
+        // El usuario canceló la entrada
+        alert("Se cancelo la solicitud stock no disponible.");
+        }
+    } else {
+        // El usuario canceló la entrada
+        alert("Ha cancelado la solicitud de cantidad.");
+    }
 }
 
 function enviarUbicacion(ident, lat, lng) {
