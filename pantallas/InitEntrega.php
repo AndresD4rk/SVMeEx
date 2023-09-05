@@ -205,9 +205,9 @@ include "../procesos/conexion.php";
                     </div>                   
                     <!-- Direccio entrega -->
                     <div class="col-lg-4 col-12">
-                        <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
+                        <label for="exampleInputEmail1" class="form-label text-truncate ">Repartidor</label>
                         <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
-                            <option value="">Elija su Dirrección</option>
+                            <option value="">Elija el Repartidor    </option>
                             <?php
                             $sql = $conexion->query("SELECT * 
                                 FROM usuario WHERE rol=3");
@@ -216,20 +216,14 @@ include "../procesos/conexion.php";
                                 echo '<option value="' . $datos['idusu'] . '">' . $nombre . '</option>';
                             }
                             ?>
-                        </select>
-                        <input type="text" class="form-control" id="dirmanual" name="dirm" placeholder="Ingresa la Dirección" style="display: none;">
-                        <button id="btnewdir" type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
-                        <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="dircambiar" checked>
-                            <label class="form-check-label" for="dircambiar">Manual/Auto</label>
-                        </div>
+                        </select>                      
                     </div>
                     <!-- Descripcion de entrega -->
                     <div class="col-lg-4 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate">Descripción dirrección/entrega</label>
                         <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto" required>
                     </div>
-                    <!-- VALOR DEL PRODUCTO -->
+                    <!-- Valor total -->
                     <div class="col-lg-4 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
                         <input type="number" class="form-control" name="Precio" value="100000" required disabled>
