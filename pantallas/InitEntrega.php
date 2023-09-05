@@ -197,7 +197,7 @@ include "../procesos/conexion.php";
         <!-- Fin Carrito -->
         <div class="content-wrapper mt-5">
             <div class="container-fluid">
-            <form class="row" action="../procesos/" method="POST">
+            <form class="row" action="../procesos/initentrega.php" method="POST">
                     <div class="col-12">
                         <h1 class="text-center">Iniciar Entrega</h1>
                         <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 120px; max-width: 120px;">
@@ -206,7 +206,7 @@ include "../procesos/conexion.php";
                     <!-- Direccio entrega -->
                     <div class="col-lg-4 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Repartidor</label>
-                        <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
+                        <select id="dirauto" class="form-select" aria-label="Default select example" name="idusu" required>
                             <option value="">Elija el Repartidor    </option>
                             <?php
                             $sql = $conexion->query("SELECT * 
@@ -220,8 +220,8 @@ include "../procesos/conexion.php";
                     </div>
                     <!-- Descripcion de entrega -->
                     <div class="col-lg-4 col-12">
-                        <label for="exampleInputEmail1" class="form-label text-truncate">Descripción dirrección/entrega</label>
-                        <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto" required>
+                        <label for="exampleInputEmail1" class="form-label text-truncate">Id Entrega</label>
+                        <input type="text" class="form-control" name="ident" placeholder="" value="<?php echo $_GET['ident']?>" disabled required>
                     </div>
                     <!-- Valor total -->
                     <div class="col-lg-4 col-12">
@@ -232,7 +232,7 @@ include "../procesos/conexion.php";
 
                     <div class="row mt-5">
                         <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
-                        <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
+                        <div class="col-6 text-end mb-2"><button type="submit" class="btn btn-success">Iniciar</button></div>
                     </div>
 
                 </form>

@@ -230,7 +230,7 @@ include "../procesos/conexion.php";
                           echo '<td>
                       <div class="row">
                       <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>
-                        <a class="col" href="../pantallas/InitEntrega.php?variable=' . $idcom . '">Iniciar entrega</a>
+                        <a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>
                       </div>
                     </td>
                   </tr>';
