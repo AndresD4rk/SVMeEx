@@ -23,8 +23,9 @@ include "../procesos/conexion.php";
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
     <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/mcss.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand" rel="stylesheet">
     <script src="../js/bootstrap.js"></script>
     <script src="../js/fetch.js"></script>
 </head>
@@ -90,7 +91,7 @@ include "../procesos/conexion.php";
             <div class="offcanvas-body">
                 <p><?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?></p>
                 <div class="col">
-                    <div style="background-color:whitesmoke;">
+                    <div >
                         <div class="card-body">
                             <h5 class="card-title">Productos</h5>
                             <a href="ListProd.php" class="card-text">Ver productos existentes</A>
@@ -98,7 +99,7 @@ include "../procesos/conexion.php";
                     </div>
                 </div>
                 <div class="col">
-                    <div style="background-color:whitesmoke;">
+                    <div>
                         <div class="card-body">
                             <h5 class="card-title">Entregas</h5>
                             <a href="Entregas.php" class="card-text">Ver productos existentes</A>
@@ -106,7 +107,7 @@ include "../procesos/conexion.php";
                     </div>
                 </div>
                 <div class="col">
-                    <div style="background-color:whitesmoke;">
+                    <div>
                         <div class="card-body">
                             <h5 class="card-title">Usuarios</h5>
                             <a href="ListUsu.php" class="card-text">Ver Usuarios existentes</A>
@@ -114,7 +115,7 @@ include "../procesos/conexion.php";
                     </div>
                 </div>
                 <div class="col">
-                    <div style="background-color:whitesmoke;">
+                    <div>
                         <div class="card-body">
                             <h5 class="card-title">Seguimiento de Pedido</h5>
                             <a href="SegPed.php" class="card-text">Ver Seguimiento de Pedidos</A>
@@ -122,7 +123,7 @@ include "../procesos/conexion.php";
                     </div>
                 </div>
                 <div class="col">
-                    <div style="background-color:whitesmoke;">
+                    <div>
                         <div class="card-body">
                             <h5 class="card-title">Seguimiento de Pedido</h5>
                             <a href="SegEnv.php" class="card-text">Ver Seguimiento de Envio</A>
@@ -131,7 +132,7 @@ include "../procesos/conexion.php";
                 </div>
 
                 <div class="col">
-                    <div style="background-color:whitesmoke;">
+                    <div>
                         <div class="card-body">
                             <h5 class="card-title">Salir</h5>
                             <a href="../procesos/CerSes.php" class="card-text">Ver Seguimiento de Pedidos</A>
