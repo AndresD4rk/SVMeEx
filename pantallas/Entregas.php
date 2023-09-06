@@ -229,8 +229,11 @@ include "../procesos/conexion.php";
                        ";
                           echo '<td>
                       <div class="row">
-                      <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>
-                        <a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>
+                      <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
+                            if ($estent==0){
+                                echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
+                            }
+                      echo '                        
                       </div>
                     </td>
                   </tr>';

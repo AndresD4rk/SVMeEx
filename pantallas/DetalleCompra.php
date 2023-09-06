@@ -197,42 +197,38 @@ include "../procesos/conexion.php";
         <!-- Fin Carrito -->
         <div class="content-wrapper mt-5">
             <div class="container-fluid">
-            <form class="row" action="../procesos/initentrega.php" method="POST">
-                    <div class="col-12">
-                        <h1 class="text-center">Iniciar Entrega</h1>
-                        <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 120px; max-width: 120px;">
-                        <h2 class="text-center">Registro de Productos</h2>
-                    </div>                   
-                    <!-- Direccio entrega -->
-                    <div class="col-lg-4 col-12">
-                        <label for="exampleInputEmail1" class="form-label text-truncate ">Repartidor</label>
-                        <select id="dirauto" class="form-select" aria-label="Default select example" name="idusu" required>
-                            <option value="">Elija el Repartidor    </option>
-                            <?php
-                            $sql = $conexion->query("SELECT * 
-                                FROM usuario WHERE rol=3");
-                            while ($datos = $sql->fetch_array()) {
-                                $nombre=$datos['prinom']." ".$datos['segnom']." ".$datos['priape']." ".$datos['segape'];
-                                echo '<option value="' . $datos['idusu'] . '">' . $nombre . '</option>';
-                            }
-                            ?>
-                        </select>                      
-                    </div>
-                    <!-- Descripcion de entrega -->
-                    <div class="col-lg-4 col-12">
-                        <label for="exampleInputEmail1" class="form-label text-truncate">Id Entrega</label>
-                        <input type="text" class="form-control" name="ident" value="<?php echo $_GET['ident'];?>" required>
-                    </div>
-                    <!-- Valor total -->
-                    <div class="col-lg-4 col-12">
-                        <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
-                        <input type="number" class="form-control" name="Precio" value="100000" required disabled>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
-                        <div class="col-6 text-end mb-2"><button type="submit" class="btn btn-success">Iniciar</button></div>
-                    </div>
-                </form>
+            <table class="table table-bordered" id="dataTable-1">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th>Entrega #</th>
+                          <th>Producto</th>
+                          <th>Cantidad</th>                                                  
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $vtotalcompra=0;
+                        $idcom = $_GET['idcom'] ;
+                        $sql = $conexion->query("SELECT * FROM compra AS c
+                        INNER JOIN carrito AS a ON a.idcar=c.idcar
+                        INNER JOIN detcarrito AS d ON d.idcar=a.idcar
+                        INNER JOIN producto AS p ON p.idpro=d.idpro
+                        WHERE c.idcom=$idcom                  
+                        ORDER BY c.feccom");
+                        while ($datos = $sql->fetch_array()) {
+                          $ident = $datos['idcom'];
+                          $nompro = $datos['nompro'];
+                          $canpro = $datos['canpro'];                                                    
+                        echo  "<tr style='text-align: center;''> 
+                        <td>$ident</td>
+                        <td>$nompro</td>
+                        <td>$canpro</td>                                                        
+                       ";
+                          echo '</tr>';
+                        }
+                        ?>
+                      </tbody>
+                    </table>
             </div>
         </div>
 

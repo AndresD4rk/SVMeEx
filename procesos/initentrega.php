@@ -7,7 +7,7 @@ session_start();
 // </script>';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idusu = $_POST['idusu'];
-    $ident = $_POST['ident'];
+    $ident = $_POST['ident'];    
     $sql = $conexion->query("INSERT INTO entregarepartidor 
     (ident,idusu)
     VALUES ($ident,$idusu)");
