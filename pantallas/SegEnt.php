@@ -36,7 +36,7 @@ include "../procesos/conexion.php";
                 <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <span class="fa-solid fa-bars"></span>
                 </button>
-                <img class="logonav" src="../img/logoME.webp" alt="..." style="height:40px;">
+                <a href="main.php"><img class="logonav" src="../img/logoME.webp" alt="..." style="height:40px;"></a>
                 <!-- <span class="navbar-brand">ercaexpress</span> -->
             </div>
             <div class="col-sm-12 col-md-8">
@@ -196,7 +196,7 @@ include "../procesos/conexion.php";
         </div>
         <!-- Fin Carrito -->
         <div class="content-wrapper mt-5">
-            <div class="container-fluid">
+            <div class="container-fluid">                
             <table class="table table-bordered" id="dataTable-1">
                       <thead>
                         <tr style="text-align: center;">
@@ -213,10 +213,11 @@ include "../procesos/conexion.php";
                         $idusu = $_SESSION['idusu'] ;
                         $sql = $conexion->query("SELECT * FROM compra AS c
                         INNER JOIN carrito AS a ON a.idcar=c.idcar
+                        INNER JOIN entrega AS e ON e.idcom=c.idcom
                         WHERE a.idusu=$idusu                  
                         ORDER BY c.feccom");
                         while ($datos = $sql->fetch_array()) {
-                          $ident = $datos['idcom'];
+                          $ident = $datos['ident'];
                           $dirent = $datos['feccom'];
                           $detent = $datos['idcom'];
                           $estent = $datos['idcom'];                        
@@ -231,7 +232,7 @@ include "../procesos/conexion.php";
                        ";
                           echo '<td>
                       <div class="row">
-                      <a class="col" href="DetalleCompra.php?idcom=' . $idcom . '">Ver</a>';
+                      <a class="col" href="DetalleCompra.php?idcom=' . $idcom . '&ident='.$ident.'">Ver</a>';
                             if ($estent==0){
                                 echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
                             }
