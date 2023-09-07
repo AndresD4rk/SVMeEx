@@ -30,36 +30,35 @@ include "../procesos/conexion.php";
     <script src="../js/fetch.js"></script>
 </head>
 <header class="header-bg-color">
-    <div class="container-fluid">
-        <div class="row mb-1"></div>
-        <div class="row">
-            <div class="col mb-1 ">
+    <div class="container-fluid">        
+        <div class="row my-auto">
+            <div class="col-sm-12 col-md-3 col-lg-3  col-3 mb-1 ">
                 <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <span class="fa-solid fa-bars"></span>
                 </button>
                 <a href="main.php"><img class="logonav" src="../img/logoME.webp" alt="..." style="height:40px;"></a>
                 <!-- <span class="navbar-brand">ercaexpress</span> -->
-            </div>
-            <div class="col-sm-12 col-md-8">
+            </div>            
+            <div class="col-sm-12 col-md-5 col-lg-6 justify-content-center align-content-end">
                 <div class="input-group ">
                     <a class="input-group-text"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Buscar Producto">
                 </div>
             </div>
-            <div class="d-none d-lg-block col-1 ">
+            <div class="d-none d-sm-block col-md-2 col-lg-3  col-3 justify-content-end align-content-center">
                 <div class="d-flex justify-content-end">
-                    <div class="d-none d-lg-block">
+                    <div class="d-none d-sm-block">
                         <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1" aria-controls="offcanvasWithBothOptions">
                             <span class="fa-solid fa-cart-shopping"></span>
                         </button>
                         <!-- <a href="" class=""></a> -->
                     </div>
-                    <div class="d-none d-lg-block  me-1 mb-1 ">                        
+                    <div class="d-none d-sm-block  me-1 mb-1 ">                        
                         <button class="btn btn-outline-dark" type="button" onclick="redirigirAPagina()">
                             <span class="fa-solid fa-receipt"></span>
                         </button>
                     </div>
-                    <div class="d-none d-lg-block  me-1 mb-1 ">
+                    <div class="d-none d-sm-block  me-1 mb-1 ">
                         <a href="" class="">
                             <span class="fa-solid fa-cart-shopping"></span>
                         </a>
