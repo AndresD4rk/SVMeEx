@@ -36,7 +36,7 @@ include "../procesos/conexion.php";
                 <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
                     <span class="fa-solid fa-bars"></span>
                 </button>
-                <a href="main.php"><img class="logonav" src="../img/logoME.webp" alt="..." style="height:40px;"></a>
+                <a href="main.php"><img class="logonav"  src="../img/logoME.webp" alt="..." style="height:40px;"></a>
                 <!-- <span class="navbar-brand">ercaexpress</span> -->
             </div>
             <div class="col-sm-12 col-md-8">
@@ -179,54 +179,53 @@ include "../procesos/conexion.php";
         </div>
         </div>
         <!-- Fin Carrito -->
-        <div class="content-wrapper mt-5">
-            <div class="container-fluid">
-            <table class="table table-bordered" id="dataTable-1">
+        
+            <div class="container-fluid mt-5">
+            <div class="row">
+                    <div class="col">
+                    <table class="table table-info table-bordered mb-0 max-heigh-100" id="dataTable-1">
                       <thead>
                         <tr style="text-align: center;">
                           <th>Entrega #</th>
-                          <th>Fecha</th>
-                          <th>Direccion</th>
-                          <th>Detalles</th>
-                          <th>Estado</th>
-                          <th>Action</th>
+                          <th>Producto</th>
+                          <th>Cantidad</th>                                                  
                         </tr>
                       </thead>
                       <tbody>
                         <?php
-                        $sql = $conexion->query("SELECT * FROM entrega AS e
-                        INNER JOIN compra AS c ON e.idcom=c.idcom
-                        ORDER BY c.feccom AND e.estent");
+                        $vtotalcompra=0;
+                        $idcom = $_GET['idcom'] ;
+                        $sql = $conexion->query("SELECT * FROM compra AS c
+                        INNER JOIN carrito AS a ON a.idcar=c.idcar
+                        INNER JOIN detcarrito AS d ON d.idcar=a.idcar
+                        INNER JOIN producto AS p ON p.idpro=d.idpro
+                        WHERE c.idcom=$idcom                  
+                        ORDER BY c.feccom");                        
+                        $VCompra;
                         while ($datos = $sql->fetch_array()) {
-                          $ident = $datos['ident'];
-                          $dirent = $datos['dirent'];
-                          $detent = $datos['detent'];
-                          $estent = $datos['estent'];                        
-                          $idcom = $datos['idcom']; 
-                          $feccom = $datos['feccom'];                           
+                          $ident = $datos['idcom'];
+                          $nompro = $datos['nompro'];
+                          $canpro = $datos['canpro'];  
+                          $VCompra=$datos['tolcar'];                                                                           
                         echo  "<tr style='text-align: center;''> 
                         <td>$ident</td>
-                        <td>$feccom</td>
-                        <td>$dirent</td>  
-                        <td>$detent</td> 
-                        <td>$estent</td>                                 
+                        <td>$nompro</td>
+                        <td>$canpro</td>                                                        
                        ";
-                          echo '<td>
-                      <div class="row">
-                      <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
-                            if ($estent==0){
-                                echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
-                            }
-                      echo '                        
-                      </div>
-                    </td>
-                  </tr>';
+                          echo '</tr>
+                          </tbody>';
                         }
+                        echo "<table class='table table-bordered mt-0'><tr>
+                        <td class='text-end'>Total de compra</td>
+                        <td class='text-center'>".number_format($VCompra)."</td>
+                    </tr></table>";
                         ?>
+                        
                       </tbody>
                     </table>
+                    </div>            
             </div>
-        </div>
+        
 
 
 
@@ -241,5 +240,8 @@ function redirigirAPagina() {
     window.location.href = 'Compras.php';
 }
 </script>
+
+    
+
 
 </html>

@@ -82,59 +82,43 @@ include "../procesos/conexion.php";
     <main>
         <!-- Inicio Menu LATERAL -->
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header justify-content-center align-content-center">
+            <div class="offcanvas-header justify-content-center align-content-center mb-1  mb-md-2">
                 <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
                 <div class="">
                     <img class="logonav" src="../img/logoMER.webp" alt="..." style="height:55px;">
                     <a class="navbar-brand mx-auto align-text-top" style="font-size: 30px; color:#24262d;">enu</a>
                 </div>
+                <!-- <div>
+                    <h4><?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?></h4>
+                </div> -->
             </div>
             <div class="offcanvas-body">
-                <p><?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?></p>
-                <div class="col">
-                    <div style="background-color:whitesmoke;">
-                        <div class="card-body">
-                            <h5 class="card-title">Productos</h5>
-                            <a href="ListProd.php" class="card-text">Ver productos existentes</A>
-                        </div>
+                <div class="row justify-content-center align-content-center">
+                    <div class="col-12  mb-2">
+                        <a href="ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a class="btn btn-dark w-100" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="Entregas.php" class="btn btn-dark w-100"><i class="fa-solid fa-truck-fast me-2"></i>Entregas</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="SegEnt.php" class="btn btn-dark w-100"><i class="fa-solid fa-magnifying-glass-location me-2"></i>Seguir entrega</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="HistoCompras.php" class="btn btn-dark w-100"><i class="fa-solid fa-clock-rotate-left me-2"></i></i>Historial de Compras</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Agregar Producto</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="../procesos/CerSes.php" class="btn btn-dark w-100"><i class="fa-solid fa-door-closed me-2"></i>Salir</a>
                     </div>
                 </div>
-                <div class="col">
-                    <div style="background-color:whitesmoke;">
-                        <div class="card-body">
-                            <h5 class="card-title">Usuarios</h5>
-                            <a href="ListUsu.php" class="card-text">Ver Usuarios existentes</A>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div style="background-color:whitesmoke;">
-                        <div class="card-body">
-                            <h5 class="card-title">Seguimiento de Pedido</h5>
-                            <a href="SegPed.php" class="card-text">Ver Seguimiento de Pedidos</A>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div style="background-color:whitesmoke;">
-                        <div class="card-body">
-                            <h5 class="card-title">Seguimiento de Pedido</h5>
-                            <a href="SegEnv.php" class="card-text">Ver Seguimiento de Envio</A>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div style="background-color:whitesmoke;">
-                        <div class="card-body">
-                            <h5 class="card-title">Salir</h5>
-                            <a href="../procesos/CerSes.php" class="card-text">Ver Seguimiento de Pedidos</A>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
+         <!-- Fin Menu LATERAL -->
         <!-- Inicio Carrito -->
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="container mt-sm-4 mt-2">

@@ -53,7 +53,7 @@ include "../procesos/conexion.php";
                         </button>
                         <!-- <a href="" class=""></a> -->
                     </div>
-                    <div class="d-none d-lg-block  me-1 mb-1 ">                        
+                    <div class="d-none d-lg-block  me-1 mb-1 ">
                         <button class="btn btn-outline-dark" type="button" onclick="redirigirAPagina()">
                             <span class="fa-solid fa-receipt"></span>
                         </button>
@@ -128,7 +128,7 @@ include "../procesos/conexion.php";
                     $sql = $conexion->query("SELECT * FROM carrito as c 
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
                 INNER JOIN producto AS p ON d.idpro=p.idpro
-                WHERE c.idusu= ".$_SESSION['idusu']." AND estado = 1");
+                WHERE c.idusu= " . $_SESSION['idusu'] . " AND estado = 1");
                     if (mysqli_num_rows($sql) > 0) {
                         while ($datos = $sql->fetch_array()) { ?>
                             <div class="card">
@@ -179,31 +179,36 @@ include "../procesos/conexion.php";
         </div>
         </div>
         <!-- Fin Carrito -->
-        <div class="content-wrapper mt-5">
-            <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row">
+            <div class="col-12 text-center mt-2"><h4>Compras</h4></div>
+            <div class="col-12">
             <table class="table table-bordered" id="dataTable-1">
-                      <thead>
-                        <tr style="text-align: center;">
-                          <th>Entrega #</th>
-                          <th>Fecha</th>
-                          <th>Direccion</th>
-                          <th>Detalles</th>
-                          <th>Estado</th>
-                          <th>Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                        $sql = $conexion->query("SELECT * FROM entrega AS e
-                        INNER JOIN compra AS c ON e.idcom=c.idcom
-                        ORDER BY c.feccom AND e.estent");
-                        while ($datos = $sql->fetch_array()) {
-                          $ident = $datos['ident'];
-                          $dirent = $datos['dirent'];
-                          $detent = $datos['detent'];
-                          $estent = $datos['estent'];                        
-                          $idcom = $datos['idcom']; 
-                          $feccom = $datos['feccom'];                           
+                <thead>
+                    <tr style="text-align: center;">
+                        <th>Entrega #</th>
+                        <th>Fecha</th>
+                        <th>Direccion</th>
+                        <th>Detalles</th>
+                        <th>Estado</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $idusu = $_SESSION['idusu'];
+                    $sql = $conexion->query("SELECT * FROM compra AS c
+                        INNER JOIN carrito AS a ON a.idcar=c.idcar
+                        INNER JOIN entrega AS e ON e.idcom=c.idcom
+                        WHERE a.idusu=$idusu                  
+                        ORDER BY c.feccom");
+                    while ($datos = $sql->fetch_array()) {
+                        $ident = $datos['ident'];
+                        $dirent = $datos['feccom'];
+                        $detent = $datos['idcom'];
+                        $estent = $datos['idcom'];
+                        $idcom = $datos['idcom'];
+                        $feccom = $datos['idcom'];
                         echo  "<tr style='text-align: center;''> 
                         <td>$ident</td>
                         <td>$feccom</td>
@@ -211,22 +216,24 @@ include "../procesos/conexion.php";
                         <td>$detent</td> 
                         <td>$estent</td>                                 
                        ";
-                          echo '<td>
+                        echo '<td>
                       <div class="row">
-                      <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
-                            if ($estent==0){
-                                echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
-                            }
-                      echo '                        
+                      <a class="col" href="HisCom.php?idcom=' . $idcom . '&ident=' . $ident . '">Ver</a>';
+                        if ($estent == 0) {
+                            echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
+                        }
+                        echo '                        
                       </div>
                     </td>
                   </tr>';
-                        }
-                        ?>
-                      </tbody>
-                    </table>
+                    }
+                    ?>
+                </tbody>
+            </table>
+            </div>
             </div>
         </div>
+
 
 
 
@@ -236,10 +243,10 @@ include "../procesos/conexion.php";
 </body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 <script>
-function redirigirAPagina() {
-    // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
-    window.location.href = 'Compras.php';
-}
+    function redirigirAPagina() {
+        // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
+        window.location.href = 'Compras.php';
+    }
 </script>
 
 </html>

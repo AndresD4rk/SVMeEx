@@ -29,8 +29,9 @@ include "../procesos/conexion.php";
     <script src="../js/bootstrap.js"></script>
     <script src="../js/fetch.js"></script>
 </head>
+<!-- Inicio Menu TOP -->
 <header class="header-bg-color">
-    <div class="container-fluid">        
+    <div class="container-fluid">
         <div class="row my-auto">
             <div class="col-sm-12 col-md-3 col-lg-3  col-3 mb-1 ">
                 <button class="btn btn-outline-dark me-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
@@ -38,7 +39,7 @@ include "../procesos/conexion.php";
                 </button>
                 <a href="main.php"><img class="logonav" src="../img/logoME.webp" alt="..." style="height:40px;"></a>
                 <!-- <span class="navbar-brand">ercaexpress</span> -->
-            </div>            
+            </div>
             <div class="col-sm-12 col-md-5 col-lg-6 justify-content-center align-content-end">
                 <div class="input-group ">
                     <a class="input-group-text"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
@@ -53,7 +54,7 @@ include "../procesos/conexion.php";
                         </button>
                         <!-- <a href="" class=""></a> -->
                     </div>
-                    <div class="d-none d-sm-block  me-1 mb-1 ">                        
+                    <div class="d-none d-sm-block  me-1 mb-1 ">
                         <button class="btn btn-outline-dark" type="button" onclick="redirigirAPagina()">
                             <span class="fa-solid fa-receipt"></span>
                         </button>
@@ -69,78 +70,52 @@ include "../procesos/conexion.php";
         </div>
     </div>
 </header>
-
+ <!-- Fin Menu TOP -->
 <body>
-    <!-- Inicio Menu TOP -->
-
-
-    <!-- Fin Menu TOP -->
-
     <!-- Inicio Main -->
     <main>
+
         <!-- Inicio Menu LATERAL -->
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header justify-content-center align-content-center">
+            <div class="offcanvas-header justify-content-center align-content-center mb-1  mb-md-2">
                 <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
                 <div class="">
                     <img class="logonav" src="../img/logoMER.webp" alt="..." style="height:55px;">
                     <a class="navbar-brand mx-auto align-text-top" style="font-size: 30px; color:#24262d;">enu</a>
                 </div>
+                <!-- <div>
+                    <h4><?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?></h4>
+                </div> -->
             </div>
             <div class="offcanvas-body">
-                <p><?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?></p>
-                <div class="col">
-                    <div >
-                        <div class="card-body">
-                            <h5 class="card-title">Productos</h5>
-                            <a href="ListProd.php" class="card-text">Ver productos existentes</A>
-                        </div>
+                <div class="row justify-content-center align-content-center">
+                    <div class="col-12  mb-2">
+                        <a href="ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a class="btn btn-dark w-100" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="Entregas.php" class="btn btn-dark w-100"><i class="fa-solid fa-truck-fast me-2"></i>Entregas</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="SegEnt.php" class="btn btn-dark w-100"><i class="fa-solid fa-magnifying-glass-location me-2"></i>Seguir entrega</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="HistoCompras.php" class="btn btn-dark w-100"><i class="fa-solid fa-clock-rotate-left me-2"></i></i>Historial de Compras</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Agregar Producto</a>
+                    </div>
+                    <div class="col-12  mb-2">
+                        <a href="../procesos/CerSes.php" class="btn btn-dark w-100"><i class="fa-solid fa-door-closed me-2"></i>Salir</a>
                     </div>
                 </div>
-                <div class="col">
-                    <div>
-                        <div class="card-body">
-                            <h5 class="card-title">Entregas</h5>
-                            <a href="Entregas.php" class="card-text">Ver productos existentes</A>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        <div class="card-body">
-                            <h5 class="card-title">Usuarios</h5>
-                            <a href="ListUsu.php" class="card-text">Ver Usuarios existentes</A>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        <div class="card-body">
-                            <h5 class="card-title">Seguimiento de Pedido</h5>
-                            <a href="SegPed.php" class="card-text">Ver Seguimiento de Pedidos</A>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div>
-                        <div class="card-body">
-                            <h5 class="card-title">Seguimiento de Pedido</h5>
-                            <a href="SegEnv.php" class="card-text">Ver Seguimiento de Envio</A>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div>
-                        <div class="card-body">
-                            <h5 class="card-title">Salir</h5>
-                            <a href="../procesos/CerSes.php" class="card-text">Ver Seguimiento de Pedidos</A>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
+         <!-- Fin Menu LATERAL -->
+<!-- Fin Menu LATERAL -->
+
         <!-- Inicio Carrito -->
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="container mt-sm-4 mt-2">
@@ -152,8 +127,8 @@ include "../procesos/conexion.php";
                     $sql = $conexion->query("SELECT * FROM carrito as c 
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
                 INNER JOIN producto AS p ON d.idpro=p.idpro
-                WHERE c.idusu= ".$_SESSION['idusu']." AND estado = 1");
-                    if (mysqli_num_rows($sql) > 0) {
+                WHERE c.idusu= " . $_SESSION['idusu'] . " AND estado = 1");
+                    if (mysqli_num_rows($sql) > 0) {                        
                         while ($datos = $sql->fetch_array()) { ?>
                             <div class="card">
                                 <div class="row p-1">
@@ -219,7 +194,7 @@ include "../procesos/conexion.php";
                     $nomcat = $datos['nomcat'];
                     $cansto = $datos['caninv'];
                     $minsto = $datos['mininv'];
-                    $vensto=$cansto-$minsto;
+                    $vensto = $cansto - $minsto;
                     echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
                                 <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
                                 <div class="card-body">
@@ -227,7 +202,7 @@ include "../procesos/conexion.php";
                                 <p class="card-text" >$ ' . number_format($precio) . '</p>      
                                 <p class="card-text text-end"> ' . number_format($cansto) . '</p>                            
                                 <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                <button onclick="enviarFormularioCarrito('.$idpro.','.$vensto.')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $vensto . ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
                                 </div>
                                 </div></div>';
                 }
@@ -246,10 +221,10 @@ include "../procesos/conexion.php";
 </body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 <script>
-function redirigirAPagina() {
-    // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
-    window.location.href = 'Compras.php';
-}
+    function redirigirAPagina() {
+        // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
+        window.location.href = 'HistoCompras.php';
+    }
 </script>
 
 </html>
