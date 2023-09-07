@@ -23,7 +23,7 @@ include "../procesos/conexion.php";
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
     <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/mcss.css">
     <script src="../js/bootstrap.js"></script>
     <script src="../js/fetch.js"></script>
@@ -183,7 +183,7 @@ include "../procesos/conexion.php";
             <div class="container-fluid mt-5">
             <div class="row">
                     <div class="col">
-                    <table class="table table-info table-bordered mb-0 max-heigh-100" id="dataTable-1">
+                    <table class="table table-light table-bordered mb-0 max-heigh-100" id="dataTable-1">
                       <thead>
                         <tr style="text-align: center;">
                           <th>Entrega #</th>
@@ -215,7 +215,7 @@ include "../procesos/conexion.php";
                           echo '</tr>
                           </tbody>';
                         }
-                        echo "<table class='table table-bordered mt-0'><tr>
+                        echo "<table class='table table-light table-bordered mt-0'><tr>
                         <td class='text-end'>Total de compra</td>
                         <td class='text-center'>".number_format($VCompra)."</td>
                     </tr></table>";

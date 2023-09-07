@@ -22,7 +22,7 @@ include "../procesos/conexion.php";
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
     <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/mcss.css">
     <script src="../js/bootstrap.js"></script>
 </head>
