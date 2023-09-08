@@ -49,7 +49,7 @@ include "../procesos/conexion.php";
             <div class="d-none d-sm-block col-md-2 col-lg-3  col-3 justify-content-end align-content-center">
                 <div class="d-flex justify-content-end">
                     <div class="d-none d-sm-block">
-                        <button class="btn btn-outline-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1" aria-controls="offcanvasWithBothOptions">
+                        <button class="btn btn-outline-dark vercarrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1" aria-controls="offcanvasWithBothOptions">
                             <span class="fa-solid fa-cart-shopping"></span>
                         </button>
                         <!-- <a href="" class=""></a> -->
@@ -70,7 +70,8 @@ include "../procesos/conexion.php";
         </div>
     </div>
 </header>
- <!-- Fin Menu TOP -->
+<!-- Fin Menu TOP -->
+
 <body>
     <!-- Inicio Main -->
     <main>
@@ -93,7 +94,7 @@ include "../procesos/conexion.php";
                         <a href="ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
                     </div>
                     <div class="col-12  mb-2">
-                        <a class="btn btn-dark w-100" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
+                        <a class="btn btn-dark w-100 vercarrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
                     </div>
                     <div class="col-12  mb-2">
                         <a href="Entregas.php" class="btn btn-dark w-100"><i class="fa-solid fa-truck-fast me-2"></i>Entregas</a>
@@ -108,74 +109,23 @@ include "../procesos/conexion.php";
                         <a href="AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Agregar Producto</a>
                     </div>
                     <div class="col-12  mb-2">
+                        <a href="EntregasHabilitadas.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Entregas Disponibles</a>
+                    </div>
+                    <div class="col-12  mb-2">
                         <a href="../procesos/CerSes.php" class="btn btn-dark w-100"><i class="fa-solid fa-door-closed me-2"></i>Salir</a>
                     </div>
                 </div>
             </div>
         </div>
-         <!-- Fin Menu LATERAL -->
-<!-- Fin Menu LATERAL -->
+        <!-- Fin Menu LATERAL -->
+        <!-- Fin Menu LATERAL -->
 
         <!-- Inicio Carrito -->
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="container mt-sm-4 mt-2">
-                <!-- Inicio Card Grupo De Carrito -->
-                <div class="card-group d-block">
-                    <h4 class="text-center">Carrito</h4>
-                    <!-- Inicio Card De Carrito -->
-                    <?php
-                    $sql = $conexion->query("SELECT * FROM carrito as c 
-                INNER JOIN detcarrito AS d ON d.idcar = c.idcar
-                INNER JOIN producto AS p ON d.idpro=p.idpro
-                WHERE c.idusu= " . $_SESSION['idusu'] . " AND estado = 1");
-                    if (mysqli_num_rows($sql) > 0) {                        
-                        while ($datos = $sql->fetch_array()) { ?>
-                            <div class="card">
-                                <div class="row p-1">
-                                    <div class="col my-auto">
-                                        <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
-                                    </div>
-                                    <div class="col my-auto">
-                                        <div class="row">
-                                            <div class="col-12 card-body text-center">
-                                                <h5 class="card-title"><?php echo $datos['nompro'] ?></h5>
-                                                <p class="card-text"><?php echo $datos['precio'] ?></p>
-                                                <p class="card-text"><?php echo $datos['canpro'] ?></p>
-                                                <!-- <p class="card-text">Nose</p> -->
-                                            </div>
-                                            <div class="col-12 d-flex justify-content-end align-items-end">
-                                                <button class="btn btn-secondary btn-sm me-1 mb-1 fa-solid fa-minus"></button>
-                                                <button class="btn btn-secondary btn-sm me-2 mb-1 fa-solid fa-plus"></button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><?php
-                                }
-                                    ?>
-                        <!-- Fin Card De Carrito -->
-                </div>
-                <!-- Fin Card Grupo De Carrito -->
-                <div class="card mt-2" style=" background: none; border:none;">
-                    <div class="d-flex justify-content-end align-content-end">
-                        <div class="justify-content-end align-items-end me-1">
-                            <button onclick="" class="btn btn-danger float-right">Cancelar</button>
-                        </div>
-                        <div class="justify-content-end align-items-end">
-                            <button onclick="irCompras()" class="btn btn-success  float-right">Comprar</button>
-                        </div>
-                    </div>
-                </div><?php
-                    } else {
-                        ?>
-                <!-- Fin Card De Carrito -->
+            <div class="container mt-sm-4 mt-2" id="getcarrito">
+                
+                
             </div>
-            <!-- Fin Card Grupo De Carrito -->
-            <h5 class="mt-5">Agregar producto al carrito</h5>
-        <?php
-                    }
-        ?>
-        </div>
         </div>
         <!-- Fin Carrito -->
         <div class="content-wrapper mt-5">
@@ -208,8 +158,6 @@ include "../procesos/conexion.php";
                 }
                 echo '</div></div>';
                 ?>
-
-
             </div>
         </div>
 
@@ -227,7 +175,46 @@ include "../procesos/conexion.php";
     }
 </script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // Controlador de clic para el botón "Cargar Carrito"
+        $(".vercarrito").click(function() {
+            // Realizar una solicitud AJAX para obtener el contenido del carrito
+            $.ajax({
+                type: "GET",
+                url: "../procesos/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
+                success: function(data) {
+                    // Actualizar la sección del carrito con los datos recibidos
+                    $("#getcarrito").html(data);
+                }
+            });
+        });
+    });
+</script>
+
+
+
+
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- Fin Menu LATERAL -->
 <!-- <div class="container-fluid ">

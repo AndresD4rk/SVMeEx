@@ -4,6 +4,7 @@ session_start();
 //     header("location:page-404.html");
 // }
 include "../procesos/conexion.php";
+$idusu=$_SESSION['idusu'];
 ?>
 
 
@@ -27,8 +28,6 @@ include "../procesos/conexion.php";
     <link rel="stylesheet" href="../css/mcss.css">
     <script src="../js/bootstrap.js"></script>
     <script src="../js/fetch.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc&callback=initMap" async defer></script>
 </head>
 <header class="header-bg-color">
     <div class="container-fluid">
@@ -55,7 +54,7 @@ include "../procesos/conexion.php";
                         </button>
                         <!-- <a href="" class=""></a> -->
                     </div>
-                    <div class="d-none d-lg-block  me-1 mb-1 ">
+                    <div class="d-none d-lg-block  me-1 mb-1 ">                        
                         <button class="btn btn-outline-dark" type="button" onclick="redirigirAPagina()">
                             <span class="fa-solid fa-receipt"></span>
                         </button>
@@ -118,7 +117,7 @@ include "../procesos/conexion.php";
                 </div>
             </div>
         </div>
-        <!-- Fin Menu LATERAL -->
+         <!-- Fin Menu LATERAL -->
         <!-- Inicio Carrito -->
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="container mt-sm-4 mt-2">
@@ -130,7 +129,7 @@ include "../procesos/conexion.php";
                     $sql = $conexion->query("SELECT * FROM carrito as c 
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
                 INNER JOIN producto AS p ON d.idpro=p.idpro
-                WHERE c.idusu= " . $_SESSION['idusu'] . " AND estado = 1");
+                WHERE c.idusu= ".$_SESSION['idusu']." AND estado = 1");
                     if (mysqli_num_rows($sql) > 0) {
                         while ($datos = $sql->fetch_array()) { ?>
                             <div class="card">
@@ -183,54 +182,54 @@ include "../procesos/conexion.php";
         <!-- Fin Carrito -->
         <div class="content-wrapper mt-5">
             <div class="container-fluid">
-                <div class="row">
-                    <div class=" col-xl-6 col-12">
-                    <div class="progress">
-  <div id="barentrega" class="progress-bar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
-
-                        <table class="table table-bordered" id="dataTable-1">
-                            <thead>
-                                <tr style="text-align: center;">
-                                    <th>Entrega #</th>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $vtotalcompra = 0;
-                                $idcom = $_GET['idcom'];
-                                $sql = $conexion->query("SELECT * FROM compra AS c
-                        INNER JOIN carrito AS a ON a.idcar=c.idcar
-                        INNER JOIN detcarrito AS d ON d.idcar=a.idcar
-                        INNER JOIN producto AS p ON p.idpro=d.idpro
-                        WHERE c.idcom=$idcom                  
-                        ORDER BY c.feccom");
-                                while ($datos = $sql->fetch_array()) {
-                                    $ident = $datos['idcom'];
-                                    $nompro = $datos['nompro'];
-                                    $canpro = $datos['canpro'];
-                                    echo  "<tr style='text-align: center;''> 
+            <table class="table table-bordered" id="dataTable-1">
+                      <thead>
+                        <tr style="text-align: center;">
+                          <th>Entrega #</th>
+                          <th>Fecha</th>
+                          <th>Direccion</th>
+                          <th>Detalles</th>
+                          <th>Estado</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $sql = $conexion->query("SELECT * FROM entrega AS e
+                        INNER JOIN compra AS c ON e.idcom=c.idcom
+                        INNER JOIN entregarepartidor AS n ON e.ident=n.ident
+                        WHERE n.idusu=$idusu
+                        ORDER BY c.feccom AND e.estent");
+                        while ($datos = $sql->fetch_array()) {
+                          $ident = $datos['ident'];
+                          $dirent = $datos['dirent'];
+                          $detent = $datos['detent'];
+                          $estent = $datos['estent'];                        
+                          $idcom = $datos['idcom']; 
+                          $feccom = $datos['feccom'];                           
+                        echo  "<tr style='text-align: center;''> 
                         <td>$ident</td>
-                        <td>$nompro</td>
-                        <td>$canpro</td>                                                        
+                        <td>$feccom</td>
+                        <td>$dirent</td>  
+                        <td>$detent</td> 
+                        <td>$estent</td>                                 
                        ";
-                                    echo '</tr>';
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-
-
-
-                    <div class="col-xl-6 order-xl-last order-first col-12">
-                        <div id="map" style="height: 500px;">
-                        </div>
-                    </div>
-                </div>
+                          echo '<td>
+                      <div class="row">
+                      <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
+                            if ($estent!=null){
+                                echo '<a class="col" href="../pantallas/SegRep.php?ident=' . $ident . '">Iniciar entrega</a>';
+                            }
+                      echo '                        
+                      </div>
+                    </td>
+                  </tr>';
+                        }
+                        ?>
+                      </tbody>
+                    </table>
             </div>
+        </div>
 
 
 
@@ -240,117 +239,10 @@ include "../procesos/conexion.php";
 </body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 <script>
-    function redirigirAPagina() {
-        // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
-        window.location.href = 'Compras.php';
-    }
+function redirigirAPagina() {
+    // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
+    window.location.href = 'Compras.php';
+}
 </script>
-
-<script>
-    
-
-
-
-
-
-
-    //alert(locations);
-    var map, directionsService, directionsRenderer, latitud, longitud;
-
-    function initMap() {
-        // Crear el mapa
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: { lat: 0, lng: 0 },
-            zoom: 8
-        });
-
-        /* var marker = new google.maps.Marker({
-            map: map
-          }); */
-
-        // Crear un objeto de servicio de direcciones
-        directionsService = new google.maps.DirectionsService();
-
-        // Crear un objeto de renderizado de direcciones
-        directionsRenderer = new google.maps.DirectionsRenderer({
-            map: map,
-        });
-
-        // Asociar el objeto de renderizado de direcciones con el mapa
-        directionsRenderer.setMap(map);
-        //dibujarRuta();
-        var locations;
-    $(document).ready(function() {
-        // Función para actualizar el contenido
-        function actualizarContenido() {
-            $.ajax({
-                url: '../procesos/actualizar_localizacion.php?entrega=' + <?php echo number_format($ident) ?>, // Archivo PHP que actualiza la localización
-                success: function(data) {
-                    if (data && data.length > 0) {
-                        locations = data;
-                        console.log(locations);
-                        //console.log(locations[0].latrep); 
-                        dibujarRuta()
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error en la solicitud AJAX:', error);
-                },
-                complete: function() {
-                    // Vuelve a llamar a la función después de cierto tiempo
-                    setTimeout(actualizarContenido, 30000); // Actualiza cada 5 segundos (ajusta el tiempo según tus necesidades)
-                }
-            });
-        }
-        actualizarContenido();
-        // Inicia la actualización inicial del contenido
-       
-
-        function dibujarRuta() {
-        // Configurar la solicitud de ruta
-        // var supermark = {lat:6.4689837,lng:-73.2631887};
-        var puntoA = new google.maps.LatLng(6.4689837, -73.2631887);
-        // var domi = {lat: parseFloat(locations[0].latrep),lng: parseFloat(locations[0].lonrep)};
-        var puntoC = new google.maps.LatLng(parseFloat(locations[0].latrep), parseFloat(locations[0].lonrep));
-        // var entrega = {lat: parseFloat(locations[0].latent),lng: parseFloat(locations[0].lonent)};
-        var puntoB = new google.maps.LatLng(parseFloat(locations[0].latent), parseFloat(locations[0].lonent));
-        var request = {
-            origin: {
-                lat: parseFloat(locations[0].latrep),
-                lng: parseFloat(locations[0].lonrep)
-            }, // Coordenadas del origen
-            destination: {
-                lat: parseFloat(locations[0].latent),
-                lng: parseFloat(locations[0].lonent)
-            }, // Coordenadas del destino
-            travelMode: google.maps.TravelMode.DRIVING // Modo de transporte (puedes cambiarlo según tus necesidades)
-        };
-        //alert(locations + "Hola")
-        // Obtener la ruta utilizando el servicio de direcciones
-        directionsService.route(request, function(result, status) {
-            if (status === google.maps.DirectionsStatus.OK) {
-                // Mostrar la ruta en el mapa
-                directionsRenderer.setDirections(result);
-                var distancia_total = google.maps.geometry.spherical.computeDistanceBetween(puntoA,puntoB);
-                var distancia_recorrida = google.maps.geometry.spherical.computeDistanceBetween(puntoA, puntoC);
-                var progreso = (distancia_recorrida / distancia_total) * 100;
-                console.log('Progreso de entrega: '+progreso.toFixed(2) + '%');
-                var barentrega = document.getElementById('barentrega');
-                barentrega.style.width = progreso.toFixed(2) + '%';
-                
-            } else {
-                // Manejar el caso de error
-                window.alert('No se pudo trazar la ruta: ' + status);
-            }
-        });
-
-    }
-
-    });
-        
-    }
-</script>
-
-
 
 </html>

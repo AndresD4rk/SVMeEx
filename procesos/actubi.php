@@ -24,7 +24,7 @@
        // Buscar el objeto con idrep igual a "x"
        foreach ($data as &$item) {
            if ($item['ident'] == $ident) {
-                    $item['idrep'] =  $idrep;
+                    $item['idrep'] =  intval($idrep);
                     $item['latrep'] =  floatval($lat);        
                     $item['lonrep'] =  floatval($lng);                            
            }
