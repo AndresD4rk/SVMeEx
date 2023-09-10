@@ -205,7 +205,8 @@ include "../procesos/conexion.php";
                     <!-- Descripcion de entrega -->
                     <div class="col-lg-4 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate">Id Entrega</label>
-                        <input type="text" class="form-control" name="ident" value="<?php echo $_GET['ident'];?>" required>
+                        <input type="text" class="form-control" name="" value="<?php echo $_GET['ident'];?>" required disabled>
+                        <input type="text" class="form-control" name="ident" value="<?php echo $_GET['ident'];?>" required hidden>
                     </div>
                     <!-- Valor total -->
                     <div class="col-lg-4 col-12">

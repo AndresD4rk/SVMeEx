@@ -206,7 +206,10 @@ include "../procesos/conexion.php";
                           $ident = $datos['idcom'];
                           $nompro = $datos['nompro'];
                           $canpro = $datos['canpro'];  
-                          $VCompra=$datos['tolcar'];                                                                           
+                          $VCompra=$datos['tolcar'];      
+                          if ($VCompra==null){
+                            $VCompra=-1;
+                          }                                                                     
                         echo  "<tr style='text-align: center;''> 
                         <td>$ident</td>
                         <td>$nompro</td>
