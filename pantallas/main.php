@@ -146,7 +146,7 @@ include "../procesos/conexion.php";
                     $minsto = $datos['mininv'];
                     $vensto = $cansto - $minsto;
                     echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
-                                <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                                <img class="card-img-top" src="../img/productos/'.$idpro.'.webp" alt="Card image cap">
                                 <div class="card-body">
                                 <p class="card-title">' . $nompro . '</p>
                                 <p class="card-text" >$ ' . number_format($precio) . '</p>      
