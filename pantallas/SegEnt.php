@@ -187,7 +187,7 @@ include "../procesos/conexion.php";
                           <th>Entrega #</th>
                           <th>Fecha</th>
                           <th>Direccion</th>
-                          <th>Detalles</th>
+                          <th>Detalles Dirección</th>
                           <th>Estado</th>
                           <th>Action</th>
                         </tr>
@@ -202,11 +202,11 @@ include "../procesos/conexion.php";
                         ORDER BY c.feccom");
                         while ($datos = $sql->fetch_array()) {
                           $ident = $datos['ident'];
-                          $dirent = $datos['feccom'];
-                          $detent = $datos['idcom'];
-                          $estent = $datos['idcom'];                        
+                          $dirent = $datos['dirent'];
+                          $detent = $datos['detent'];
+                          $estent = $datos['estent'];                        
                           $idcom = $datos['idcom']; 
-                          $feccom = $datos['idcom'];                           
+                          $feccom = $datos['feccom'];                           
                         echo  "<tr style='text-align: center;''> 
                         <td>$ident</td>
                         <td>$feccom</td>

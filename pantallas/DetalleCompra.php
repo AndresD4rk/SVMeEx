@@ -200,6 +200,7 @@ include "../procesos/conexion.php";
                                 <?php
                                 $vtotalcompra = 0;
                                 $idcom = $_GET['idcom'];
+                                $ident = $_GET['ident'];
                                 $sql = $conexion->query("SELECT * FROM compra AS c
                         INNER JOIN carrito AS a ON a.idcar=c.idcar
                         INNER JOIN detcarrito AS d ON d.idcar=a.idcar
@@ -207,11 +208,11 @@ include "../procesos/conexion.php";
                         WHERE c.idcom=$idcom                  
                         ORDER BY c.feccom");
                                 while ($datos = $sql->fetch_array()) {
-                                    $ident = $datos['idcom'];
+                                    $idcom = $datos['idcom'];
                                     $nompro = $datos['nompro'];
                                     $canpro = $datos['canpro'];
                                     echo  "<tr style='text-align: center;''> 
-                        <td>$ident</td>
+                        <td>$idcom</td>
                         <td>$nompro</td>
                         <td>$canpro</td>                                                        
                        ";
