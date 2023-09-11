@@ -25,7 +25,7 @@
 
 <body>
     <main class="container-fluid align-items-center justify-content-center">
-        <form class="row" action="../procesos/newprod.php" method="POST">
+        <form class="row" action="../procesos/newprod.php" method="POST" enctype="multipart/form-data">
             <div class="col-12">
                 <h1 class="text-center">MercaExpress</h1>
                 <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
@@ -64,7 +64,7 @@
             <!-- IMAGEN DEL PRODUCTO -->
             <div class="col-lg-4 col-12">
                 <label for="exampleInputEmail1" class="form-label text-truncate">Imagen del producto</label>
-                <input type="file" class="form-control" name="imagen" accept="image/*" required>
+                <input type="file" class="form-control" name="pimg" accept="image/*" required>
             </div>
             <!-- CANTIDAD DEL PRODUCTO -->
             <div class="col">
