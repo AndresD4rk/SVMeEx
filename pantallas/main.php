@@ -41,7 +41,7 @@ include "../procesos/conexion.php";
                 <!-- <span class="navbar-brand">ercaexpress</span> -->
             </div>
             <div class="col-sm-12 col-md-5 col-lg-6 my-2 justify-content-center align-content-end">
-                <div class="input-group ">                
+                <div class="input-group ">
                     <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Buscar Producto">
                     <a class="input-group-text"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
                 </div>
@@ -63,7 +63,7 @@ include "../procesos/conexion.php";
                         <button class="btn btn-outline-dark" type="button" onclick="">
                             <span class="fa-solid fa-circle-user"></span>
                         </button>
-                    </div>                    
+                    </div>
                 </div>
             </div>
 
@@ -122,9 +122,11 @@ include "../procesos/conexion.php";
 
         <!-- Inicio Carrito -->
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="container mt-sm-4 mt-2" id="getcarrito">
-                
-                
+            <div class="offcanvas-body">
+                <div class="container-fluid mt-sm-4 mt-2" id="getcarrito">
+
+
+                </div>
             </div>
         </div>
         <!-- Fin Carrito -->
@@ -136,7 +138,7 @@ include "../procesos/conexion.php";
                                         INNER JOIN categoria as c on p.idcat = c.idcat                                        
                                         INNER JOIN inventario as s on p.idpro = s.idpro");
                 echo '  <div class="card-group">
-                        <div class="row align-content-center justify-content-center">';
+                            <div class="row align-content-center justify-content-center">';
                 while ($datos = $sql->fetch_array()) {
                     $idpro = $datos['idpro'];
                     $nompro = $datos['nompro'];
@@ -145,16 +147,22 @@ include "../procesos/conexion.php";
                     $cansto = $datos['caninv'];
                     $minsto = $datos['mininv'];
                     $vensto = $cansto - $minsto;
-                    echo    '<div class="card col-md-4 mx-1 my-2" style="width: 18rem;">
-                                <img class="card-img-top" src="../img/productos/'.$idpro.'.webp" alt="Card image cap">
+                    echo '  <div class="card col-md-4 mx-1 my-2" style="width: 18rem;">                                
+                                <img class="card-img-top mx-auto mt-1 img-fluid h-50" src="../img/productos/' . $idpro . '.webp" alt="Card image cap">                            
                                 <div class="card-body">
-                                <p class="card-title">' . $nompro . '</p>
-                                <p class="card-text" >$ ' . number_format($precio) . '</p>      
-                                <p class="card-text text-end"> ' . number_format($cansto) . '</p>                            
-                                <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $vensto . ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                    <p class="card-title text-center fw-semibold">' . $nompro . '</p>                                   
+                                    <p class="card-text">
+                                        <div class= "row">
+                                            <span class="col-sm text-sm-start col-12 text-center">' . $nomcat . '</span> 
+                                            <span class="col-sm text-sm-end col-12 text-center"> Cant:' . number_format($cansto) . '</span>
+                                        </div>
+                                    </p>                            
+                                    <p class="card-text text-end" >Precio: $' . number_format($precio) . '</p>   
+                                    <div class="col-12 d-flex justify-content-end align-items-end">                                    
+                                        <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $vensto . ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                    </div>
                                 </div>
-                                </div></div>';
+                            </div>';
                 }
                 echo '</div></div>';
                 ?>

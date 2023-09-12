@@ -3,8 +3,9 @@ session_start();
 include "conexion.php";
 ?>
 <!-- Inicio Card Grupo De Carrito -->
-<div class="card-group d-block">
-<h4 class="text-center">Carrito</h4>
+<div class="card-group container-fluid">
+    <div class="row">
+<h4 class="text-center col-12">Carrito</h4>
 <?php
 $sql = $conexion->query("SELECT * FROM carrito as c 
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
@@ -13,7 +14,7 @@ $sql = $conexion->query("SELECT * FROM carrito as c
 if (mysqli_num_rows($sql) > 0) {
     while ($datos = $sql->fetch_array()) { ?>
     
-        <div class="card">
+        <div class="card col-12">
             <div class="row p-1">
                 <div class="col my-auto">
                     <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
@@ -37,7 +38,7 @@ if (mysqli_num_rows($sql) > 0) {
             }
                 ?>
     <!-- Fin Card De Carrito -->
-    </div>
+    </div></div>
     <!-- Fin Card Grupo De Carrito -->
     <div class="card mt-2" style=" background: none; border:none;">
         <div class="d-flex justify-content-end align-content-end">

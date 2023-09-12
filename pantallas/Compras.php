@@ -158,7 +158,7 @@ include "../procesos/conexion.php";
                             ?>
                         </select>
                         <input type="text" class="form-control" id="dirmanual" name="dirm" placeholder="Ingresa la Dirección" style="display: none;">
-                        <button id="btnewdir" type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
+                        <button id="btnewdir" type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(2)">Agregar Dirección</button>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="dircambiar" checked>
                             <label class="form-check-label" for="dircambiar">Manual/Auto</label>
@@ -184,6 +184,18 @@ include "../procesos/conexion.php";
                 </form>
             </div>
         </div>
+
+
+        <div class="offcanvas offcanvas-top h-50" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel" class>
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body" id="formularioContainer">
+                
+            </div>
+        </div>
+
+
     </main>
 </body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
