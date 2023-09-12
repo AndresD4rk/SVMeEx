@@ -12,12 +12,11 @@ $sql = $conexion->query("SELECT * FROM carrito as c
                 INNER JOIN producto AS p ON d.idpro=p.idpro
                 WHERE c.idusu= " . $_SESSION['idusu'] . " AND estado = 1");
 if (mysqli_num_rows($sql) > 0) {
-    while ($datos = $sql->fetch_array()) { ?>
-    
+    while ($datos = $sql->fetch_array()) { ?>    
         <div class="card col-12">
             <div class="row p-1">
                 <div class="col my-auto">
-                    <img src="https://via.placeholder.com/150" class="card-img" alt="Image">
+                    <img class="card-img  mx-auto my-auto img-fluid" src="../img/productos/<?php echo$datos['idpro'] ?>.webp"  alt="Card image cap" style="max-height: 120px;"> 
                 </div>
                 <div class="col my-auto">
                     <div class="row">
