@@ -1,12 +1,11 @@
 <?php
 session_start();
-// if (empty($_SESSION['rol'])) {
-//     header("location:page-404.html");
-// }
+if (empty($_SESSION['rol'])) {
+    header("location:page-404.html");
+}
 include "../procesos/conexion.php";
+$rol = $_SESSION['rol'];
 ?>
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -90,27 +89,33 @@ include "../procesos/conexion.php";
             </div>
             <div class="offcanvas-body">
                 <div class="row justify-content-center align-content-center">
-                    <div class="col-12  mb-2">
-                        <a href="ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
-                    </div>
-                    <div class="col-12  mb-2">
-                        <a class="btn btn-dark w-100 vercarrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
-                    </div>
-                    <div class="col-12  mb-2">
-                        <a href="Entregas.php" class="btn btn-dark w-100"><i class="fa-solid fa-truck-fast me-2"></i>Entregas</a>
-                    </div>
-                    <div class="col-12  mb-2">
-                        <a href="SegEnt.php" class="btn btn-dark w-100"><i class="fa-solid fa-magnifying-glass-location me-2"></i>Seguir entrega</a>
-                    </div>
-                    <div class="col-12  mb-2">
-                        <a href="HistoCompras.php" class="btn btn-dark w-100"><i class="fa-solid fa-clock-rotate-left me-2"></i></i>Historial de Compras</a>
-                    </div>
-                    <div class="col-12  mb-2">
-                        <a href="AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Agregar Producto</a>
-                    </div>
-                    <div class="col-12  mb-2">
-                        <a href="EntregasHabilitadas.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Entregas Disponibles</a>
-                    </div>
+                    <?php if ($rol == 1) { ?>
+                        <div class="col-12  mb-2">
+                            <a href="ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
+                        </div>
+                        <div class="col-12  mb-2">
+                            <a href="Entregas.php" class="btn btn-dark w-100"><i class="fa-solid fa-truck-fast me-2"></i>Entregas</a>
+                        </div>
+                        <div class="col-12  mb-2">
+                            <a href="AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Agregar Producto</a>
+                        </div>
+                    <?php } ?>
+                    <?php if ($rol == 2) { ?>
+                        <div class="col-12  mb-2">
+                            <a class="btn btn-dark w-100 vercarrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
+                        </div>
+                        <div class="col-12  mb-2">
+                            <a href="SegEnt.php" class="btn btn-dark w-100"><i class="fa-solid fa-magnifying-glass-location me-2"></i>Seguir entrega</a>
+                        </div>
+                        <div class="col-12  mb-2">
+                            <a href="HistoCompras.php" class="btn btn-dark w-100"><i class="fa-solid fa-clock-rotate-left me-2"></i></i>Historial de Compras</a>
+                        </div>
+                    <?php } ?>
+                    <?php if ($rol == 3) { ?>
+                        <div class="col-12  mb-2">
+                            <a href="EntregasHabilitadas.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Entregas Disponibles</a>
+                        </div>
+                    <?php } ?>
                     <div class="col-12  mb-2">
                         <a href="../procesos/CerSes.php" class="btn btn-dark w-100"><i class="fa-solid fa-door-closed me-2"></i>Salir</a>
                     </div>
