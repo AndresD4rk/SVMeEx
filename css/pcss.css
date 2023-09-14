@@ -29,7 +29,7 @@ background-attachment: fixed;
     height: 100vh;
    
 }
-#formid{
+.formid{
     /* background-color:rgba(113,122,133,0.7); */
     margin-top: 100px;
     
@@ -39,7 +39,7 @@ background-attachment: fixed;
       width: 75%;
       height: 100%;
     }
-    #formid{
+    .formid{
         margin-top: 25px;
     }
 }
@@ -48,7 +48,7 @@ background-attachment: fixed;
       width: 85%;
       height: 100%;
     }
-    #formid{
+    .formid{
         margin-top: 15px;
     }
 }

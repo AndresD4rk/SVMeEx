@@ -346,3 +346,32 @@ var urlDestino = '../pantallas/Compras.php';
 window.location.href = urlDestino;
 }
 
+//SCRIPT PARA EL REGISTRO
+function goformlogin() {
+    // Obtener el formulario
+    const formulario = document.getElementById('formlogin');
+    // Crear un objeto FormData con los datos del formulario
+    const formData = new FormData(formulario);
+    // Realizar la solicitud Fetch
+    fetch('../procesos/valilogin.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error en la solicitud.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Se recibió una respuesta exitosa del servidor
+            //alert(data);
+            //
+
+        })
+        .catch(error => {
+            // Ocurrió un error en la solicitud
+            console.error('Error en la solicitud:', error);
+            alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+        });
+}

@@ -22,7 +22,7 @@
 <body>
 <main class="d-flex align-items-center justify-content-center"> 
   <div  id="loginform" > 
-<form class="logo" id="formid" action="../procesos/valilogin.php" method="POST">
+<form class="logo formid" id="formlogin" action="../procesos/valilogin.php" method="POST">
 <div  class="mb-4">
   <!-- <h1 class="text-center">MercaExpress</h1> -->
   <img src="../img/logoME.webp" class="col-6 rounded mx-auto d-block" alt="...">
