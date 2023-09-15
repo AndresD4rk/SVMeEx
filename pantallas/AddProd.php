@@ -17,12 +17,19 @@
     <meta property="og:site_name" content="SVMeEx" />
     <link rel="shortcut icon" href="../img/logoMER.webp" />
     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/mcss.css">
     <!-- <link rel="stylesheet" href="./css/pcss.css"> -->
     <script src="../js/bootstrap.js"></script>
     <script src="../js/fetch.js"></script>
+    <script src="../js/reusehtml.js"></script>
+    <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 
 </head>
-
+<header class="header-bg-color" id="ruheader">
+<script src="../js/reusehtml.js"></script>
+    <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
+    <script>mostrartopmenu()</script>    
+</header>
 <body>
     <main class="container-fluid align-items-center justify-content-center">
         <form class="row" action="../procesos/newprod.php" method="POST" enctype="multipart/form-data">
