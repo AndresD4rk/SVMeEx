@@ -23,7 +23,7 @@
 <form id="formid" action="../procesos/newusureg.php" method="POST" enctype="multipart/form-data">
 <div  class="mb-4">
   <h1 class="text-center">MercaExpress</h1>
-  <img src="img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
+  <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="...">
 </div>
 <div class="col-11 mx-auto">
 <h2 class="text-center">Registro de Usuario</h2>

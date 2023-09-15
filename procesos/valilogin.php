@@ -2,9 +2,12 @@
 <html>
 <link rel="stylesheet" href="../css/swal.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="../css/pcss.css">
+<body>
 <?php
 session_start();
 include "conexion.php";
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_POST['email']) and empty($_POST['pass'])) {
         echo '';
@@ -96,6 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
 ?>
+</body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 
 </html>

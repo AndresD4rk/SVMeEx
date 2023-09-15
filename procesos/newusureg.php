@@ -26,7 +26,7 @@ if (empty($_POST['email'])) {
 
     $sql1 = $conexion->query("INSERT INTO
         usuario (idusu,prinom,segnom,priape,segape,rol)
-        VALUES ($idusu,'$nom1','$nom2','$ape1','$ape2', 1)");
+        VALUES ($idusu,'$nom1','$nom2','$ape1','$ape2', 2)");
     if ($sql1) {
         $sql2 = $conexion->query("INSERT INTO
         seguridad (correo, clave, idusu)
@@ -37,7 +37,7 @@ if (empty($_POST['email'])) {
             $_SESSION['nom2'] = $nom2;
             $_SESSION['ape1'] = $ape1;
             $_SESSION['ape2'] = $ape2;
-            $_SESSION['rol'] = 1;
+            $_SESSION['rol'] = 2;
             echo '<script type="text/javascript">
             alert("BIENVENIDO! ' . $_SESSION['nom1'] . " " . $_SESSION['ape1'] . '");
             window.location= "../pantallas/main.php";

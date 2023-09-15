@@ -8,7 +8,7 @@
   }
 
 body{
-background-image: url(../img/SKYFOND.jpg);
+background-image: url(../img/SKYFONDO.jpg);
 /* filter: grayscale(0.1); */
 /* background: rgb(1,230,0);
 background: linear-gradient(0deg, rgba(1,230,0,1) 55%, rgba(254,220,0,1) 100%); */
@@ -16,8 +16,8 @@ background-repeat: no-repeat;
 background-size: cover;
 background-position: center center;
 background-attachment: fixed;
-
 }
+
 .logo{
     padding: 12px;
     background-color: rgba(36, 38, 45, 0.25);

@@ -213,11 +213,13 @@ include "../procesos/conexion.php";
                        ";
                           echo '<td>
                       <div class="row">
-                      <a class="col" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
+                      <div class "col">
+                      <a class="btn btn-danger m-1" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
                             if ($estent==0){
-                                echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
+                                echo '<a class="btn btn-success m-1" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
                             }
-                      echo '                        
+                      echo ' 
+                      </div>                       
                       </div>
                     </td>
                   </tr>';
