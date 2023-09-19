@@ -1,0 +1,58 @@
+:root {
+    --color-clvr: #01e600;
+    --color-clrj: #ea3f6f;
+    --color-claz: #1eb2f2;
+    --color-clgr: #717a85;
+    --color-clam: #fedc00;
+    --color-clng: #24262d;
+  }
+
+body{
+background-image: url(../img/SKYFONDO.jpg);
+/* filter: grayscale(0.1); */
+/* background: rgb(1,230,0);
+background: linear-gradient(0deg, rgba(1,230,0,1) 55%, rgba(254,220,0,1) 100%); */
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+
+.logo{
+    padding: 12px;
+    background-color: rgba(36, 38, 45, 0.25);
+
+}
+
+#loginform{
+    width: 45%;
+    height: 100vh;
+   
+}
+.formid{
+    /* background-color:rgba(113,122,133,0.7); */
+    margin-top: 100px;
+    
+}
+@media (max-width: 1023px) {
+    #loginform {
+      width: 75%;
+      height: 100%;
+    }
+    .formid{
+        margin-top: 25px;
+    }
+}
+@media (max-width: 767px) {
+    #loginform {
+      width: 85%;
+      height: 100%;
+    }
+    .formid{
+        margin-top: 15px;
+    }
+}
+
+
+
+  

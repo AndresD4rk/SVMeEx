@@ -3,7 +3,7 @@
 <html lang="es">
 <?php 
 session_start();
-include "../procesos/conexion.php";
+include "../includes/conexion.php";
 $rol = $_SESSION['rol'];
 ?>
 <head>
@@ -18,77 +18,28 @@ $rol = $_SESSION['rol'];
     <meta property="og:title" content="Supermercado Virtual MercaExpress" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
-    <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/mcss.css">
+    <link rel="shortcut icon" href="../assets/img/logoMER.webp" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/mcss.css">
     <!-- <link rel="stylesheet" href="./css/pcss.css"> -->    
-    <script src="../js/fetch.js"></script>
-    <script src="../js/reusehtml.js"></script>
-    <script src="../js/bootstrap.js"></script>
-    <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
+    <script src="../assets/js/fetch.js"></script>
+    <script src="../assets/js/reusehtml.js"></script>
+    <script src="../assets/js/bootstrap.js"></script>
+    
 
 </head>
-<header class="header-bg-color" id="ruheader">
-    <script>
-        mostrartopmenu()
-    </script>
-</header>
+<header class="header-bg-color" id="topheader"></header>
 
 <body>
     <main class="container-fluid align-items-center justify-content-center">
         <!-- Inicio Menu LATERAL -->
-        <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-            <div class="offcanvas-header justify-content-center align-content-center mb-1  mb-md-2">
-                <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
-                <div class="">
-                    <img class="logonav" src="../img/logoMER.webp" alt="..." style="height:55px;">
-                    <a class="navbar-brand mx-auto align-text-top" style="font-size: 30px; color:#24262d;">enu</a>
-                </div>
-                <!-- <div>
-                    <h4><?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?></h4>
-                </div> -->
-            </div>
-            <div class="offcanvas-body">
-                <div class="row justify-content-center align-content-center">
-                    <?php if ($rol == 1) { ?>
-                        <div class="col-12  mb-2">
-                            <a href="ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
-                        </div>
-                        <div class="col-12  mb-2">
-                            <a href="Entregas.php" class="btn btn-dark w-100"><i class="fa-solid fa-truck-fast me-2"></i>Entregas</a>
-                        </div>
-                        <div class="col-12  mb-2">
-                            <a href="AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Agregar Producto</a>
-                        </div>
-                    <?php } ?>
-                    <?php if ($rol == 2) { ?>
-                        <div class="col-12  mb-2">
-                            <a class="btn btn-dark w-100 vercarrito" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions1"><i class="fa-solid fa-cart-shopping me-2"></i>Carrito</a>
-                        </div>
-                        <div class="col-12  mb-2">
-                            <a href="SegEnt.php" class="btn btn-dark w-100"><i class="fa-solid fa-magnifying-glass-location me-2"></i>Seguir entrega</a>
-                        </div>
-                        <div class="col-12  mb-2">
-                            <a href="HistoCompras.php" class="btn btn-dark w-100"><i class="fa-solid fa-clock-rotate-left me-2"></i></i>Historial de Compras</a>
-                        </div>
-                    <?php } ?>
-                    <?php if ($rol == 3) { ?>
-                        <div class="col-12  mb-2">
-                            <a href="EntregasHabilitadas.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Entregas Disponibles</a>
-                        </div>
-                    <?php } ?>
-                    <div class="col-12  mb-2">
-                        <a href="../procesos/CerSes.php" class="btn btn-dark w-100"><i class="fa-solid fa-door-closed me-2"></i>Salir</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Menu LATERAL -->
         
-        <form class="row" action="../procesos/newprod.php" method="POST" enctype="multipart/form-data">
+        <form class="row" action="../admin/process/newprod.php" method="POST" enctype="multipart/form-data">
             <div class="col-12">
                 <h1 class="text-center">MercaExpress</h1>
-                <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
+                <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
                 <h2 class="text-center">Registro de Productos</h2>
             </div>
             <!-- FAMILIA DEL PRODUCTO
@@ -153,7 +104,7 @@ $rol = $_SESSION['rol'];
             </div>
 
             <div class="row mt-5">
-                <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
+                <div class="col-6 text-start"><a href="../public/main.php" class="btn btn-warning">Regresar</a></div>
                 <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
             </div>
 
@@ -168,6 +119,7 @@ $rol = $_SESSION['rol'];
 
     </main>
 </body>
-
-
+<script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/reusephp.js"></script>
 </html>

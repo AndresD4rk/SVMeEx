@@ -53,5 +53,5 @@ function mostrartopmenu() {
 
 function redirigirAPagina() {
     // Cambia 'nombre-de-tu-pagina.html' por la URL de la página a la que deseas redirigir.
-    window.location.href = 'HistoCompras.php';
+    window.location.href = '../customers/HistoCompras.php';
 }

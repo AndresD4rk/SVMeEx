@@ -50,16 +50,16 @@
     {
         "ident": 15,
         "idrep": 2,
-        "latrep": 6.6052,
-        "lonrep": -73.0681,
+        "latrep": 6.4711072,
+        "lonrep": -73.26473,
         "latent": 6.4736204,
         "lonent": -73.2593095
     },
     {
-        "ident": 16,
-        "idrep": -1,
-        "latrep": 0,
-        "lonrep": 0,
+        "ident": 18,
+        "idrep": 2,
+        "latrep": 6.4711072,
+        "lonrep": -73.26473,
         "latent": 6.4736138,
         "lonent": -73.2593191
     }

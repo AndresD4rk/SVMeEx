@@ -1,0 +1,89 @@
+/* Personalizar la barra de desplazamiento vertical */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(36, 38, 45, 0.4); /* Color del thumb (el "botón" de la barra) */
+    border-radius: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent; /* Color de fondo de la pista de desplazamiento */
+}
+:root {
+    --color-clvr: #01e600;
+    --color-clrj: #ea3f6f;
+    --color-claz: #1eb2f2;
+    --color-clgr: #717a85;
+    --color-clam: #fedc00;
+    --color-clng: #24262d;
+    --color-clbl2: #f5f1f0;
+  }
+
+body{
+    background-color: var(--color-clbl2);
+    
+}
+.header-bg-color{
+    /* background-color: rgb(1, 230, 0); rgb(0, 179, 0) rgb(0, 153, 0)*/
+    background-color: rgb(0, 179, 0);
+}
+.footer-bg-color{
+    background-color: rgb(0, 179, 0);    
+}
+.car-bg-color{
+    background-color: rgba(254, 220, 0,0.5);
+    /* background-color: rgb(177, 153, 0); rgb(254, 220, 0) rgb(203, 175, 0)*/
+}
+.car-img-list{
+    max-height: 150px;
+    max-width: 150px;    
+}
+
+.logonav{
+    /* filter: grayscale(100%); */
+    filter: brightness(0);
+}
+.menulat{
+
+    /* background-color: rgb(245, 241, 240); */
+    /* background-color: rgb(0, 153, 0); */
+    background-color: rgb(0, 179, 0);
+    /* background: rgba(245, 241, 240,1); */
+    /* background-color: rgba(30, 178, 242,0.5); */
+/* background: linear-gradient(180deg, rgba(245, 241, 240,1) 0%, rgba(168, 165, 165,1) 100%); */
+    /* background-image: url(../img/SKYFOND.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed; */
+
+}
+#bgimgrespon{
+    background-repeat: no-repeat;
+background-size: cover;
+background-position: center center;
+background-attachment: fixed;
+}
+@media (max-width: 575.98px) {
+    .offcanvas.offcanvas-start {
+        top: 0;
+        left: 0;
+        width: 75vw;
+        border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+        transform: translateX(-100%);
+      }
+      .offcanvas.offcanvas-end {
+        top: 0;
+        right: 0;
+        width: 75vw;
+        border-right: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
+        transform: translateX(100%);
+      }
+}
+
+
+
+
+  

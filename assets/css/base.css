@@ -1,0 +1,128 @@
+:root {
+  --color-primary: #f5f1f0; /* Color primario */
+  --color-secondary: #717a85; /* Color secundario */
+  --color-success: #01e600; /* Color de éxito */
+  --color-danger: #dc3545; /* Color de peligro */
+  --color-warning: #fedc00; /* Color de advertencia */
+  --color-info: #1eb2f2; /* Color de información */
+  --color-black: #24262d; /* Color Oscuro */
+  --font-size-base: 16px; /* Tamaño base de la fuente */
+}
+.barnav{
+  background-color: var(--color-success);
+  color: #fff;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  margin: 5px;
+}
+.prinav{
+  padding: 0px;
+  text-align: center;
+  background-color: var(--color-black);
+  color: var(--color-primary);
+  margin-top: 0px;
+}
+
+body{
+  margin: 0px;
+  font-size: var(--font-size-base);
+}
+h1 {
+  font-size: 2rem; /* El tamaño de fuente será el doble del tamaño base */
+}
+
+p {
+  font-size: 1.2rem; /* El tamaño de fuente será un 20% más grande que el tamaño base */
+}
+@media screen and (max-width: 768px) {
+  /* Estilos específicos para pantallas de hasta 768px de ancho */
+  h1 {
+    font-size: 1.5rem; /* Reducir el tamaño de fuente para pantallas más pequeñas */
+  }
+}
+
+
+#sidebar {
+  width: 200px;
+  background-color: var(--color-info);
+  transition: transform 0.3s ease;
+  transform: translateX(-200px);
+}
+
+
+#content {
+  flex: 1;
+  padding: 20px;
+}
+
+#sidebar.open {
+  transform: translateX(0);
+}
+
+@media screen and (max-width: 768px) {
+  #sidebar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  #sidebar.open {
+    left: 0;
+  }
+}
+
+.overflow-auto {
+  overflow: auto !important;
+}
+
+.overflow-hidden {
+  overflow: hidden !important;
+}
+
+.overflow-visible {
+  overflow: visible !important;
+}
+
+.overflow-scroll {
+  overflow: scroll !important;
+}
+
+.overflow-x-auto {
+  overflow-x: auto !important;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+
+.overflow-x-visible {
+  overflow-x: visible !important;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll !important;
+}
+
+.overflow-y-auto {
+  overflow-y: auto !important;
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+
+.overflow-y-visible {
+  overflow-y: visible !important;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll !important;
+}
+
+.d-flex {
+  display: flex !important;
+}

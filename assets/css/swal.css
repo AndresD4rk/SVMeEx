@@ -1,0 +1,15 @@
+.swal-overlay {
+    background-color: rgba(36, 38, 45, 0.5);
+    backdrop-filter: brightness(0, 5);
+}
+
+.swal-icon {
+    height: 110px;
+    width: 110px;
+}
+
+.swal-modal {
+    background-color: rgba(245, 241, 240, 1);
+    backdrop-filter: brightness(0, 5);
+    border: 0.7px solid black;
+}
