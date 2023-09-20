@@ -246,7 +246,7 @@ function enviarFormularioCarrito(idprod, stock) {
             // Realizar operaciones con la cantidad ingresada
             // alert("Ha seleccionado " + cantidad + " unidades del producto.");
             // Puedes enviar la cantidad al servidor o realizar otras acciones aquí
-            const url = '../../customers/process/newcar.php?idprod=' + idprod + '&canpro=' + cantidad + '';
+            const url = '../customers/process/newcar.php?idprod=' + idprod + '&canpro=' + cantidad + '';
             fetch(url)
                 .then(response => {
                     if (!response.ok) {

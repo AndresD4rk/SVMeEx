@@ -1,13 +1,26 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="../../assets/css/swal.css">
 <?php
 session_start();
 $idusu = 0;
-include "conexion.php";
+include "../../includes/conexion.php";
 
 if (empty($_POST['email'])) {
-    echo '<script type="text/javascript">
-    alert("Error Informe a Soporte");
-    history.back();
-    </script>';
+    ?>
+    <script>                    
+            document.addEventListener("DOMContentLoaded", function() {
+                swal({
+                        title: 'Error email no disponible',  
+                        text: "\n",                              
+                        icon: 'warning',
+                        buttons: false,
+                        timer: 3000,
+                    })
+                    .then((value) => {
+                        window.history.back();
+                    });
+            });
+        </script><?php      
 } else if ($_POST["clave"] == $_POST["clave2"]) {
     $email = $_POST["email"];
     $clave = $_POST["clave"];
@@ -38,26 +51,72 @@ if (empty($_POST['email'])) {
             $_SESSION['ape1'] = $ape1;
             $_SESSION['ape2'] = $ape2;
             $_SESSION['rol'] = 2;
-            echo '<script type="text/javascript">
-            alert("BIENVENIDO! ' . $_SESSION['nom1'] . " " . $_SESSION['ape1'] . '");
-            window.location= "../pantallas/main.php";
-            </script>
-            ';
+            ?>
+                <script>                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                        swal({
+                                title: 'BIENVENIDO!',
+                                text: '<?php echo $_SESSION['nom1'] . " " . $_SESSION['ape1'] ?>',
+                                icon: '../../assets/img/logoMER.webp',
+                                buttons: false,
+                                timer: 1900,
+                            })
+                            .then((value) => {
+                                window.location = "../main.php";
+                            });
+                    });
+                </script>
+
+<?php
         } else {
-            echo '<script type="text/javascript">
-            alert("Fallo el resgistro!");
-            window.location= "../pantallas/Regis.php";
-            </script>';
+            ?>
+            <script>                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                        swal({
+                                title: 'Fallo registro',
+                                text: '\n',
+                                icon: 'error',                                                                          
+                                buttons: false,
+                                timer: 1900,
+                            })
+                            .then((value) => {
+                                window.history.back();
+                            });
+                    });
+                </script><?php               
         }
     } else {
-        echo '<script type="text/javascript">
-    alert("Ha ocurrido un problema comuniquese con administración");
-    history.back();
-    </script>';
+        ?>
+            <script>                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                        swal({
+                                title: 'Ha ocurrido un problema!',
+                                text: 'Comuniquese con administración',
+                                icon: 'error',                                                                          
+                                buttons: false,
+                                timer: 1900,
+                            })
+                            .then((value) => {
+                                window.history.back();
+                            });
+                    });
+                </script><?php   
+
     }
 } else {
-    echo '<script type="text/javascript">
-    alert("Las claves no coinciden");
-    history.back();
-    </script>';
+    ?>
+            <script>                    
+                    document.addEventListener("DOMContentLoaded", function() {
+                        swal({
+                                title: 'Claves Diferentes',
+                                text: 'Ingrese la misma clave',
+                                icon: 'error',                                                                          
+                                buttons: false,
+                                timer: 1900,
+                            })
+                            .then((value) => {
+                                window.history.back();
+                            });
+                    });
+                </script><?php       
 }
