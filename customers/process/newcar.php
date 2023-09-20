@@ -1,5 +1,3 @@
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <?php
 session_start();
 include "../../includes/conexion.php";
@@ -9,6 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
    } else {
       $idpro = $_GET['idprod'];
       $canpro = $_GET['canpro'];
+      $precio = $_GET['precio'];
       $idusu = $_SESSION['idusu'];
       $idcar = 0;
       //Revisa si el usuario tiene un carrito creado
@@ -27,44 +26,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             SET canpro=" . $newcant . "
             WHERE idcar =" . $idcar . " AND idpro=" . $idpro . "");
             if ($sql3) {
-               ?>
-      <script>
-         document.addEventListener("DOMContentLoaded", function() {
-            swal("Producto agregado", "En el carrito", "success")
-         });
-      </script>
-      <?php
+               $response = array(
+                  'title' => 'Producto agregado!',
+                  'text' => 'Al carrito',
+                  'icon' => 'success',
+                  'buttons' => false,
+                  'timer' => 3000,
+              );              
+              echo json_encode($response);
             } else {
-               ?>
-      <script>
-         document.addEventListener("DOMContentLoaded", function() {
-            swal("Error!", "Al actualizar cantidad del producto", "error")         
-         });
-      </script>
-      <?php
+               $response = array(
+                  'title' => 'Error!',
+                  'text' => 'Al agregar producto',
+                  'icon' => 'error',
+                  'buttons' => false,
+                  'timer' => 3000,
+              );              
+              echo json_encode($response);
+            
             }
-         } else {
+         } else {            
             //Agrega el producto al carrito
             $sql3 = $conexion->query("INSERT INTO
             detcarrito (idcar,idpro,canpro,precom)
-            VALUES ($idcar,$idpro,$canpro,-1)");
+            VALUES ($idcar,$idpro,$canpro,$precio)");
             if ($sql3) {
-               ?>
-      <script>
-         document.addEventListener("DOMContentLoaded", function() {
-            swal("Producto agregado", "Al carrito", "success")              
-         });
-      </script>
-      <?php
-
+               $response = array(
+                  'title' => 'Producto agregado!',
+                  'text' => 'Al carrito',
+                  'icon' => 'success',
+                  'buttons' => false,
+                  'timer' => 3000,
+              );              
+              echo json_encode($response);            
             } else {
-               ?>
-      <script>
-         document.addEventListener("DOMContentLoaded", function() {
-            swal("Error", "Al ingresar producto", "error")               
-         });
-      </script>
-      <?php
+               $response = array(
+                  'title' => 'Error!',
+                  'text' => 'Al agregar producto',
+                  'icon' => 'error',
+                  'buttons' => false,
+                  'timer' => 3000,
+              );              
+              echo json_encode($response);               
 
             }
          }
@@ -85,20 +88,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             //Agrega el producto al carrito
             $sql3 = $conexion->query("INSERT INTO
          detcarrito (idcar,idpro,canpro,precom)
-         VALUES ($idcar,$idpro,$canpro,-1)");
+         VALUES ($idcar,$idpro,$canpro,$precio)");
             if ($sql3) {
-               echo '<script type="text/javascript">
-            alert("Producto agregado al carrito");
-            </script>';
+               $response = array(
+                  'title' => 'Producto agregado!',
+                  'text' => 'Al carrito',
+                  'icon' => 'success',
+                  'buttons' => false,
+                  'timer' => 3000,
+              );              
+              echo json_encode($response);             
             } else {
-               echo '<script type="text/javascript">
-            alert("Falla al ingresar producto");
-            </script>';
+               $response = array(
+                  'title' => 'Error!',
+                  'text' => 'Al ingresar producto',
+                  'icon' => 'error',
+                  'buttons' => false,
+                  'timer' => 3000,
+              );              
+              echo json_encode($response);                
             }
          } else {
-            echo '<script type="text/javascript">
-            alert("Falla al crear carrito");
-            </script>';
+            $response = array(
+               'title' => 'Error!',
+               'text' => 'Al crear carrito',
+               'icon' => 'error',
+               'buttons' => false,
+               'timer' => 3000,
+           );              
+           echo json_encode($response);              
          }
       }
    }

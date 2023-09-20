@@ -237,9 +237,9 @@ function mostrarFormularioLP(formulario, idProd) {
 }
 
 
-function enviarFormularioCarrito(idprod, stock) {
+function enviarFormularioCarrito2(idprod, stock) {
     // Usar la función prompt() para solicitar la cantidad
-    var cantidad = prompt("Ingrese la cantidad de producto que desea menor a "+stock+":");
+    var cantidad = prompt("Ingrese la cantidad de producto que desea menor a " + stock + ":");
     // Comprobar si el usuario ingresó una cantidad válida
     if (cantidad !== null) {
         if (cantidad <= stock) {
@@ -267,18 +267,92 @@ function enviarFormularioCarrito(idprod, stock) {
                     alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
                 });
         } else {
-        // El usuario canceló la entrada
-        alert("Se cancelo la solicitud stock no disponible.");
+            // El usuario canceló la entrada
+            alert("Se cancelo la solicitud stock no disponible.");
         }
     } else {
         // El usuario canceló la entrada
         alert("Ha cancelado la solicitud de cantidad.");
     }
 }
+function enviarFormularioCarrito(idprod, stock, precio) {
+    swal({
+        title: 'Ingrese la cantidad de producto',
+        content: {
+            element: 'input',
+            attributes: {
+                type: 'number',
+                max: stock,
+                placeholder: 'Cantidad'
+            }
+        },
+        buttons: {
+            confirm: 'Aceptar'
+        }
+    }).then((value) => {
+        if (value !== null) {
+            if (value != "") {
+                if (value > 0) {
+                    if (value <= stock) {
+                        $.ajax({
+                            url: '../customers/process/newcar.php',
+                            type: 'GET',
+                            dataType: 'json',
+                            data: {
+                                idprod: idprod,
+                                precio: precio,
+                                canpro: value
+                            },
+                            success: function (data) {
+                                // La solicitud se completó con éxito
+                                //alert(data);                    
+                                swal({
+                                    title: data.title,
+                                    text: data.text,
+                                    icon: data.icon,
+                                    buttons: data.buttons,
+                                    timer: data.timer,
+                                })
+
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                // Ocurrió un error en la solicitud
+                                console.error('Error en la solicitud:', errorThrown);
+                                swal({
+                                    title: "Ha ocurrido un error!",
+                                    text: "Por favor, inténtelo nuevamente más tarde.",
+                                    icon: "error",
+                                    buttons: false,
+                                    timer: 3000,
+                                })
+                                //alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+                            }
+                        });
+                    } else {
+                        swal('Operación cancelada', 'Stock no está disponible.', 'info');                        
+                    }
+                } else {
+                    swal('Operación cancelada', 'Valor negativo', 'info');                        
+                 }
+            } else {
+                //alert("Se canceló la solicitud.");
+                swal('Operación cancelada', '\n', 'info');                        
+            }
+        } else {
+            swal('Operación cancelada', '\n', 'info'); 
+            //alert("Se canceló la solicitud de cantidad.");
+        }
+
+    });
+    //var cantidad = prompt("Ingrese la cantidad de producto que desea menor o igual a " + stock + ":");
+}
+
+
+
 
 function enviarFormularioCompra() {
     // Usar la función prompt() para solicitar la cantidad
-    var cantidad = prompt("Ingrese la cantidad de producto que desea menor a "+stock+":");
+    var cantidad = prompt("Ingrese la cantidad de producto que desea menor a " + stock + ":");
     // Comprobar si el usuario ingresó una cantidad válida
     if (cantidad !== null) {
         if (cantidad <= stock) {
@@ -306,8 +380,8 @@ function enviarFormularioCompra() {
                     alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
                 });
         } else {
-        // El usuario canceló la entrada
-        alert("Se cancelo la solicitud stock no disponible.");
+            // El usuario canceló la entrada
+            alert("Se cancelo la solicitud stock no disponible.");
         }
     } else {
         // El usuario canceló la entrada
@@ -338,12 +412,12 @@ function enviarUbicacion(ident, lat, lng) {
         });
 }
 
-function irCompras(){
-// Construye la URL con los datos como parámetros
-var urlDestino = '../customers/Compras.php';
+function irCompras() {
+    // Construye la URL con los datos como parámetros
+    var urlDestino = '../customers/Compras.php';
 
-// Redirige a la página de destino
-window.location.href = urlDestino;
+    // Redirige a la página de destino
+    window.location.href = urlDestino;
 }
 
 //SCRIPT PARA EL REGISTRO

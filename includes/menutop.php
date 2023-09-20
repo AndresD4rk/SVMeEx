@@ -101,3 +101,4 @@ function goAddPro(){
     window.location.href = '../admin/AddProd.php';
 }
 </script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
