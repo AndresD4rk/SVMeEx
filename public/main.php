@@ -36,7 +36,7 @@ $rol = $_SESSION['rol'];
 
 <body>
     <!-- Inicio Main -->
-    <main>
+    <main class="mb-5">
         <!-- Inicio Menu LATERAL -->
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Menu LATERAL -->
@@ -74,7 +74,7 @@ $rol = $_SESSION['rol'];
                                     </p>                            
                                     <p class="card-text text-end" >Precio: $' . number_format($precio) . '</p>   
                                     <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                        <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $vensto . ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                        <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $vensto .', '. $precio .  ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
                                     </div>
                                 </div>
                             </div>';
@@ -88,23 +88,24 @@ $rol = $_SESSION['rol'];
 
 
     </main>
-    <!-- Footer -->
-    <footer class="footer-bg-color text-light text-center py-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <p>&copy; 2023 SVMeEx</p>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a href="#">Inicio</a></li>
-                        <li class="list-inline-item"><a href="#">Productos</a></li>
-                        <li class="list-inline-item"><a href="#">Contacto</a></li>
-                    </ul>
-                </div>
+   <!-- Footer -->
+<footer class="footer-bg-color text-light text-center py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2023 SVMeEx</p>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#">Inicio</a></li>
+                    <li class="list-inline-item"><a href="#">Productos</a></li>
+                    <li class="list-inline-item"><a href="#">Contacto</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+
     <!-- Fin Main -->
 </body>
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>

@@ -2,34 +2,64 @@
 //SCRIPT PARA EL REGISTRO
 function enviarFormularioCat() {
     // Obtener el formulario
+    event.preventDefault();
     const formulario = document.getElementById('CatForm');
 
     // Crear un objeto FormData con los datos del formulario
     const formData = new FormData(formulario);
 
-    // Realizar la solicitud Fetch
-    fetch('../admin/process/newCat.php', {
-        method: 'POST',
-        body: formData
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la solicitud.');
-            }
-            return response.text();
-        })
-        .then(data => {
-            // Se recibió una respuesta exitosa del servidor
+    // Realizar la solicitud AJAX
+    $.ajax({
+        url: '../admin/process/newCat.php',
+        type: 'POST',
+        data: formData,
+        processData: false, // Evitar el procesamiento automático de datos
+        contentType: false, // No establecer el tipo de contenido automáticamente
+        dataType: 'json',
+        success: function (data) {
             //alert(data);
-            //
+            swal({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+                buttons: data.buttons,
+                timer: data.timer,
+            });
 
-        })
-        .catch(error => {
+            if(data.icon=='success'){                
+                recargarSelect();
+                
+            }
+            // Se recibió una respuesta exitosa del servidor
+            // alert(data);
+        },
+        error: function (error) {
             // Ocurrió un error en la solicitud
             console.error('Error en la solicitud:', error);
             alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
-        });
+        }
+    });
+    // Agregar un manejador de eventos al formulario para evitar la recarga de la página
+    formulario.addEventListener('submit', enviarFormularioCat);    
 }
+function recargarSelect() {
+        // Realizar una solicitud AJAX para cargar el nuevo contenido del select
+        $.ajax({
+            url: '../admin/process/recarcate.php', // Especifica la ruta del servidor o API para obtener las nuevas opciones
+            type: 'POST', // Puedes ajustar el método según tu necesidad
+            dataType: 'html', // El tipo de datos que esperas recibir (HTML en este ejemplo)
+            success: function (data) {
+                // Actualiza el contenido del select con las nuevas opciones
+                $('#select-categoria').html(data);    
+                toggleoffcanvas();                              
+            
+            },
+            error: function (error) {
+                console.error('Error en la solicitud:', error);
+                alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+            }
+        });
+    }
 
 
 function newdirect() {
@@ -135,9 +165,30 @@ function mostrarFormulario(formulario) {
     }
 
     // Mostramos el "offcanvas"
-    const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
-    offcanvas.show();
+    toggleoffcanvas();
 }
+// Declarar la variable para almacenar la instancia del offcanvas
+let myOffcanvas = null;
+
+function initOffcanvas() {
+    // Inicializar la instancia del offcanvas solo una vez
+    myOffcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
+}
+
+function toggleoffcanvas() {
+    // Verificar si la instancia del offcanvas está inicializada
+    if (!myOffcanvas) {
+        initOffcanvas();
+    }
+
+    // Llamar al método .toggle() en la instancia existente
+    myOffcanvas.toggle();
+}
+
+
+
+
+
 
 
 function mostrarFormularioLP(formulario, idProd) {
@@ -233,7 +284,7 @@ function mostrarFormularioLP(formulario, idProd) {
 
     // Mostramos el "offcanvas"
     const offcanvas = new bootstrap.Offcanvas(document.getElementById('offcanvasTop'));
-    offcanvas.show();
+    offcanvas.toggle();
 }
 
 
@@ -304,8 +355,7 @@ function enviarFormularioCarrito(idprod, stock, precio) {
                                 canpro: value
                             },
                             success: function (data) {
-                                // La solicitud se completó con éxito
-                                //alert(data);                    
+                                // La solicitud se completó con éxito                                                  
                                 swal({
                                     title: data.title,
                                     text: data.text,
@@ -329,17 +379,17 @@ function enviarFormularioCarrito(idprod, stock, precio) {
                             }
                         });
                     } else {
-                        swal('Operación cancelada', 'Stock no está disponible.', 'info');                        
+                        swal('Operación cancelada', 'Stock no está disponible.', 'info');
                     }
                 } else {
-                    swal('Operación cancelada', 'Valor negativo', 'info');                        
-                 }
+                    swal('Operación cancelada', 'Valor negativo', 'info');
+                }
             } else {
                 //alert("Se canceló la solicitud.");
-                swal('Operación cancelada', '\n', 'info');                        
+                swal('Operación cancelada', '\n', 'info');
             }
         } else {
-            swal('Operación cancelada', '\n', 'info'); 
+            swal('Operación cancelada', '\n', 'info');
             //alert("Se canceló la solicitud de cantidad.");
         }
 

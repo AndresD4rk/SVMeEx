@@ -90,7 +90,7 @@ $rol = $_SESSION['rol'];
             <!-- CATEGORIA DEL PRODUCTO -->
             <div class="col-lg-4 col-12">
                 <label for="exampleInputEmail1" class="form-label text-truncate ">Categoria</label>
-                <select class="form-select" aria-label="Default select example" name="SelCat" required>
+                <select id="select-categoria" class="form-select" aria-label="Default select example" name="SelCat" required>
                     <option value="">Elija una Categoria</option>
                     <?php
                     $sql = $conexion->query("SELECT * 
