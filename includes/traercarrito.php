@@ -24,8 +24,8 @@ include "conexion.php";
                                     <div class="row">
                                         <div class="col-12 card-body text-center">
                                             <h5 class="card-title"><?php echo $datos['nompro'] ?></h5>
-                                            <p class="card-text"><?php echo "$ ".number_format($datos['precio'])." c/u" ?></p>
-                                            <p class="card-text"><?php echo number_format($datos['canpro'])." u" ?></p>
+                                            <p class="card-text mb-0"><?php echo "$ ".number_format($datos['precio'])." c/u" ?></p>
+                                            <p class="card-text"><?php echo "Cantidad: ".number_format($datos['canpro']) ?></p>
                                             <!-- <p class="card-text">Nose</p> -->
                                         </div>
                                         <div class="col-12 d-flex justify-content-end align-items-end">
@@ -46,10 +46,12 @@ include "conexion.php";
             <div class="col-12 mb-2">
                 <h3 class="text-end">
                     <?php 
+                    $vtc=0;
                     $sqlx = $conexion->query("SELECT tolcar FROM carrito
                     WHERE idusu= " . $_SESSION['idusu'] . " AND estado = 1");
                     if ($datos = $sqlx->fetch_array()) {
                         echo "Total: $".number_format($datos['tolcar']);
+                        $vtc=$datos['tolcar'];
                     }
                     ?>
                 
@@ -60,7 +62,7 @@ include "conexion.php";
                     <button onclick="" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 <div class="justify-content-end align-items-end">
-                    <button onclick="irCompras()" class="btn btn-success  float-right">Comprar</button>
+                    <button onclick="irCompras(1)" class="btn btn-success  float-right">Comprar</button>
                 </div>
             </div>
         </div><?php

@@ -77,8 +77,9 @@ include "../procesos/conexion.php";
                     </div>
                     <!-- VALOR DEL PRODUCTO -->
                     <div class="col-lg-4 col-12">
+                        <?php echo "<h1>".$_POST['vtc']."</h1>" ?>
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
-                        <input type="number" class="form-control" name="Precio" value="100000" required disabled>
+                        <input type="number" class="form-control" name="Precio" value="1" required disabled>
                     </div>
 
 

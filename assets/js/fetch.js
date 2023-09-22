@@ -462,12 +462,27 @@ function enviarUbicacion(ident, lat, lng) {
         });
 }
 
-function irCompras() {
-    // Construye la URL con los datos como parámetros
+function irCompras(vtc) {
+    // Construye la URL de destino
     var urlDestino = '../customers/Compras.php';
 
-    // Redirige a la página de destino
-    window.location.href = urlDestino;
+    // Crea un formulario oculto
+    var form = document.createElement('form');
+    form.method = 'post';
+    form.action = urlDestino;
+
+    // Crea un elemento de entrada oculto para el valor vtc
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'vtc'; // Este es el nombre del parámetro
+    input.value = vtc;   // Este es el valor que deseas enviar
+
+    // Agrega el elemento de entrada al formulario
+    form.appendChild(input);
+
+    // Agrega el formulario al cuerpo del documento y envía la solicitud
+    document.body.appendChild(form);
+    form.submit();
 }
 
 //SCRIPT PARA EL REGISTRO
