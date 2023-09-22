@@ -66,8 +66,8 @@ include "../procesos/conexion.php";
                           $nompro = $datos['nompro'];
                           $canpro = $datos['canpro'];  
                           $VCompra=$datos['tolcar'];      
-                          if ($VCompra==null){
-                            $VCompra=-1;
+                          if ($VCompra==0){
+                            $VCompra=-777;
                           }                                                                     
                         echo  "<tr style='text-align: center;''> 
                         <td>$ident</td>

@@ -24,8 +24,8 @@ include "conexion.php";
                                     <div class="row">
                                         <div class="col-12 card-body text-center">
                                             <h5 class="card-title"><?php echo $datos['nompro'] ?></h5>
-                                            <p class="card-text"><?php echo $datos['precio'] ?></p>
-                                            <p class="card-text"><?php echo $datos['canpro'] ?></p>
+                                            <p class="card-text"><?php echo "$ ".number_format($datos['precio'])." c/u" ?></p>
+                                            <p class="card-text"><?php echo number_format($datos['canpro'])." u" ?></p>
                                             <!-- <p class="card-text">Nose</p> -->
                                         </div>
                                         <div class="col-12 d-flex justify-content-end align-items-end">
@@ -43,6 +43,18 @@ include "conexion.php";
         </div>
         <!-- Fin Card Grupo De Carrito -->
         <div class="card mt-2" style=" background: none; border:none;">
+            <div class="col-12 mb-2">
+                <h3 class="text-end">
+                    <?php 
+                    $sqlx = $conexion->query("SELECT tolcar FROM carrito
+                    WHERE idusu= " . $_SESSION['idusu'] . " AND estado = 1");
+                    if ($datos = $sqlx->fetch_array()) {
+                        echo "Total: $".number_format($datos['tolcar']);
+                    }
+                    ?>
+                
+                </h3>
+            </div>
             <div class="d-flex justify-content-end align-content-end">
                 <div class="justify-content-end align-items-end me-1">
                     <button onclick="" class="btn btn-danger float-right">Cancelar</button>
