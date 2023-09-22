@@ -54,7 +54,7 @@ include "../procesos/conexion.php";
                     <div class="col-lg-4 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
                         <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
-                            <option value="">Elija su Dirrección</option>
+                            <option value="" selected>Elija su Dirrección</option>
                             <?php
                             $sql = $conexion->query("SELECT * 
                                 FROM categoria");
@@ -63,7 +63,7 @@ include "../procesos/conexion.php";
                             }
                             ?>
                         </select>
-                        <input type="text" class="form-control" id="dirmanual" name="dirm" placeholder="Ingresa la Dirección" style="display: none;">
+                        <input type="text" class="form-control" id="dirmanual" name="dirm" placeholder="Ingresa la Dirección (Dirección, Municipio)" style="display: none;">
                         <button id="btnewdir" type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(2)">Agregar Dirección</button>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch" id="dircambiar" checked>

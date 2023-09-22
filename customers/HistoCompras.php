@@ -22,11 +22,11 @@ include "../procesos/conexion.php";
     <meta property="og:title" content="Supermercado Virtual MercaExpress" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
-    <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/mcss.css">
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/fetch.js"></script>
+    <link rel="shortcut icon" href="../assets/img/logoMER.webp" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/mcss.css">
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/fetch.js"></script>
 </head>
 <header class="header-bg-color" id="topheader"></header>
 

@@ -22,11 +22,11 @@ include "../procesos/conexion.php";
     <meta property="og:title" content="Supermercado Virtual MercaExpress" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
-    <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/mcss.css">
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/fetch.js"></script>
+    <link rel="shortcut icon" href="../assets/img/logoMER.webp" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/mcss.css">
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/fetch.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc&callback=initMap" async defer></script>
 </head>
 <header class="header-bg-color" id="topheader">
@@ -43,10 +43,10 @@ include "../procesos/conexion.php";
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Carrito -->
         
-        <div class="content-wrapper mt-5">
+        <div class="content-wrapper mt-1">
             <div class="container-fluid">
                 <div class="row">
-                    <div class=" col-xl-6 col-12">
+                    <div class=" col-xl-4 col-12">
                         <div class="progress m-2">
                             <div id="barentrega" class="progress-bar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -87,8 +87,8 @@ include "../procesos/conexion.php";
 
 
 
-                    <div class="col-xl-6 order-xl-last order-first col-12">
-                        <div id="map" style="height: 500px;">
+                    <div class="col-xl-8 order-xl-last order-first col-12">
+                        <div id="map" style="height: 80vh;">
                         </div>
                     </div>
                 </div>

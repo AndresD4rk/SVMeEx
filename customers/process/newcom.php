@@ -6,9 +6,12 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    if (!(empty($_POST['dira']))) {
       $dirent = $_POST['dira'];
+      $dirent=$dirent.", Santader, Colombia";
    } else if ($_POST['dirm'] != "") {
       $dirent = $_POST['dirm'];
-   } else { ?>
+      $dirent=$dirent.", Santader, Colombia";
+   } else {       
+      ?>
       <script>
          document.addEventListener("DOMContentLoaded", function() {
             swal("Dirrección no encontrada", "", "error")

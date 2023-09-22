@@ -1,74 +1,18 @@
 [
     {
-        "ident": 1,
-        "idrep": 2,
-        "latrep": 6.4711072,
-        "lonrep": -73.26473,
-        "latent": 6.4643976,
-        "lonent": -73.2622745
-    },
-    {
-        "ident": 2,
-        "idrep": 2,
-        "latrep": 6.464692115783691,
-        "lonrep": -73.26214599609375,
-        "latent": 6.4643976,
-        "lonent": -73.2622745
-    },
-    {
-        "ident": 12,
-        "idrep": 2,
-        "latrep": 6.6052,
-        "lonrep": -73.0681,
-        "latent": 6.4736204,
-        "lonent": -73.2593095
-    },
-    {
-        "ident": 13,
+        "ident": 21,
         "idrep": -1,
         "latrep": 0,
         "lonrep": 0,
-        "latent": 6.4736204,
-        "lonent": -73.2593095
+        "latent": 6.6437076,
+        "lonent": -73.65362089999999
     },
     {
-        "ident": 14,
+        "ident": 22,
         "idrep": 2,
-        "latrep": 6.467350006103516,
-        "lonrep": -73.2599868774414,
-        "latent": 6.4685576,
-        "lonent": -73.262323
-    },
-    {
-        "ident": 5,
-        "idrep": 2,
-        "latrep": 6.2518,
-        "lonrep": -75.5635,
-        "latent": 6.4736204,
-        "lonent": -73.2593095
-    },
-    {
-        "ident": 15,
-        "idrep": 2,
-        "latrep": 6.4711072,
-        "lonrep": -73.26473,
-        "latent": 6.4736204,
-        "lonent": -73.2593095
-    },
-    {
-        "ident": 18,
-        "idrep": 2,
-        "latrep": 6.4711072,
-        "lonrep": -73.26473,
-        "latent": 6.4736138,
-        "lonent": -73.2593191
-    },
-    {
-        "ident": 8,
-        "idrep": 2,
-        "latrep": 6.987739,
-        "lonrep": -73.05024,
-        "latent": 7.119349,
-        "lonent": -73.1227416
+        "latrep": 6.4615166,
+        "lonrep": -73.2615049,
+        "latent": 6.473673199999999,
+        "lonent": -73.25923279999999
     }
 ]
