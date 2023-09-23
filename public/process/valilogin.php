@@ -2,6 +2,7 @@
 <html>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="../../assets/css/swal.css">
+<link rel="stylesheet" href="../assets/css/pcss.css">
 <body>
 <?php
 session_start();

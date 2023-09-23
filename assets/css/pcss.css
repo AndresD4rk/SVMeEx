@@ -5,54 +5,66 @@
     --color-clgr: #717a85;
     --color-clam: #fedc00;
     --color-clng: #24262d;
-  }
-
-body{
-background-image: url(../img/SKYFONDO.jpg);
-/* filter: grayscale(0.1); */
-/* background: rgb(1,230,0);
-background: linear-gradient(0deg, rgba(1,230,0,1) 55%, rgba(254,220,0,1) 100%); */
-background-repeat: no-repeat;
-background-size: cover;
-background-position: center center;
-background-attachment: fixed;
 }
 
-.logo{
+@font-face {
+    font-family: "OpenSans";
+    src: url('../fonts/OpenSans-Regular.woff') format('woff');
+    src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+body {
+    background-image: url(../img/SKYFONDO.jpg);
+    /* filter: grayscale(0.1); */
+    /* background: rgb(1,230,0);
+background: linear-gradient(0deg, rgba(1,230,0,1) 55%, rgba(254,220,0,1) 100%); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    font-family: "OpenSans", sans-serif;
+}
+
+.logo {
     padding: 12px;
     background-color: rgba(36, 38, 45, 0.25);
 
 }
 
-#loginform{
+#loginform {
     width: 45%;
     height: 100vh;
-   
+
 }
-.formid{
+
+.formid {
     /* background-color:rgba(113,122,133,0.7); */
     margin-top: 100px;
-    
+
 }
+
 @media (max-width: 1023px) {
     #loginform {
-      width: 75%;
-      height: 100%;
+        width: 75%;
+        height: 100%;
     }
-    .formid{
+
+    .formid {
         margin-top: 25px;
     }
 }
+
 @media (max-width: 767px) {
     #loginform {
-      width: 85%;
-      height: 100%;
+        width: 85%;
+        height: 100%;
     }
-    .formid{
+
+    .formid {
         margin-top: 15px;
     }
 }
-
-
-
-  
