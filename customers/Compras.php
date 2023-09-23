@@ -45,13 +45,13 @@ include "../procesos/conexion.php";
         <div class="container-fluid">
             <div class="row">
                 <form class="row" action="process/newcom.php" method="POST">
-                    <div class="col-12">
-                        <h1 class="text-center">Confirmacion de Compra y Entrega</h1>
-                        <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
-                        <h2 class="text-center">Registro de Productos</h2>
+                    <div class="col-12 mb-3">                    
+                        <h3 class="text-center">Confirmación de Compra y Entrega</h3>
+                        <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 150px; max-width: 150px;">
+                        <h4 class="text-center">Datos de Entrega</h4>
                     </div>                   
                     <!-- Direccio entrega -->
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-6 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
                         <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
                             <option value="" selected>Elija su Dirrección</option>
@@ -71,15 +71,14 @@ include "../procesos/conexion.php";
                         </div>
                     </div>
                     <!-- Descripcion de entrega -->
-                    <div class="col-lg-4 col-12">
+                    <div class="col-lg-6 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate">Descripción dirrección/entrega</label>
                         <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto" required>
                     </div>
                     <!-- VALOR DEL PRODUCTO -->
-                    <div class="col-lg-4 col-12">
-                        <?php echo "<h1>".$_POST['vtc']."</h1>" ?>
-                        <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
-                        <input type="number" class="form-control" name="Precio" value="1" required disabled>
+                    <div class="col-12 text-end mt-2">                        
+                        <label for="exampleInputEmail1" class="form-label text-truncate me-2"><h4>Total de compra: </h4><h1>$ <?php echo number_format($_POST['vtc']) ?> </h1> </label>
+                        <input type="text" class="form-control" name="Precio" value="<?php echo number_format($_POST['vtc']) ?>" required hidden>
                     </div>
 
 

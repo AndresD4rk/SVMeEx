@@ -32,6 +32,7 @@ background: linear-gradient(0deg, rgba(1,230,0,1) 55%, rgba(254,220,0,1) 100%); 
 .logo {
     padding: 12px;
     background-color: rgba(36, 38, 45, 0.25);
+    border-radius: 15px;
 
 }
 

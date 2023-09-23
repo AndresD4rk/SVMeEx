@@ -44,8 +44,7 @@ include "../procesos/conexion.php";
                     <div class="col">
                     <table class="table table-light table-bordered mb-0 max-heigh-100" id="dataTable-1">
                       <thead>
-                        <tr style="text-align: center;">
-                          <th>Entrega #</th>
+                        <tr style="text-align: center;">                          
                           <th>Producto</th>
                           <th>Cantidad</th>                                                  
                         </tr>
@@ -65,26 +64,30 @@ include "../procesos/conexion.php";
                           $ident = $datos['idcom'];
                           $nompro = $datos['nompro'];
                           $canpro = $datos['canpro'];  
-                          $VCompra=$datos['tolcar'];      
+                          $VCompra=$datos['tolcar'];                                                       
                           if ($VCompra==0){
                             $VCompra=-777;
                           }                                                                     
-                        echo  "<tr style='text-align: center;''> 
-                        <td>$ident</td>
+                        echo  "<tr style='text-align: center;''>                         
                         <td>$nompro</td>
                         <td>$canpro</td>                                                        
                        ";
                           echo '</tr>
                           </tbody>';
                         }
-                        echo "<table class='table table-light table-bordered mt-0'><tr>
-                        <td class='text-end'>Total de compra</td>
-                        <td class='text-center'>".number_format($VCompra)."</td>
-                    </tr></table>";
+                        
                         ?>
                         
                       </tbody>
                     </table>
+                    <?php
+                    echo "<table class='table table-light table-bordered mt-0'>
+                    <tr>
+                      <td class='text-end'><h4>Total de compra:</h4></td>
+                      <td class='text-center'><h4>$ ".number_format($VCompra)."</h4></td>
+                    </tr>
+                    </table>";
+                    ?>
                     </div>            
             </div>
         
