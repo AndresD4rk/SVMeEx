@@ -69,7 +69,7 @@ $rol = $_SESSION['rol'];
                                     <p class="card-text">
                                         <div class= "row">
                                             <span class="col-sm text-sm-start col-12 text-center">' . $nomcat . '</span> 
-                                            <span class="col-sm text-sm-end col-12 text-center"> Cant:' . number_format($cansto) . '</span>
+                                            <span class="col-sm text-sm-end col-12 text-center"> Cant: ' . number_format($cansto) . '</span>
                                         </div>
                                     </p>                            
                                     <p class="card-text text-end" >Precio: $' . number_format($precio) . '</p>   

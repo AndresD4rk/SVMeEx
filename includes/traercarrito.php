@@ -62,7 +62,8 @@ include "conexion.php";
                     <button onclick="" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 <div class="justify-content-end align-items-end">
-                    <button onclick="irCompras(1)" class="btn btn-success  float-right">Comprar</button>
+                    
+                    <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-success  float-right">Comprar</button>
                 </div>
             </div>
         </div><?php
