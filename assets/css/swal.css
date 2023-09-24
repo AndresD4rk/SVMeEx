@@ -1,15 +1,61 @@
+:root {
+    --color-clvr: #01e600;
+    --color-clrj: #ea3f6f;
+    --color-claz: #1eb2f2;
+    --color-clgr: #717a85;
+    --color-clam: #fedc00;
+    --color-clng: #24262d;
+    --color-clbl2: #f5f1f0;
+}
 .swal-overlay {
     background-color: rgba(36, 38, 45, 0.5);
     backdrop-filter: brightness(0, 5);
 }
 
 .swal-icon {
-    height: 110px;
-    width: 110px;
+    max-height: 110px;
+    max-width: 110px;
 }
 
 .swal-modal {
     background-color: rgba(245, 241, 240, 1);
     backdrop-filter: brightness(0, 5);
     border: 0.7px solid black;
+}
+.swal-button--confirm{
+    background-color:var(--color-clvr);
+    color:var(--color-clng)    
+  }
+  .swal-button--confirm:not([disabled]):hover{
+    background-color:#009900;
+  }
+
+  .swal-button--confirm:active{
+    background-color:#009900;
+  }
+  .swal-content__input{
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: var(--bs-border-radius);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+
+  .swal-content__input:focus, .swal-content__textarea:focus {
+    outline: none;
+    border-color: var(--color-clng);
+}
+.swal-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #fff,0 0 0 3px rgba(36, 38, 45,.29);
 }

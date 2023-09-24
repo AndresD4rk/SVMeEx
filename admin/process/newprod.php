@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </script>
         <?php
 
-        die;
+
     }
     // Verificar si el archivo se ha subido correctamente y no está vacío
     if (!file_exists($url_insert)) {

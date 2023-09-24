@@ -6,8 +6,10 @@ include "conexion.php";
     <div class="container-fluid mt-sm-4 mt-2">
         <!-- Inicio Card Grupo De Carrito -->
         <div class="card-group container-fluid">
+            <div class="col-12 justify-content-end">
+                <h3 class="text-end fw-bold">Carrito</h3>
+            </div>
             <div class="row">
-                <h4 class="text-center col-12">Carrito</h4>
                 <?php
                 $sql = $conexion->query("SELECT * FROM carrito as c 
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
@@ -24,8 +26,8 @@ include "conexion.php";
                                     <div class="row">
                                         <div class="col-12 card-body text-center">
                                             <h5 class="card-title"><?php echo $datos['nompro'] ?></h5>
-                                            <p class="card-text mb-0"><?php echo "$ ".number_format($datos['precio'])." c/u" ?></p>
-                                            <p class="card-text"><?php echo "Cantidad: ".number_format($datos['canpro']) ?></p>
+                                            <p class="card-text mb-0"><?php echo "$ " . number_format($datos['precio']) . " c/u" ?></p>
+                                            <p class="card-text"><?php echo "Cantidad: " . number_format($datos['canpro']) ?></p>
                                             <!-- <p class="card-text">Nose</p> -->
                                         </div>
                                         <div class="col-12 d-flex justify-content-end align-items-end">
@@ -45,16 +47,16 @@ include "conexion.php";
         <div class="card mt-2" style=" background: none; border:none;">
             <div class="col-12 mb-2">
                 <h3 class="text-end">
-                    <?php 
-                    $vtc=0;
+                    <?php
+                    $vtc = 0;
                     $sqlx = $conexion->query("SELECT tolcar FROM carrito
                     WHERE idusu= " . $_SESSION['idusu'] . " AND estado = 1");
                     if ($datos = $sqlx->fetch_array()) {
-                        echo "Total: $".number_format($datos['tolcar']);
-                        $vtc=$datos['tolcar'];
+                        echo "Total: $" . number_format($datos['tolcar']);
+                        $vtc = $datos['tolcar'];
                     }
                     ?>
-                
+
                 </h3>
             </div>
             <div class="d-flex justify-content-end align-content-end">
@@ -62,7 +64,7 @@ include "conexion.php";
                     <button onclick="" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 <div class="justify-content-end align-items-end">
-                    
+
                     <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-success  float-right">Comprar</button>
                 </div>
             </div>
@@ -72,7 +74,11 @@ include "conexion.php";
         <!-- Fin Card De Carrito -->
     </div>
     <!-- Fin Card Grupo De Carrito -->
-    <h5 class="mt-5">Agregar producto al carrito</h5>
+    <div class="col-12">
+        <h5 class="mt-5 text-center">Agregar producto al carrito</h5>
+    </div>
+
+
 <?php
                 } ?>
 </div>

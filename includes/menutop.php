@@ -22,7 +22,7 @@ $rol = $_SESSION['rol'];
             </div>
             <div class="col-sm-12 col-md-5 col-lg-6 my-2 justify-content-center align-content-end">
                 <div class="input-group ">
-                    <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Buscar Producto">
+                    <input id="filtprod" type="text" class="form-control" aria-label="Amount (to the nearest dollar)" placeholder="Buscar Producto" onkeydown="filtroproducto(event)">
                     <a class="input-group-text"><i class="fa-solid fa-magnifying-glass fa-fade"></i></a>
                 </div>
             </div>

@@ -13,7 +13,7 @@
     src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;
+    font-display: swap;    
 }
 
 
@@ -26,7 +26,7 @@ background: linear-gradient(0deg, rgba(1,230,0,1) 55%, rgba(254,220,0,1) 100%); 
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    font-family: "OpenSans", sans-serif;
+    font-family: "OpenSans", sans-serif;    
 }
 
 .logo {
