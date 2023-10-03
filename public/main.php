@@ -53,7 +53,7 @@ $rol = $_SESSION['rol'];
 
     </main>
    <!-- Footer -->
-<footer class="footer-bg-color text-light text-center py-3">
+<!-- <footer class="footer-bg-color text-light text-center py-3">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
@@ -67,7 +67,7 @@ $rol = $_SESSION['rol'];
                 </ul>
             </div>
         </div>
-    </div>
+    </div> -->
 </footer>
 
     <!-- Fin Main -->

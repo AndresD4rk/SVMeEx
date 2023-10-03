@@ -14,6 +14,9 @@ $rol = $_SESSION['rol'];
         <div class="row justify-content-center align-content-center">
             <?php if ($rol == 1) { ?>
                 <div class="col-12  mb-2">
+                    <a href="../admin/ListProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-clipboard-list me-2"></i>Productos</a>
+                </div>
+                <div class="col-12  mb-2">
                     <a href="../admin/ListUsu.php" class="btn btn-dark w-100"><i class="fa-solid fa-user me-2"></i>Usuarios</a>
                 </div>
                 <div class="col-12  mb-2">
@@ -22,6 +25,7 @@ $rol = $_SESSION['rol'];
                 <div class="col-12  mb-2">
                     <a href="../admin/AddProd.php" class="btn btn-dark w-100"><i class="fa-solid fa-circle-plus me-2"></i>Agregar Producto</a>
                 </div>
+                
             <?php } ?>
             <?php if ($rol == 2) { ?>
                 <div class="col-12  mb-2">
@@ -39,6 +43,9 @@ $rol = $_SESSION['rol'];
                     <a href="../employees/EntregasHabilitadas.php" class="btn btn-dark w-100"><i class="fa-solid fa-barcode me-2"></i>Entregas Disponibles</a>
                 </div>
             <?php } ?>
+            <div class="col-12  mb-2">
+                <a href="../public/User.php" class="btn btn-dark w-100"><i class="fa-solid fa-circle-user me-2"></i></i>Perfil</a>
+            </div>
             <div class="col-12  mb-2">
                 <a href="../includes/CerSes.php" class="btn btn-dark w-100"><i class="fa-solid fa-door-closed me-2"></i>Salir</a>
             </div>

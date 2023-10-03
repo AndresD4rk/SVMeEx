@@ -39,7 +39,7 @@ $rol = $_SESSION['rol'];
                         </button>
                     </div>
                     <div class="d-none d-sm-block   mb-1 ">
-                        <button class="btn btn-outline-dark" type="button" onclick="">
+                        <button class="btn btn-outline-dark" type="button" onclick="goperfil()">
                             <span class="fa-solid fa-circle-user"></span>
                         </button>
                     </div>
@@ -61,9 +61,9 @@ $rol = $_SESSION['rol'];
                     <button class="btn btn-outline-dark me-1" type="button" onclick="goEntHab()">
                         <span class="fa-solid fa-truck-fast"></span>
                     </button>
-                    <button class="btn btn-outline-dark" type="button" onclick="">
-                        <span class="fa-solid fa-circle-user"></span>
-                    </button>
+                    <button class="btn btn-outline-dark" type="button" onclick="goperfil()">
+                            <span class="fa-solid fa-circle-user"></span>
+                        </button>
                 </div>
             </div>
         </div>
@@ -81,9 +81,9 @@ $rol = $_SESSION['rol'];
                     <button class="btn btn-outline-dark me-1" type="button" onclick="goAddPro()">
                         <span class="fa-solid fa-circle-plus"></span>
                     </button>
-                    <button class="btn btn-outline-dark" type="button" onclick="">
-                        <span class="fa-solid fa-circle-user"></span>
-                    </button>
+                    <button class="btn btn-outline-dark" type="button" onclick="goperfil()">
+                            <span class="fa-solid fa-circle-user"></span>
+                        </button>
                 </div>
             </div>
         </div>
@@ -96,6 +96,9 @@ function redirigirAPagina() {
 }
 function goEntHab(){
     window.location.href = '../employees/EntregasHabilitadas.php';
+}
+function goperfil(){
+    window.location.href = '../public/User.php';
 }
 function goAddPro(){
     window.location.href = '../admin/AddProd.php';

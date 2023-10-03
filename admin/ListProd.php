@@ -17,17 +17,26 @@
     <meta property="og:title" content="Supermercado Virtual MercaExpress" />
     <meta property="og:url" content="" />
     <meta property="og:site_name" content="SVMeEx" />
-    <link rel="shortcut icon" href="../img/logoMER.webp" />
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="./css/pcss.css"> -->
-    <script src="../js/bootstrap.js"></script>
-    <script src="../js/fetch.js"></script>
+    <link rel="shortcut icon" href="../assets/img/logoMER.webp" />
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/mcss.css">
+    <script src="../assets/js/bootstrap.js"></script>
+    <script src="../assets/js/fetch.js"></script>
 </head>
+<!-- Inicio Menu TOP -->
+<header class="header-bg-color" id="topheader">
+
+</header>
 <body>
-  <a href="AddProd.php">AGREGAR PRODUCTO</a>
-      <br>
-    <main class="d-flex align-items-center justify-content-center">
-      
+  <!-- Inicio Menu LATERAL -->
+  <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
+        <!-- Fin Menu LATERAL -->
+        <main class="container-fluid mt-2"> 
+        <div class="row"> 
+      <div class="col-12  mb-2">
+                    <a href="AddProd.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>AGREGAR PRODUCTO</b></a>
+                </div>
+                <div class="col-12">
     <table class="table table-bordered" id="dataTable-1">
                       <thead>
                         <tr style="text-align: center;">
@@ -71,15 +80,10 @@
                         ?>
                       </tbody>
                     </table>
-                    <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body" id="formularioContainer">
-                </div>
-            </div>
+                </div>                    
     </main>
 </body>
-
+<script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/reusephp.js"></script>
 </html>
