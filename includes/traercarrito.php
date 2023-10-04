@@ -31,8 +31,8 @@ include "conexion.php";
                                             <!-- <p class="card-text">Nose</p> -->
                                         </div>
                                         <div class="col-12 d-flex justify-content-end align-items-end">
-                                            <button class="btn btn-secondary btn-sm me-1 mb-1 fa-solid fa-minus"></button>
-                                            <button class="btn btn-secondary btn-sm me-2 mb-1 fa-solid fa-plus"></button>
+                                            <button class="btn btn-secondary btn-sm me-1 mb-1 fa-solid fa-minus" onclick="quitar(<?php echo $datos['idpro'] ?>,<?php echo $datos['idcar'] ?>)"></button>
+                                            <button class="btn btn-secondary btn-sm me-2 mb-1 fa-solid fa-plus" onclick="agregar(<?php echo $datos['idpro'] ?>,<?php echo $datos['idcar'] ?>)"></button>
                                         </div>
                                     </div>
                                 </div>
@@ -83,3 +83,56 @@ include "conexion.php";
                 } ?>
 </div>
 </div>
+
+<script>
+    function agregar(producto,carrito){        
+        $.ajax({
+  url: '../customers/process/caradd.php',
+  method: 'POST',
+  data: { pro: producto,car:carrito,cant:1}, // Datos a enviar en la primera solicitud
+  success: function(response1) {    
+    // Manejar la respuesta de la primera solicitud
+    
+    $.ajax({
+        type: "GET",
+        url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
+        success: function(data) {
+            // Actualizar la sección del carrito con los datos recibidos
+            $("#offcanvasWithBothOptions1").html(data);
+        }
+    });
+  },
+  error: function(error1) {
+    console.error('Error en la solicitud:', error1);
+  }
+});
+getprod()
+
+
+    }
+    function quitar(producto,carrito){        
+        $.ajax({
+  url: '../customers/process/caradd.php',
+  method: 'POST',
+  data: { pro: producto,car:carrito,cant:-1}, // Datos a enviar en la primera solicitud
+  success: function(response1) {
+    // Manejar la respuesta de la primera solicitud
+    console.log(response1);
+    $.ajax({
+        type: "GET",
+        url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
+        success: function(data) {
+            // Actualizar la sección del carrito con los datos recibidos
+            $("#offcanvasWithBothOptions1").html(data);
+        }
+    });
+  },
+  error: function(error1) {
+    console.error('Error en la solicitud:', error1);
+  }
+});
+
+getprod()
+    }
+    
+</script>
