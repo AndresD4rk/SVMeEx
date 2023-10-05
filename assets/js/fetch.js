@@ -355,14 +355,16 @@ function enviarFormularioCarrito(idprod, stock, precio) {
                                 canpro: value
                             },
                             success: function (data) {
-                                // La solicitud se completó con éxito                                                  
+                                // La solicitud se completó con éxito                                                                                 
                                 swal({
                                     title: data.title,
                                     text: data.text,
                                     icon: data.icon,
                                     buttons: data.buttons,
                                     timer: data.timer,
-                                })
+                                }).then(() => {
+                                    getprod();
+                                  });                                                             
 
                             },
                             error: function (xhr, textStatus, errorThrown) {
@@ -374,10 +376,10 @@ function enviarFormularioCarrito(idprod, stock, precio) {
                                     icon: "error",
                                     buttons: false,
                                     timer: 3000,
-                                })
+                                });
                                 //alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
                             }
-                        });
+                        });                        
                     } else {
                         swal('Operación cancelada', 'Stock no está disponible.', 'info');
                     }

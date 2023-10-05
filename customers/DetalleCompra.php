@@ -42,7 +42,7 @@ include "../procesos/conexion.php";
         <!-- Inicio Carrito -->
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Carrito -->
-        
+
         <div class="content-wrapper mt-1">
             <div class="container-fluid">
                 <div class="row">
@@ -50,12 +50,15 @@ include "../procesos/conexion.php";
                         <div class="progress m-2">
                             <div id="barentrega" class="progress-bar" role="progressbar" aria-label="Basic example" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                        <table class="table table-bordered" id="dataTable-1">
+                        <table class="table table-responsive table-hover" id="dataTable-1">
+                        
                             <thead>
+                            <tr class="text-center">
+                                    <th scope="col" colspan="2">Lista de Compra</th>
+                                </tr>
                                 <tr style="text-align: center;">
-                                    <th>Entrega #</th>
-                                    <th>Producto</th>
-                                    <th>Cantidad</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Cantidad</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -70,11 +73,11 @@ include "../procesos/conexion.php";
                         WHERE c.idcom=$idcom                  
                         ORDER BY c.feccom");
                                 while ($datos = $sql->fetch_array()) {
-                                    $idcom = $datos['idcom'];
+
                                     $nompro = $datos['nompro'];
                                     $canpro = $datos['canpro'];
                                     echo  "<tr style='text-align: center;''> 
-                        <td>$idcom</td>
+                        
                         <td>$nompro</td>
                         <td>$canpro</td>                                                        
                        ";
@@ -211,4 +214,5 @@ include "../procesos/conexion.php";
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/reusephp.js"></script>
+
 </html>

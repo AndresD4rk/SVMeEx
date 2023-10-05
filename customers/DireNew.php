@@ -45,7 +45,7 @@ $rol = $_SESSION['rol'];
         <!-- Fin Carrito -->
 
         <main class="container-fluid mt-2">
-        <form id="formid" action="" method="POST">
+        <form id="formid" action="process/newdir.php" method="POST">
             <div class="mb-4">
                 <h2 class="text-center">Nueva Dirección</h2>
                 <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:150px; max-height:150px;">
@@ -54,15 +54,15 @@ $rol = $_SESSION['rol'];
                 <div class="row">
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" aria-describedby="emailHelp" placeholder="Ejemplo (Carrera 1 12 3)" required>
+                        <input type="text" class="form-control" name="direccion" placeholder="Ejemplo (Carrera 1 12 3)" required>
                     </div>   
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Municipio</label>
-                        <input type="text" class="form-control" name="municipio" aria-describedby="emailHelp" placeholder="Ingrese el Municipio" required>
+                        <input type="text" class="form-control" name="municipio" placeholder="Ingrese el Municipio" required>
                     </div> 
                     <div class="col-12 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Detalle</label>
-                        <input type="text" class="form-control" name="detalle" aria-describedby="emailHelp" placeholder="Describa la Dirección">
+                        <input type="text" class="form-control" name="detalle"  placeholder="Describa la Dirección">
                     </div> 
 
                     <!-- <div class="col-5 mb-3 mt-3">

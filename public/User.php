@@ -94,13 +94,57 @@ $rol = $_SESSION['rol'];
 
                                                                         ?></label>
                     </div>
-                    <?php 
-                    if ($rol==2){
-                        ?>
+                    <?php
+                    if ($rol == 2) {
+                    ?>
                         <div class="col-12  mb-2">
-                    <a href="../customers/DireNew.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>NUEVA DIRRECCIÓN</b></a>
-                </div>
+                            <a href="../customers/DireNew.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>NUEVA DIRRECCIÓN</b></a>
+                        </div>
                         <?php
+
+                        $sql1 = $conexion->query("SELECT * FROM direccion                    
+                    WHERE idusu=" . $_SESSION['idusu'] . "
+                    ");
+                        if ($sql1 &&  mysqli_num_rows($sql1) > 0) {
+                        ?>
+                            <table class="table table-responsive table-hover" id="dataTable-1">
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th scope="col">Dirección</th>
+                                        <th scope="col">Detalle de Dirección</th>
+                                        <th scope="col">Acción</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    while ($datosd = $sql1->fetch_array()) {
+                                    ?>
+                                        <tr class="text-center">
+                                            <td><?php echo $datosd['nomdir'] ?></td>
+                                            <td><?php echo $datosd['detdir'] ?></td>
+                                            <td>
+                                                <a class="btn btn-danger m-1" href=".php?variable=<?php echo $datosd['iddir'] ?>">Eliminar</a>
+                                                <a class="btn btn-success m-1" href=".php?ident=<?php echo $datosd['iddir'] ?>">Editar</a>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+                        <?php
+                        } else {
+                            echo '<div class="col text-center my-auto mt-3"><h3>No hay direcciones registradas</h3></div>';
+                        }
+
+
+                        // El flujo de ejecución continúa aquí después de manejar la excepción
+
+                        ?>
+                        <div class="col-12 mt-1">
+
+                        </div>
+                    <?php
                     }
                     ?>
                 </div>

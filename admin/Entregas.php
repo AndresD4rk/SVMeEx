@@ -38,17 +38,17 @@ include "../includes/conexion.php";
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Menu LATERAL -->
 
-        <div class="content-wrapper mt-5">
+        <div class="content-wrapper mt-2">
             <div class="container-fluid">
-                <table class="table table-bordered" id="dataTable-1">
+                <table class="table table-responsive table-hover" id="dataTable-1">
                     <thead>
                         <tr style="text-align: center;">
-                            <th>Entrega #</th>
-                            <th>Fecha</th>
-                            <th>Direccion</th>
-                            <th>Detalles</th>
-                            <th>Estado</th>
-                            <th>Action</th>
+                            <th scope="col">Entrega #</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Detalles</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,7 +64,7 @@ include "../includes/conexion.php";
                             $idcom = $datos['idcom'];
                             $feccom = $datos['feccom'];
                             echo  "<tr style='text-align: center;''> 
-                        <td>$ident</td>
+                        <th scope='col'>$ident</th>
                         <td>$feccom</td>
                         <td>$dirent</td>  
                         <td>$detent</td> 
