@@ -94,6 +94,15 @@ $rol = $_SESSION['rol'];
 
                                                                         ?></label>
                     </div>
+                    <?php 
+                    if ($rol==2){
+                        ?>
+                        <div class="col-12  mb-2">
+                    <a href="../customers/DireNew.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>NUEVA DIRRECCIÓN</b></a>
+                </div>
+                        <?php
+                    }
+                    ?>
                 </div>
 
             <?php

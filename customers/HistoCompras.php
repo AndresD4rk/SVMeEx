@@ -79,14 +79,10 @@ include "../procesos/conexion.php";
                         <td>$detent</td> 
                         <td>$estent</td>                                 
                        ";
-                                echo '<td>
-                      <div class="row">
-                      <a class="col" href="HisCom.php?idcom=' . $idcom . '&ident=' . $ident . '">Ver</a>';
-                                if ($estent == 0) {
-                                    echo '<a class="col" href="../pantallas/InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
-                                }
+                                echo '<td>                                   
+                      <a class="btn btn-success" href="HisCom.php?idcom=' . $idcom . '&ident=' . $ident . '">Ver</a>';                               
                                 echo '                        
-                      </div>
+                 
                     </td>
                   </tr>';
                             }
