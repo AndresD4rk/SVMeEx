@@ -4,9 +4,10 @@
 include "../../includes/conexion.php";
 session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   // echo $_POST['dira']." ".$_POST['dirm'];
+   // die;
    if (!(empty($_POST['dira']))) {
-      $dirent = $_POST['dira'];
-      $dirent=$dirent.", Santader, Colombia";
+      $dirent = $_POST['dira'];      
    } else if ($_POST['dirm'] != "") {
       $dirent = $_POST['dirm'];
       $dirent=$dirent.", Santader, Colombia";

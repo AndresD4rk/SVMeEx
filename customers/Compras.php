@@ -56,10 +56,10 @@ include "../procesos/conexion.php";
                         <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
                             <option value="" selected>Elija su Dirrección</option>
                             <?php
-                            $sql = $conexion->query("SELECT * 
-                                FROM categoria");
+                            $sql = $conexion->query("SELECT nomdir FROM direccion
+                                WHERE idusu='".$_SESSION['idusu']."'");
                             while ($datos = $sql->fetch_array()) {
-                                echo '<option value="' . $datos['idcat'] . '">' . $datos['nomcat'] . '</option>';
+                                echo '<option value="' . $datos['nomdir'] . '">' . $datos['nomdir'] . '</option>';
                             }
                             ?>
                         </select>
@@ -73,7 +73,7 @@ include "../procesos/conexion.php";
                     <!-- Descripcion de entrega -->
                     <div class="col-lg-6 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate">Descripción dirrección/entrega</label>
-                        <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto" required>
+                        <input type="text" class="form-control" name="detent" placeholder="Ingresa la descripción del producto">
                     </div>
                     <!-- VALOR DEL PRODUCTO -->
                     <div class="col-12 text-end mt-2">                        

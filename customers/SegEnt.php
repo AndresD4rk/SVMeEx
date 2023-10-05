@@ -41,15 +41,15 @@ include "../procesos/conexion.php";
 
         <div class="content-wrapper mt-5">
             <div class="container-fluid">                
-            <table class="table table-bordered" id="dataTable-1">
+            <table class="table table-responsive table-hover" id="dataTable-1">
                       <thead>
                         <tr style="text-align: center;">
-                          <th>Entrega #</th>
-                          <th>Fecha</th>
-                          <th>Direccion</th>
-                          <th>Detalles Dirección</th>
-                          <th>Estado</th>
-                          <th>Action</th>
+                          <th scope="col">#</th>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Direccion</th>
+                          <th scope="col">Detalles</th>
+                          <th scope="col">Estado</th>
+                          <th scope="col">Acción</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -68,21 +68,19 @@ include "../procesos/conexion.php";
                           $idcom = $datos['idcom']; 
                           $feccom = $datos['feccom'];                           
                         echo  "<tr style='text-align: center;''> 
-                        <td>$ident</td>
+                        <th>$ident</th>
                         <td>$feccom</td>
                         <td>$dirent</td>  
                         <td>$detent</td> 
                         <td>$estent</td>";
-                          echo '<td>
-                      <div class="row">
-                      <div class="col">';
+                          echo '<td>';
                             if ($estent==0){
                                 echo '<a class="col btn btn-danger" href="a.php?ident=' . $ident . '">Cancelar</a>';
                             }else if ($estent==1) {
                                 echo '<a class="col btn btn-success" href="DetalleCompra.php?idcom=' . $idcom . '&ident='.$ident.'">Ver</a>';
                             }
                       echo '                        
-                      </div></div>
+                      
                     </td>
                   </tr>';
                         }

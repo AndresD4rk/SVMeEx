@@ -46,15 +46,14 @@ include "../procesos/conexion.php";
                     <h4>Compras</h4>
                 </div>
                 <div class="col-12">
-                    <table class="table table-bordered" id="dataTable-1">
+                    <table class="table table-responsive table-hover" id="dataTable-1">
                         <thead>
                             <tr style="text-align: center;">
-                                <th>Entrega #</th>
-                                <th>Fecha</th>
-                                <th>Direccion</th>
-                                <th>Detalles</th>
-                                <th>Estado</th>
-                                <th>Action</th>
+                                <th scope="col">#</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Direccion</th>
+                                <th scope="col">Detalles</th>                                
+                                <th scope="col">Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,24 +62,22 @@ include "../procesos/conexion.php";
                             $sql = $conexion->query("SELECT * FROM compra AS c
                         INNER JOIN carrito AS a ON a.idcar=c.idcar
                         INNER JOIN entrega AS e ON e.idcom=c.idcom
-                        WHERE a.idusu=$idusu                  
+                        WHERE a.idusu=$idusu AND a.estado =2                 
                         ORDER BY c.feccom");
                             while ($datos = $sql->fetch_array()) {
-                                $ident = $datos['ident'];
-                                $dirent = $datos['feccom'];
-                                $detent = $datos['idcom'];
-                                $estent = $datos['idcom'];
-                                $idcom = $datos['idcom'];
-                                $feccom = $datos['idcom'];
+                                $numcompra = $datos['idcom'];
+                                $nument = $datos['ident'];
+                                $fecha = $datos['feccom'];
+                                $direccion = $datos['dirent'];
+                                $detalle = $datos['detent'];                                                              
                                 echo  "<tr style='text-align: center;''> 
-                        <td>$ident</td>
-                        <td>$feccom</td>
-                        <td>$dirent</td>  
-                        <td>$detent</td> 
-                        <td>$estent</td>                                 
+                        <th>$numcompra</th>
+                        <td>$fecha</td>
+                        <td>$direccion</td>  
+                        <td>$detalle</td>                                                         
                        ";
                                 echo '<td>                                   
-                      <a class="btn btn-success" href="HisCom.php?idcom=' . $idcom . '&ident=' . $ident . '">Ver</a>';                               
+                      <a class="btn btn-success" href="HisCom.php?idcom=' . $numcompra . '&ident=' . $nument . '">Ver</a>';                               
                                 echo '                        
                  
                     </td>
