@@ -5,14 +5,6 @@
 <?php
 include "../../includes/conexion.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $idpro = null;
-    $sql = $conexion->query("SELECT MAX(idpro) FROM producto");
-    if ($datos = $sql->fetch_array()) {
-        $idpro = $datos['MAX(idpro)'];
-        $idpro++;
-    } else {
-        $idpro = 1;
-    }
     // Valida si se cambio la imagen
     if (isset($_FILES["pimg"]) && !empty($_FILES["pimg"]["name"])) {
         $file = $_FILES["pimg"]["name"]; // Nombre original del archivo cargado
@@ -46,12 +38,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         if (is_uploaded_file($url_temp) && !empty($file)) {
             // Mover el archivo a la carpeta de destino
-            $url_destino = $url_insert . $idpro . ".webp";  
+            $url_destino = $url_insert . $idpro . ".webp";
             if (move_uploaded_file($url_temp, $url_destino)) {
-              //echo "El archivo se ha guardado correctamente en la carpeta especificada.";
-                
-            }else {
-                ?>
+                //echo "El archivo se ha guardado correctamente en la carpeta especificada.";
+
+            } else {
+            ?>
                 <script>
                     document.addEventListener("DOMContentLoaded", function() {
                         swal("Hubo un error al guardar el archivo", "", "error")
@@ -63,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </script>
             <?php
             }
-        }else {
+        } else {
             ?>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
@@ -74,11 +66,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         });
                 });
             </script>
-    <?php
+        <?php
         }
-
-
-
     }
     $producto = $_POST["Producto"];
     $nompro = $_POST["NomPro"];
@@ -89,16 +78,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $mininv = $_POST["MinSto"];
 
     $sql2 = $conexion->query("UPDATE producto    
-    SET ($idpro,'$nompro','$despro',$precio,$idcat)");
+    SET nompro='$nompro',despro='$despro',precio='$precio',idcat='$idcat'
+    WHERE idpro=$producto");
     if ($sql2) {
-        $sql3 = $conexion->query("INSERT INTO
-    inventario (caninv, mininv, idpro)
-    VALUES ($caninv,$mininv,$idpro)");
+        $sql3 = $conexion->query("UPDATE inventario
+        SET caninv=$caninv,mininv=$mininv
+        WHERE idpro=$producto");
         if ($sql3) {
-    ?>
+        ?>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    swal("Producto Ingresado", "", "success")
+                    swal("Producto Actualizado", "", "success")
                         .then((value) => {
                             swal(`The returned value is: ${value}`);
                             window.location = "../ListProd.php";
@@ -113,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else { ?>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    swal("Error al ingresar producto", "", "error")
+                    swal("Error al Actualizar Inventario", "", "error")
                         .then((value) => {
                             swal(`The returned value is: ${value}`);
                             window.location = "../ListProd.php";
@@ -125,16 +115,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         ?>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
-                swal("Error al registrar el producto", "", "error")
+                swal("Error al Actualizar!", "Producto", "error")
                     .then((value) => {
                         swal(`The returned value is: ${value}`);
                         window.location = "../ListProd.php";
                     });
             });
         </script>
-    <?php
+<?php
     }
-}   
+}
 
 ?>
 

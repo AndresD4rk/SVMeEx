@@ -78,5 +78,13 @@
         "lonrep": -73.26473,
         "latent": 6.4736204,
         "lonent": -73.2593095
+    },
+    {
+        "ident": 27,
+        "idrep": -1,
+        "latrep": 0,
+        "lonrep": 0,
+        "latent": 6.4736204,
+        "lonent": -73.2593095
     }
 ]

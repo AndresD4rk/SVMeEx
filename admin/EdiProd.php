@@ -85,7 +85,7 @@ WHERE p.idpro =" . $_GET['producto'] . "");
             <!-- VALOR DEL PRODUCTO -->
             <div class="col-lg-4 col-12">
                 <label for="exampleInputEmail1" class="form-label text-truncate ">Valor del Producto</label>
-                <input type="number" class="form-control" name="Precio" value="<?php echo $valor ?>" required>
+                <input type="number" class="form-control" name="Precio" value="<?php echo $valor ?>" required step="0.01">
             </div>
             <!-- IMAGEN DEL PRODUCTO -->
             <div class="col-lg-4 col-12">

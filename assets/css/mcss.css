@@ -143,6 +143,22 @@ background-attachment: fixed; */
     backdrop-filter: brightness(0, 5);
     border: 0.7px solid black;
 }
+/* Estilos para el botón de confirmación en el tipo "danger" */
+.swal-button--danger {
+    background-color: var(--color-clrj); /* Utiliza el color base */
+    color: white; /* Cambia el color del texto a blanco o el color deseado */
+}
+
+/* Estilos para el botón de confirmación en estado hover */
+.swal-button--danger:not([disabled]):hover {
+    background-color: #ff3366; /* Cambia el color de fondo al hacer hover */
+}
+
+/* Estilos para el botón de confirmación en estado activo */
+.swal-button--danger:active {
+    background-color: #ff3366; /* Cambia el color de fondo al hacer clic */
+}
+
 .swal-button--confirm{
     background-color:var(--color-clvr);
     color:var(--color-clng)    

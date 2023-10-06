@@ -63,13 +63,13 @@
               echo  "<tr style='text-align: center;''> 
                         <th scope='col'>$idpro</th>
                         <td>$nompro</td>  
-                        <td>$ " . number_format($precio) . "</td> 
+                        <td>$ " . number_format($precio, 2) . "</td> 
                         <td>$nomcat</td> 
                         <td>" . number_format($cansto) . "</td> 
                         <td>" . number_format($minsto) . "</td>                          
                        "; ?>
               <td>
-                <a class="btn btn-danger m-1" href=".php?variable=<?php echo $idpro ?>">Eliminar</a>
+                <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $idpro ?>)">Eliminar</a>                
                 <a class="btn btn-success m-1" href="EdiProd.php?producto=<?php echo $idpro ?>">Editar</a>
               </td>
             <?php
@@ -85,5 +85,65 @@
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/reusephp.js"></script>
+<script>
+  function eliminar(prod) {
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        buttons: {
+          cancel: "Cancelar",
+          danger: "Eliminar",
+        },
+        dangerMode: true,
+      })
+      .then((eliminar) => {
+        eliminar1=1;
+        if (eliminar1==0) {
+          $.ajax({
+            url: 'process/detprod.php',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+              prod: prod
+            },
+            success: function(data) {
+              // La solicitud se completó con éxito                                                                                 
+              swal({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+                buttons: data.buttons,
+                timer: data.timer,
+              }).then(() => {
+                getprod();
+              });
+
+            },
+            error: function(xhr, textStatus, errorThrown) {
+              // Ocurrió un error en la solicitud
+              console.error('Error en la solicitud:', errorThrown);
+              swal({
+                title: "Ha ocurrido un error!",
+                text: "Por favor, inténtelo nuevamente más tarde.",
+                icon: "error",
+                buttons: false,
+                timer: 3000,
+              });
+              //alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+            }
+          });
+          swal({
+            title: "Producto Eliminado",
+            icon: "success",
+          });
+        } else {
+
+        }
+      });
+
+  }
+</script>
 
 </html>

@@ -26,7 +26,7 @@ include "conexion.php";
                                     <div class="row">
                                         <div class="col-12 card-body text-center">
                                             <h5 class="card-title"><?php echo $datos['nompro'] ?></h5>
-                                            <p class="card-text mb-0"><?php echo "$ " . number_format($datos['precio']) . " c/u" ?></p>
+                                            <p class="card-text mb-0"><?php echo "$ " . number_format($datos['precio'],2) . " c/u" ?></p>
                                             <p class="card-text"><?php echo "Cantidad: " . number_format($datos['canpro']) ?></p>
                                             <!-- <p class="card-text">Nose</p> -->
                                         </div>
@@ -52,7 +52,7 @@ include "conexion.php";
                     $sqlx = $conexion->query("SELECT tolcar FROM carrito
                     WHERE idusu= " . $_SESSION['idusu'] . " AND estado = 1");
                     if ($datos = $sqlx->fetch_array()) {
-                        echo "Total: $" . number_format($datos['tolcar']);
+                        echo "Total: $" . number_format($datos['tolcar'],2);
                         $vtc = $datos['tolcar'];
                     }
                     ?>
