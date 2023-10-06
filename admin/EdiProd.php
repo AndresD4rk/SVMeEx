@@ -72,6 +72,7 @@ WHERE p.idpro =" . $_GET['producto'] . "");
                             <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(2)">Agregar Familia</button>
                         </div> -->
             <!-- NOMBRE DEL PRODUCTO -->
+            <input type="number" name="Producto" value="<?php echo $_GET['producto']?>" hidden required>
             <div class="col-lg-4 col-12">
                 <label for="exampleInputEmail1" class="form-label text-truncate">Nombre del Producto</label>
                 <input type="text" class="form-control" name="NomPro" value="<?php echo $nombre ?>" required>
