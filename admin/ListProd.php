@@ -70,7 +70,7 @@
                        "; ?>
               <td>
                 <a class="btn btn-danger m-1" href=".php?variable=<?php echo $idpro ?>">Eliminar</a>
-                <a class="btn btn-success m-1" href=".php?ident=<?php echo $idpro ?>">Editar</a>
+                <a class="btn btn-success m-1" href="EdiProd.php?producto=<?php echo $idpro ?>">Editar</a>
               </td>
             <?php
               echo '

@@ -20,13 +20,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         WHERE idcar =" . $car . " AND idpro=" . $pro . "");
             if ($datos = $sql->fetch_array()) {
                 $valcant = intval($datos['canpro']) - 1;
+                $sql = $conexion->query("UPDATE detcarrito SET canpro=canpro+$cant
+                WHERE idcar =" . $car . " AND idpro=" . $pro . "");
                 if ($valcant <= 0) {
                     $sql1 = $conexion->query("DELETE FROM detcarrito
                 WHERE idcar =" . $car . " AND idpro=" . $pro . "");
-                } else {
-                    $sql = $conexion->query("UPDATE detcarrito SET canpro=canpro+$cant
-                WHERE idcar =" . $car . " AND idpro=" . $pro . "");
-                }
+                }                
             } else {
                 die;
             }
@@ -40,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $sql1 = $conexion->query("UPDATE detcarrito SET canpro=(canpro+$cant)
                 WHERE idcar =" . $car . " AND idpro=" . $pro . "");
                 } else {
-                    
                 }
             } else {
                 die;
