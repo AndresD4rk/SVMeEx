@@ -15,8 +15,11 @@ include "conexion.php";
                 INNER JOIN detcarrito AS d ON d.idcar = c.idcar
                 INNER JOIN producto AS p ON d.idpro=p.idpro
                 WHERE c.idusu= " . $_SESSION['idusu'] . " AND estado = 1");
+                $carrito;
                 if (mysqli_num_rows($sql) > 0) {
-                    while ($datos = $sql->fetch_array()) { ?>
+                    while ($datos = $sql->fetch_array()) {
+                        $carrito = $datos['idcar'];
+                ?>
                         <div class="card col-12">
                             <div class="row p-1">
                                 <div class="col my-auto">
@@ -26,7 +29,7 @@ include "conexion.php";
                                     <div class="row">
                                         <div class="col-12 card-body text-center">
                                             <h5 class="card-title"><?php echo $datos['nompro'] ?></h5>
-                                            <p class="card-text mb-0"><?php echo "$ " . number_format($datos['precio'],2) . " c/u" ?></p>
+                                            <p class="card-text mb-0"><?php echo "$ " . number_format($datos['precio'], 2) . " c/u" ?></p>
                                             <p class="card-text"><?php echo "Cantidad: " . number_format($datos['canpro']) ?></p>
                                             <!-- <p class="card-text">Nose</p> -->
                                         </div>
@@ -52,7 +55,7 @@ include "conexion.php";
                     $sqlx = $conexion->query("SELECT tolcar FROM carrito
                     WHERE idusu= " . $_SESSION['idusu'] . " AND estado = 1");
                     if ($datos = $sqlx->fetch_array()) {
-                        echo "Total: $" . number_format($datos['tolcar'],2);
+                        echo "Total: $" . number_format($datos['tolcar'], 2);
                         $vtc = $datos['tolcar'];
                     }
                     ?>
@@ -61,7 +64,7 @@ include "conexion.php";
             </div>
             <div class="d-flex justify-content-end align-content-end">
                 <div class="justify-content-end align-items-end me-1">
-                    <button onclick="" class="btn btn-danger float-right">Cancelar</button>
+                    <button onclick="cancelcompra(<?php echo $carrito ?>)" class="btn btn-danger float-right">Cancelar</button>
                 </div>
                 <div class="justify-content-end align-items-end">
 
@@ -85,54 +88,91 @@ include "conexion.php";
 </div>
 
 <script>
-    function agregar(producto,carrito){        
+    function cancelcompra(carrito) {
         $.ajax({
-  url: '../customers/process/caradd.php',
-  method: 'POST',
-  data: { pro: producto,car:carrito,cant:1}, // Datos a enviar en la primera solicitud
-  success: function(response1) {    
-    // Manejar la respuesta de la primera solicitud
-    
-    $.ajax({
-        type: "GET",
-        url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
-        success: function(data) {
-            // Actualizar la sección del carrito con los datos recibidos
-            $("#offcanvasWithBothOptions1").html(data);
-        }
-    });
-  },
-  error: function(error1) {
-    console.error('Error en la solicitud:', error1);
-  }
-});
-getprod()
+            url: '../customers/process/cardet.php',
+            method: 'POST',
+            dataType: 'json',
+            data: {
+                car: carrito,                
+            }, // Datos a enviar en la primera solicitud
+            success: function(data) {
+                console.log(data);
+                // Manejar la respuesta de la primera solicitud
+                swal({
+              title: data.title,
+              text: data.text,
+              icon: data.icon,
+              buttons: data.buttons,
+              timer: data.timer,
+            }).then(() => {              
+                carritocargar();
+            });                    
+            },
+            error: function(error) {
+                console.error('Error en la solicitud:', error1);
+            }
+        });
+    }
+
+
+
+    function agregar(producto, carrito) {
+        $.ajax({
+            url: '../customers/process/caradd.php',
+            method: 'POST',
+            data: {
+                pro: producto,
+                car: carrito,
+                cant: 1
+            }, // Datos a enviar en la primera solicitud
+            success: function(response1) {
+                // Manejar la respuesta de la primera solicitud
+
+                $.ajax({
+                    type: "GET",
+                    url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
+                    success: function(data) {
+                        // Actualizar la sección del carrito con los datos recibidos
+                        $("#offcanvasWithBothOptions1").html(data);
+                    }
+                });
+            },
+            error: function(error1) {
+                console.error('Error en la solicitud:', error1);
+            }
+        });
+        getprod()
 
 
     }
-    function quitar(producto,carrito){        
-        $.ajax({
-  url: '../customers/process/caradd.php',
-  method: 'POST',
-  data: { pro: producto,car:carrito,cant:-1}, // Datos a enviar en la primera solicitud
-  success: function(response1) {
-    // Manejar la respuesta de la primera solicitud
-    console.log(response1);
-    $.ajax({
-        type: "GET",
-        url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
-        success: function(data) {
-            // Actualizar la sección del carrito con los datos recibidos
-            $("#offcanvasWithBothOptions1").html(data);
-        }
-    });
-  },
-  error: function(error1) {
-    console.error('Error en la solicitud:', error1);
-  }
-});
 
-getprod()
+    function quitar(producto, carrito) {
+        $.ajax({
+            url: '../customers/process/caradd.php',
+            method: 'POST',
+            data: {
+                pro: producto,
+                car: carrito,
+                cant: -1
+            }, // Datos a enviar en la primera solicitud
+            success: function(response1) {
+                // Manejar la respuesta de la primera solicitud
+                console.log(response1);
+                $.ajax({
+                    type: "GET",
+                    url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
+                    success: function(data) {
+                        // Actualizar la sección del carrito con los datos recibidos
+                        $("#offcanvasWithBothOptions1").html(data);
+                    }
+                });
+            },
+            error: function(error1) {
+                console.error('Error en la solicitud:', error1);
+            }
+        });
+
+        getprod()
     }
-    
 </script>
