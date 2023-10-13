@@ -65,7 +65,7 @@ include "conexion.php";
                 </div>
                 <div class="justify-content-end align-items-end">
 
-                    <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-success  float-right">Comprar</button>
+                    <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-success2  float-right">Comprar</button>
                 </div>
             </div>
         </div><?php

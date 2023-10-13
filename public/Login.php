@@ -43,7 +43,7 @@
   </div> -->
   <div class="row">
     <div class="col-6 text-start"><a onclick="registrar()" class="btn btn-warning">Registrarse</a></div>
-    <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Ingresar</button></div>
+    <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success2">Ingresar</button></div>
   </div>
   
   

@@ -3093,6 +3093,25 @@ textarea.form-control-lg {
 
 .btn-success {
   --bs-btn-color: #000; /* Cambiamos el color del texto a negro (#000) para mejorar la legibilidad */
+  --bs-btn-bg: #FF9800; /* Cambiamos el color de fondo a #FF9800 */
+  --bs-btn-border-color: #FF9800; /* Cambiamos el color del borde a #FF9800 */
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #FF9800; /* Cambiamos el color de fondo en estado hover a #FF9800 */
+  --bs-btn-hover-border-color: #FF9800; /* Cambiamos el color del borde en estado hover a #FF9800 */
+  --bs-btn-focus-shadow-rgb: 255, 152, 0; /* Cambiamos el color de la sombra de enfoque a #FF9800 */
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #FF9800; /* Cambiamos el color de fondo en estado activo a #FF9800 */
+  --bs-btn-active-border-color: #FF9800; /* Cambiamos el color del borde en estado activo a #FF9800 */
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #000; /* Cambiamos el color del texto en estado deshabilitado a negro (#000) */
+  --bs-btn-disabled-bg: #FF9800; /* Cambiamos el color de fondo en estado deshabilitado a #FF9800 */
+  --bs-btn-disabled-border-color: #FF9800; /* Cambiamos el color del borde en estado deshabilitado a #FF9800 */
+}
+
+
+
+.btn-success2 {
+  --bs-btn-color: #000; /* Cambiamos el color del texto a negro (#000) para mejorar la legibilidad */
   --bs-btn-bg: #01e600; /* Cambiamos el color de fondo a verde (#01e600) */
   --bs-btn-border-color: #01e600; /* Cambiamos el color del borde a verde (#01e600) */
   --bs-btn-hover-color: #fff;

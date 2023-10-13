@@ -39,7 +39,7 @@ include "conexion.php";
                                     </p>                            
                                     <p class="card-text text-end" >Precio: $' . number_format($precio) . '</p>   
                                     <div class="col-12 d-flex justify-content-end align-items-end">                                    
-                                        <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $cansto . ', ' . $precio .  ')" class="btn btn-success btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
+                                        <button onclick="enviarFormularioCarrito(' . $idpro . ',' . $cansto . ', ' . $precio .  ')" class="btn btn-success2 btn-sm me-2 mb-1 fa-solid fa-cart-shopping"></button>
                                     </div>
                                 </div>
                             </div>';

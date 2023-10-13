@@ -66,8 +66,8 @@
                        ";
 
             ?><td>
-                <a class="btn btn-danger m-1" href=".php?variable=<?php echo $datosd['iddir'] ?>">Eliminar</a>
-                <a class="btn btn-success m-1" href=".php?ident=<?php echo $datosd['iddir'] ?>">Editar</a>
+                <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $idusu ?>)">Eliminar</a>
+                <a class="btn btn-success m-1" href=".php?ident=<?php echo $idusu ?>">Editar</a>
               </td>
               </tr><?php
                   }
@@ -82,5 +82,63 @@
 <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../assets/js/reusephp.js"></script>
+<script>
+  function eliminar(usu) {
+    swal({
+        title: "¿Esta Seguro?",
+        text: "Una vez eliminado, no se podra recuperar!",
+        icon: "warning",
+        buttons: true,
+        buttons: {
+          cancel: "Cancelar",
+          danger: "Eliminar",
+        },
+        dangerMode: true,
+      })
+      .then((value) => {
+        if (value == "danger") {
+
+
+          $.ajax({
+            url: 'process/detusu.php',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+              usu: usu
+            },
+            success: function(data) {
+              // La solicitud se completó con éxito                                                                                 
+              swal({
+                title: data.title,
+                text: data.text,
+                icon: data.icon,
+                buttons: data.buttons,
+                timer: data.timer,
+              }).then(() => {
+                location.reload();
+              });
+
+            },
+            error: function(xhr, textStatus, errorThrown) {
+              // Ocurrió un error en la solicitud
+              console.error('Error en la solicitud:', errorThrown);
+              swal({
+                title: "Ha ocurrido un error!",
+                text: "",
+                icon: "error",
+                buttons: false,
+                timer: 3000,
+              }).then(() => {
+                location.reload();
+              });
+              //alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+            }
+          });
+        }
+      });
+
+
+  }
+</script>
 
 </html>

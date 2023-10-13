@@ -66,7 +66,7 @@
   </div> -->
   <div class="row">
     <div class="col-6 text-start"><a onclick="irlogin()" class="btn btn-warning">Regresar</a></div>
-    <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
+    <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success2">Registrarse</button></div>
   </div>
   
   
