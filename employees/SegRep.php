@@ -61,7 +61,7 @@ include "../includes/conexion.php";
                     <a class="btn btn-danger" href="#">Regresar entrega</a>
                 </div>
                 <div class="col me-3 text-end">
-                    <a class="btn btn-success" href="#">Confirmar entrega</a>
+                    <a class="btn btn-success" href="process/confent.php?id=<?php echo $ident ?>">Confirmar entrega</a>
                 </div>
             </div>
 

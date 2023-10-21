@@ -67,7 +67,7 @@
 
             ?><td>
                 <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $idusu ?>)">Eliminar</a>
-                <a class="btn btn-success m-1" href=".php?ident=<?php echo $idusu ?>">Editar</a>
+                <a class="btn btn-success m-1" href="EdiUsu.php?id=<?php echo $idusu ?>">Editar</a>
               </td>
               </tr><?php
                   }

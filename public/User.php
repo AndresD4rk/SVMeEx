@@ -97,6 +97,62 @@ $rol = $_SESSION['rol'];
                     <?php
                     if ($rol == 2) {
                     ?>
+                        <script>
+                            function eliminar(dir) {
+                                swal({
+                                        title: "¿Esta Seguro?",
+                                        text: "Una vez eliminado, no se podrá recuperar!",
+                                        icon: "warning",
+                                        buttons: true,
+                                        buttons: {
+                                            cancel: "Cancelar",
+                                            danger: "Eliminar",
+                                        },
+                                        dangerMode: true,
+                                    })
+                                    .then((value) => {
+                                        if (value == "danger") {
+                                            $.ajax({
+                                                url: '../customers/process/detdir.php',
+                                                type: 'GET',
+                                                dataType: 'json',
+                                                data: {
+                                                    dir: dir
+                                                },
+                                                success: function(data) {
+                                                    // La solicitud se completó con éxito                                                                                 
+                                                    swal({
+                                                        title: data.title,
+                                                        text: data.text,
+                                                        icon: data.icon,
+                                                        buttons: data.buttons,
+                                                        timer: data.timer,
+                                                    }).then(() => {
+                                                        location.reload();
+                                                    });
+
+                                                },
+                                                error: function(xhr, textStatus, errorThrown) {
+                                                    // Ocurrió un error en la solicitud
+                                                    console.error('Error en la solicitud:', errorThrown);
+                                                    swal({
+                                                        title: "Ha ocurrido un error!",
+                                                        text: " ",
+                                                        icon: "error",
+                                                        buttons: false,
+                                                        timer: 3000,
+                                                    }).then(() => {
+                                                        location.reload();
+                                                    });
+                                                    //alert('Ha ocurrido un error en la solicitud. Por favor, inténtalo nuevamente más tarde.');
+                                                }
+                                            });
+                                        }
+
+                                    });
+
+                            }
+                        </script>
                         <div class="col-12  mb-2">
                             <a href="../customers/DireNew.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>NUEVA DIRRECCIÓN</b></a>
                         </div>
@@ -123,8 +179,8 @@ $rol = $_SESSION['rol'];
                                             <td><?php echo $datosd['nomdir'] ?></td>
                                             <td><?php echo $datosd['detdir'] ?></td>
                                             <td>
-                                                <a class="btn btn-danger m-1" href=".php?variable=<?php echo $datosd['iddir'] ?>">Eliminar</a>
-                                                <a class="btn btn-success m-1" href=".php?ident=<?php echo $datosd['iddir'] ?>">Editar</a>
+                                                <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $datosd['iddir'] ?>)">Eliminar</a>
+                                                <a class="btn btn-success m-1" href="../customers/DirEdit.php?dirid=<?php echo $datosd['iddir'] ?>">Editar</a>
                                             </td>
                                         </tr>
                                     <?php
