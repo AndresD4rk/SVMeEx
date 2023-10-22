@@ -52,6 +52,7 @@ include "../includes/conexion.php";
         <section>
             <div class="container-fluid text-center shadow">
                 <div class="row">
+                    <div class="col-12 h5 m-2">Dirección de entrega: <?php echo urldecode($_GET['dir']) ?></div>
                     <div class="col" id="map" style="height: 75vh;">
                     </div>
                 </div>

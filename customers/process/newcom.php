@@ -27,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    
    $api_key = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($dirent) . "&key=" . $api_key;
-   echo $url;
-   die;
    $response = file_get_contents($url);
 
    // Decodifica la respuesta JSON

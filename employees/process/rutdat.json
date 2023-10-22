@@ -1,73 +1,41 @@
 [
     {
-        "ident": 33,
-        "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
-        "latent": 6.522387300000001,
-        "lonent": -73.111356
-    },
-    {
-        "ident": 34,
-        "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
-        "latent": 6.4736204,
-        "lonent": -73.2593095
-    },
-    {
         "ident": 35,
         "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
+        "latrep": 6.4713113,
+        "lonrep": -73.2636473,
         "latent": 6.522387300000001,
         "lonent": -73.111356
     },
     {
         "ident": 36,
         "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
+        "latrep": 6.4713113,
+        "lonrep": -73.2636473,
         "latent": 6.5371878,
         "lonent": -73.1210417
     },
     {
         "ident": 37,
         "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
+        "latrep": 6.4713113,
+        "lonrep": -73.2636473,
         "latent": 7.135035200000001,
         "lonent": -73.12599709999999
     },
     {
         "ident": 38,
         "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
+        "latrep": 6.4713113,
+        "lonrep": -73.2636473,
         "latent": 7.118653500000001,
         "lonent": -73.12122
     },
     {
         "ident": 39,
         "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
-        "latent": 7.1350498,
-        "lonent": -73.1256269
-    },
-    {
-        "ident": 40,
-        "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
-        "latent": 7.1350498,
-        "lonent": -73.1256269
-    },
-    {
-        "ident": 41,
-        "idrep": 2,
-        "latrep": 6.4602419,
-        "lonrep": -73.26473,
+        "latrep": 6.4713113,
+        "lonrep": -73.2636473,
         "latent": 7.1350498,
         "lonent": -73.1256269
     }

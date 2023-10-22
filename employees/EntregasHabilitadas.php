@@ -74,7 +74,7 @@ $idusu = $_SESSION['idusu'];
                        ";
               echo '<td>                      
                       
-                <a class="btn btn-success m-1" href="SegRep.php?ident=' . $ident . '">Iniciar entrega</a>                                             
+                <a class="btn btn-success m-1" href="SegRep.php?ident=' . $ident . '&dir='.urlencode($dirent).'">Iniciar entrega</a>                                             
                     </td>
                   </tr>';
             }
