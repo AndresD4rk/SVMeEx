@@ -9,6 +9,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $sql = $conexion->query("UPDATE entrega 
             SET estent=2
             WHERE ident=$ident");
+            $jsonFile = 'rutdat copy.json';
+            $jsonData = file_get_contents($jsonFile);
+            $data = json_decode($jsonData, true);
+            foreach ($data as $key => $element) {
+                if ($element['ident'] === $ident) {
+                    unset($data[$key]); // Elimina el elemento en la posición $key
+                    break; // Termina el bucle después de encontrar el primer elemento coincidente
+                }
+            }  
+            $newJsonData = json_encode($data, JSON_PRETTY_PRINT);
+            file_put_contents($jsonFile, $newJsonData);
             if($sql){
                 ?>
                 <script>          

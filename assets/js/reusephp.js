@@ -1,6 +1,7 @@
 function carritocargar() {
 
     // Realizar una solicitud AJAX para obtener el contenido del carrito
+    
     $.ajax({
         type: "GET",
         url: "../includes/traercarrito.php", // Reemplaza con la URL de tu script PHP que obtiene el carrito
@@ -40,16 +41,36 @@ function getprod(){
 
 
 
-window.onload = function() {
-    window.scrollTo(0, 0);
-    getprod();
+window.onload = function() {            
+    if (window.location.pathname === "/SVMeEx/public/main.php") {        
+        var urlParams = new URLSearchParams(window.location.search);
+        var valor = urlParams.get("filt");
+       if (!(valor === null)) {
+        $.ajax({
+            type: "GET",
+            url: "../includes/filtprod.php?filtbusq="+valor+"", // Reemplaza con la URL de tu script PHP que obtiene el carrito
+            success: function(data) {
+                // Actualizar la sección del carrito con los datos recibidos
+                $("#getprod").html(data);
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+       }else{
+        getprod();
+       }
+
+    } else {
+        
+    } 
+    window.scrollTo(0, 0);  
 };
 
 
 function filtroproducto(event) {
     if (event.key === "Enter") {
-        // Obtener el valor del input
         var valorInput = document.getElementById("filtprod").value;        
+        if (window.location.pathname === "/SVMeEx/public/main.php") {
+            // Obtener el valor del input        
         $.ajax({
             type: "GET",
             url: "../includes/filtprod.php?filtbusq="+valorInput+"", // Reemplaza con la URL de tu script PHP que obtiene el carrito
@@ -58,6 +79,9 @@ function filtroproducto(event) {
                 $("#getprod").html(data);
             }
         });
-        
+        } else {
+            window.location="/SVMeEx/public/main.php?filt="+valorInput+"";            
+        } 
+
     }
 }

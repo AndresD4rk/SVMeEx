@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $dirent = $_POST['dira'];      
    } else if ($_POST['dirm'] != "") {
       $dirent = $_POST['dirm'];
-      $dirent=$dirent.", Santader, Colombia";
+      $dirent=$dirent.", Santander, Colombia";
    } else {       
       ?>
       <script>
@@ -24,8 +24,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </script>
       <?php
    }
+   
    $api_key = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($dirent) . "&key=" . $api_key;
+   echo $url;
+   die;
    $response = file_get_contents($url);
 
    // Decodifica la respuesta JSON
@@ -73,8 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             VALUES ('$idcom','$idcar',FROM_UNIXTIME($timestamp))");
             if ($sql2) {
                $sql3 = $conexion->query("INSERT INTO
-            entrega (idcom,estent,dirent,detent)
-            VALUES ('$idcom',0,'$dirent','$detent')");
+            entrega (ident,idcom,estent,dirent,detent)
+            VALUES ($ident,$idcom,0,'$dirent','$detent')");
                if ($sql3) {
                   $jsonFile = '../../employees/process/rutdat.json';
                   $jsonData = file_get_contents($jsonFile);
@@ -84,8 +87,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                      'idrep' => -1,
                      'latrep' => 0,
                      'lonrep' => 0,
-                     'latent' => floatval($latitud),
-                     'lonent' => floatval($longitud)
+                     'latent' => $latitud,
+                     'lonent' => $longitud
                   );
                   $data[] = $nuevaRuta;
                   $newJsonData = json_encode($data, JSON_PRETTY_PRINT);

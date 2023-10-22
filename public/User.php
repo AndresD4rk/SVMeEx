@@ -153,7 +153,7 @@ $rol = $_SESSION['rol'];
 
                             }
                         </script>
-                        <div class="col-12  mb-2">
+                        <div class="col-12 text-center  mb-2">
                             <a href="../customers/DireNew.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>NUEVA DIRRECCIÓN</b></a>
                         </div>
                         <?php
@@ -179,8 +179,8 @@ $rol = $_SESSION['rol'];
                                             <td><?php echo $datosd['nomdir'] ?></td>
                                             <td><?php echo $datosd['detdir'] ?></td>
                                             <td>
-                                                <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $datosd['iddir'] ?>)">Eliminar</a>
-                                                <a class="btn btn-success m-1" href="../customers/DirEdit.php?dirid=<?php echo $datosd['iddir'] ?>">Editar</a>
+                                                <a class="btn btn-outline-danger m-1" onclick="eliminar(<?php echo $datosd['iddir'] ?>)">Eliminar</a>
+                                                <a class="btn btn-outline-success m-1" href="../customers/DirEdit.php?dirid=<?php echo $datosd['iddir'] ?>">Editar</a>
                                             </td>
                                         </tr>
                                     <?php

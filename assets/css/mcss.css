@@ -64,7 +64,7 @@
 }
 
 .logonav {
-    /* filter: grayscale(100%); */
+    /* filter: grayscale(100%);     */
     filter: brightness(0);
 }
 
