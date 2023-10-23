@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<?php include "../procesos/conexion.php";
+<?php include "../includes/conexion.php";
 ?>
 
 <head>
@@ -35,7 +35,7 @@
         <form id="formid" action="process/newUser.php" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
                 <h2 class="text-center">Registro de Usuario</h2>
-                <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:180px; max-height:180px;">
+                <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:180px; max-height:180px;">
             </div>
             <div class="col-8 mx-auto">
                 <div class="row">

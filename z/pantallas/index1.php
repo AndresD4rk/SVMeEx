@@ -2,7 +2,7 @@
 // if (empty($_SESSION['rol'])) {
 //     header("location:page-404.html");
 // 
-include "../procesos/conexion.php";
+include "../includes/conexion.php";
 ?>
 
 <!DOCTYPE html>

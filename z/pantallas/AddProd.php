@@ -3,7 +3,7 @@
 <html lang="es">
 <?php 
 session_start();
-include "../procesos/conexion.php";
+include "../includes/conexion.php";
 $rol = $_SESSION['rol'];
 ?>
 <head>

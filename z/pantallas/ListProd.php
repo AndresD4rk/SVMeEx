@@ -2,7 +2,7 @@
 
                     <!DOCTYPE html>
 <html lang="es">
-<?php include "../procesos/conexion.php"; 
+<?php include "../includes/conexion.php"; 
 ?>
 
 <head>

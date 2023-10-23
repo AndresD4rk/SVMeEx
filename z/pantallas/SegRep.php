@@ -13,7 +13,7 @@ if (!(isset($_GET['ident']))) {
     </script>';
 }
 $ident = $_GET['ident'];
-include "../procesos/conexion.php";
+include "../includes/conexion.php";
 ?>
 <!DOCTYPE html>
 
