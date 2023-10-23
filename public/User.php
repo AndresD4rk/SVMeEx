@@ -179,8 +179,8 @@ $rol = $_SESSION['rol'];
                                             <td><?php echo $datosd['nomdir'] ?></td>
                                             <td><?php echo $datosd['detdir'] ?></td>
                                             <td>
-                                                <a class="btn btn-outline-danger m-1" onclick="eliminar(<?php echo $datosd['iddir'] ?>)">Eliminar</a>
-                                                <a class="btn btn-outline-success m-1" href="../customers/DirEdit.php?dirid=<?php echo $datosd['iddir'] ?>">Editar</a>
+                                                <a class="btn btn-outline-danger m-1" onclick="eliminar(<?php echo $datosd['iddir'] ?>)"><b>Eliminar</b></a>
+                                                <a class="btn btn-outline-success m-1" href="../customers/DirEdit.php?dirid=<?php echo $datosd['iddir'] ?>"><b>Editar</b></a>
                                             </td>
                                         </tr>
                                     <?php

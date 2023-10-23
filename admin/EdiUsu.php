@@ -44,7 +44,7 @@ $idusu=$_GET['id']
         <form id="formid" action="process/ediusu.php" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
                 <h2 class="text-center">Actualización de Usuario</h2>
-                <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:160px; max-height:160px;">
+                <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:160px; max-height:160px;">
             </div>
             <div class="col-8 mx-auto">
                 <div class="row">

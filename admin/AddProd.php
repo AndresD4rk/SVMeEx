@@ -89,9 +89,9 @@ $rol = $_SESSION['rol'];
             </div>
             <!-- CATEGORIA DEL PRODUCTO -->
             <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate ">Categoria</label>
+                <label for="exampleInputEmail1" class="form-label text-truncate ">Categoría</label>
                 <select id="select-categoria" class="form-select" aria-label="Default select example" name="SelCat" required>
-                    <option value="">Elija una Categoria</option>
+                    <option value="">Elija una Categoría</option>
                     <?php
                     $sql = $conexion->query("SELECT * 
                                 FROM categoria");
@@ -100,12 +100,14 @@ $rol = $_SESSION['rol'];
                     }
                     ?>
                 </select>
-                <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
+                <div class="text-end">    
+                <button type="button" class="btn btn-outline-warning mt-2" onclick="mostrarFormulario(1)"><b>Agregar Categoría</b></button>
+                </div>
             </div>
 
-            <div class="row mt-5">
-                <div class="col-6 text-start"><a href="../public/main.php" class="btn btn-warning">Regresar</a></div>
-                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
+            <div class="row mt-3">
+                <div class="col-6 text-start"><a href="../public/main.php" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Registrar</b></button></div>
             </div>
 
         </form>

@@ -135,13 +135,13 @@ function mostrarFormulario(formulario) {
         <!-- Formulario 1 -->
             <form id="CatForm">  
                 <div class="col-11 mx-auto">
-                    <h2 class="text-center">Registro de Categoria</h2>
+                    <h2 class="text-center">Registro de Categoría</h2>
                     <div class="row">
                         <div class="mb-3 mt-3">
-                            <label class="form-label ">Nombre de la Categoria</label>
-                            <input type="text" class="form-control" name="NomCat" placeholder="Ingresa el nombre de la categoria">
+                            <label class="form-label ">Nombre de la Categoría</label>
+                            <input type="text" class="form-control" name="NomCat" placeholder="Ingresa el nombre de la categoría">
                         </div>
-                        <div class="text-end mb-2"><button class="btn btn-success" onclick="enviarFormularioCat()">Registrar</button></div>
+                        <div class="text-end mb-2"><button class="btn btn-outline-success" onclick="enviarFormularioCat()"><b>Registrar</b></button></div>
                     </div>
                 </div> 
             </form>
@@ -206,9 +206,9 @@ function mostrarFormularioLP(formulario, idProd) {
         <div class="col-11 mx-auto">
             <h2 class="text-center">Editar de Producto</h2>
             <div class="row">
-                <!-- CATEGORIA DEL PRODUCTO -->
+                <!-- CATEGORÍA DEL PRODUCTO -->
                 <div class="col-6 mb-3 mt-3">
-                    <label for="exampleInputEmail1" class="form-label ">Categoria</label>
+                    <label for="exampleInputEmail1" class="form-label ">Categoría</label>
                     <select class="form-select" aria-label="Default select example" name="SelCat" required>
                     <option value="">Elija una Categoria</option>
                         <?php

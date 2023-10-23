@@ -69,8 +69,8 @@
                         <td>" . number_format($minsto) . "</td>                          
                        "; ?>
               <td>
-                <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $idpro ?>)">Eliminar</a>
-                <a class="btn btn-success m-1" href="EdiProd.php?producto=<?php echo $idpro ?>">Editar</a>
+                <a class="btn btn-outline-danger m-1" onclick="eliminar(<?php echo $idpro ?>)"><b>Eliminar</b></a>
+                <a class="btn btn-outline-warning m-1" href="EdiProd.php?producto=<?php echo $idpro ?>"><b>Editar</b></a>
               </td>
             <?php
               echo '
