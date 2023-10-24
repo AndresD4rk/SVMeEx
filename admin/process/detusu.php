@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if ($sql) {
             $response = array(
                 'title' => 'Usuario eliminado!',
-                'text' => '',
+                'text' => ' ',
                 'icon' => 'success',
                 'buttons' => false,
                 'timer' => 2500,
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         } else {
             $response = array(
                 'title' => 'Error!',
-                'text' => '',
+                'text' => ' ',
                 'icon' => 'error',
                 'buttons' => false,
                 'timer' => 2500,

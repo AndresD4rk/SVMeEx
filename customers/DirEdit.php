@@ -59,7 +59,7 @@ $rol = $_SESSION['rol'];
             <form id="formid" action="process/editdir.php" method="POST">
                 <div class="mb-4">
                     <h2 class="text-center">Actualizar Dirección</h2>
-                    <img src="../img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:150px; max-height:150px;">
+                    <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:150px; max-height:150px;">
                 </div>
                 <div class="col-8 mx-auto">
                     <div class="row">
@@ -89,8 +89,8 @@ $rol = $_SESSION['rol'];
                 </div>                 -->
 
                         <div class="row">
-                            <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-warning">Cancelar</a></div>
-                            <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success2">Actualizar</button></div>
+                            <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                            <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Actualizar</b></button></div>
                         </div>
 
 

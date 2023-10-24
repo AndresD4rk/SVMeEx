@@ -34,7 +34,7 @@
     <main class="container-fluid mt-2">
         <form id="formid" action="process/newUser.php" method="POST" enctype="multipart/form-data">
             <div class="mb-4">
-                <h2 class="text-center">Registro de Usuario</h2>
+                <h2 class="text-center">Registrar Usuario</h2>
                 <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-width:180px; max-height:180px;">
             </div>
             <div class="col-8 mx-auto">
@@ -56,7 +56,7 @@
                         <input type="text" class="form-control" name="ape2" aria-describedby="emailHelp" placeholder="Ingresa tu segundo apellido">
                     </div>
                     <div class="col-7 mb-3 mt-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
                         <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingresa el correo">
                     </div>
                     <div class="col-5 mb-3 mt-3">
@@ -84,8 +84,8 @@
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
                 <div class="row">
-                    <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-warning">Regresar</a></div>
-                    <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrar</button></div>
+                    <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                    <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Registrar</b></button></div>
                 </div>
 
 

@@ -1,5 +1,5 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet" href="../assets/css/mcss.css">
+<link rel="stylesheet" href="../../assets/css/mcss.css">
 <?php
 include "../../includes/conexion.php";
 if (empty($_POST['email'])) {
@@ -39,7 +39,7 @@ if (empty($_POST['email'])) {
                 <script>                    
                     document.addEventListener("DOMContentLoaded", function() {
                         swal({
-                                title: 'Usuario Actualizad@:!',
+                                title: 'Usuario Actualizad@!',
                                 text: '<?php echo $nom1 . " " . $ape1 ?>',
                                 icon: 'success',
                                 buttons: false,

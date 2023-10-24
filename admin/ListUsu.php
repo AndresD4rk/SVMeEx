@@ -35,13 +35,13 @@
   <main class="container-fluid mt-2">
     <div class="row">
       <div class="col-12  mb-2">
-        <a href="AddUsu.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-user-plus me-2"></i>AGREGAR USUARIO</a>
+        <a href="AddUsu.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-user-plus me-2"></i><b>Agregar Usuario</b></a>
       </div>
       <div class="col-12">
         <table class="table table-responsive table-hover" id="dataTable-1">
           <thead>
             <tr style="text-align: center;">
-              <th scope="col">#</th>
+              <!-- <th scope="col">#</th> -->
               <th scope="col">Nombre</th>
               <th scope="col">Email</th>
               <th scope="col">Rol</th>
@@ -58,16 +58,27 @@
               $Nombre = $datos['prinom'] . " " . $datos['segnom'] . " " . $datos['priape'] . ' ' . $datos['segape'];
               $Email = $datos['correo'];
               $Rol = $datos['rol'];
-              echo  "<tr style='text-align: center;''> 
-                        <th scope='col'>$idusu</th>
+              $roles = [
+                1 => 'Administrador',
+                2 => 'Cliente',
+                3 => 'Repartidor',
+                4 => 'Empleado',
+              ];
+              if (array_key_exists($Rol, $roles)) {
+                $nombreRol = $roles[$Rol];
+              } else {              
+                $nombreRol = 'Rol Desconocido';
+              }
+              // <th scope='col'>$idusu</th>
+              echo  "<tr style='text-align: center;''>                         
                         <td>$Nombre</td>  
                         <td>$Email</td> 
-                        <td>$Rol</td>                                               
+                        <td>$nombreRol</td>                                               
                        ";
 
             ?><td>
-                <a class="btn btn-danger m-1" onclick="eliminar(<?php echo $idusu ?>)">Eliminar</a>
-                <a class="btn btn-success m-1" href="EdiUsu.php?id=<?php echo $idusu ?>">Editar</a>
+                <a class="btn btn-outline-danger m-1" onclick="eliminar(<?php echo $idusu ?>)"><b>Eliminar</b></a>
+                <a class="btn btn-outline-success m-1" href="EdiUsu.php?id=<?php echo $idusu ?>"><b>Editar</b></a>
               </td>
               </tr><?php
                   }

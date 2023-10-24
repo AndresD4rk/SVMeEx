@@ -45,37 +45,41 @@ include "../includes/conexion.php";
                         <tr style="text-align: center;">
                             <th scope="col">Entrega #</th>
                             <th scope="col">Fecha</th>
-                            <th scope="col">Direccion</th>
+                            <th scope="col">Dirección</th>
                             <th scope="col">Detalles</th>
-                            <th scope="col">Estado</th>
-                            <th scope="col">Action</th>
+                            <!-- <th scope="col">Estado</th> -->
+                            <th scope="col">Acción</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
+                        <?php                        
                         $sql = $conexion->query("SELECT * FROM entrega AS e
                         INNER JOIN compra AS c ON e.idcom=c.idcom
+                        WHERE estent !=2
                         ORDER BY c.feccom AND e.estent");
                         while ($datos = $sql->fetch_array()) {
                             $ident = $datos['ident'];
                             $dirent = $datos['dirent'];
+                            $diracort = str_replace(", Santander, Colombia", "", $dirent);
                             $detent = $datos['detent'];
                             $estent = $datos['estent'];
                             $idcom = $datos['idcom'];
-                            $feccom = $datos['feccom'];
+                            $feccom = $datos['feccom'];                            
                             echo  "<tr style='text-align: center;''> 
                         <th scope='col'>$ident</th>
                         <td>$feccom</td>
-                        <td>$dirent</td>  
-                        <td>$detent</td> 
-                        <td>$estent</td>                                 
-                       ";
+                        <td>$diracort</td>  
+                        <td>$detent</td>"; 
+                        
+                     
+                       
                             echo '<td>
                       <div class="row">
                       <div class "col">
-                      <a class="btn btn-danger m-1" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>';
+                      ';
                             if ($estent == 0) {
-                                echo '<a class="btn btn-success m-1" href="InitEntrega.php?ident=' . $ident . '">Iniciar entrega</a>';
+                                // <a class="btn btn-danger m-1" href="deletebook.php?variable=' . $idcom . '">Eliminar</a>
+                                echo '<a class="btn btn-outline-success m-1" href="InitEntrega.php?ident=' . $ident . '"><b>Asignar entrega</b></a>';
                             }
                             echo ' 
                       </div>                       

@@ -45,6 +45,9 @@ include "../includes/conexion.php";
 
         <div class="content-wrapper mt-1">
             <div class="container-fluid">
+            <div class="col text-end m-1">      
+      <a class="btn btn-outline-danger" href="SegEnt.php"><b>Regresar</b></a>
+    </div>
                 <div class="row">
                     <div class=" col-xl-4 col-12">
                         <div class="progress m-2">

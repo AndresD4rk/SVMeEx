@@ -69,15 +69,16 @@ include "../includes/conexion.php";
                                 $nument = $datos['ident'];
                                 $fecha = $datos['feccom'];
                                 $direccion = $datos['dirent'];
+                                $diracort = str_replace(", Santander, Colombia", "", $direccion);
                                 $detalle = $datos['detent'];                                                              
                                 echo  "<tr style='text-align: center;''> 
                         <th>$numcompra</th>
                         <td>$fecha</td>
-                        <td>$direccion</td>  
+                        <td>$diracort</td>  
                         <td>$detalle</td>                                                         
                        ";
                                 echo '<td>                                   
-                      <a class="btn btn-success" href="HisCom.php?idcom=' . $numcompra . '&ident=' . $nument . '">Ver</a>';                               
+                      <a class="btn btn-outline-success" href="HisCom.php?idcom=' . $numcompra . '&ident=' . $nument . '"><b>Ver</b></a>';                               
                                 echo '                        
                  
                     </td>

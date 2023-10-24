@@ -59,10 +59,10 @@ include "../includes/conexion.php";
             </div>
             <div class="row my-3 justify-content-between ">
                 <div class="col ms-3">
-                    <a class="btn btn-danger" href="#">Regresar entrega</a>
+                    <a class="btn btn-outline-danger" href="EntregasHabilitadas.php"><b>Regresar</b></a>
                 </div>
                 <div class="col me-3 text-end">
-                    <a class="btn btn-success" href="process/confent.php?id=<?php echo $ident ?>">Confirmar entrega</a>
+                    <a class="btn btn-outline-success" href="process/confent.php?id=<?php echo $ident ?>"><b>Confirmar entrega</b></a>
                 </div>
             </div>
 

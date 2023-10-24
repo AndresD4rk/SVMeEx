@@ -39,15 +39,24 @@ include "../includes/conexion.php";
     <!-- Inicio Carrito -->
     <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
     <!-- Fin Carrito -->
-
-    <div class="container-fluid mt-5">
+    <div class="row">
+    <div class="col text-start ms-4 my-auto">
+    <a id="fechcomp"></a>
+    </div>
+    <div class="col text-end m-1">      
+      <a class="btn btn-outline-danger" href="HistoCompras.php"><b>Regresar</b></a>
+    </div>
+    </div>
+    <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <table class="table table-responsive table-hover mb-0 max-heigh-100" id="dataTable-1">
+          <table class="table table-responsive table-hover mb-0 max-heigh-100 text-center align-middle" id="dataTable-1">
             <thead>
-              <tr style="text-align: center;">
+              <tr>
                 <th scope="col">Producto</th>
                 <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Subtotal</th>
               </tr>
             </thead>
             <tbody>
@@ -61,23 +70,39 @@ include "../includes/conexion.php";
                         WHERE c.idcom=$idcom                  
                         ORDER BY c.feccom");
               $VCompra;
+              $fecha;
               while ($datos = $sql->fetch_array()) {
                 $ident = $datos['idcom'];
                 $nompro = $datos['nompro'];
-                $canpro = $datos['canpro'];
+                $canpro = number_format($datos['canpro']);
+                $precio = number_format($datos['precom']);
+                $stotal = number_format($datos['canpro'] * $datos['precom']);
+                $fecha = $datos['feccom'];
                 $VCompra = $datos['tolcar'];
                 if ($VCompra == 0) {
                   $VCompra = -777;
                 }
-                echo  "<tr style='text-align: center;''>                         
+                echo  "<tr>                         
                         <td>$nompro</td>
-                        <td>$canpro</td>                                                        
+                        <td>$canpro</td>    
+                        <td>$ $precio</td> 
+                        <td>$ $stotal</td>                                                       
                         </tr>";
               }
+
+              $timestamp = strtotime($fecha);
+              $fecha_formateada = date('d/m/Y H:i:s', $timestamp);
+              
+
               ?>
+              <script>
+                var afecha = document.getElementById("fechcomp");
+                afecha.innerHTML = "<b>Fecha de compra: </b><?php echo $fecha_formateada?>";
+              </script>
               <tr class="fs-4">
-              <th colspan="1" class='text-end'>Total de compra:</th>                
-                <td colspan="1" class='text-center'>$ <?php echo number_format($VCompra) ?></td>
+                <td></td>
+                <th colspan="2" class='text-end'>Total de compra:</th>
+                <td colspan="" class='text-center'><b><i>$</i> <?php echo number_format($VCompra) ?></b></td>
                 </td>
             </tbody>
           </table>

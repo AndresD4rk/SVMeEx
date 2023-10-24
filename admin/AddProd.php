@@ -31,16 +31,16 @@ $rol = $_SESSION['rol'];
 <header class="header-bg-color" id="topheader"></header>
 
 <body>
-    <main class="container-fluid align-items-center justify-content-center">
+    <main class="container-fluid align-items-center justify-content-center mt-3">
         <!-- Inicio Menu LATERAL -->
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Menu LATERAL -->
         
         <form class="row" action="../admin/process/newprod.php" method="POST" enctype="multipart/form-data">
-            <div class="col-12">
-                <h1 class="text-center">MercaExpress</h1>
-                <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
+            <div class="col-12">                
                 <h2 class="text-center">Registro de Productos</h2>
+                <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
+                
             </div>
             <!-- FAMILIA DEL PRODUCTO
                         <div class="col-6 mb-3 mt-3">

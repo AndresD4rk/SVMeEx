@@ -47,7 +47,7 @@ $idusu = $_SESSION['idusu'];
               <th scope="col">Fecha</th>
               <th scope="col">Direccion</th>
               <th scope="col">Detalles</th>
-              <th scope="col">Estado</th>
+              <!-- <th scope="col">Estado</th><td>$estent</td>   -->
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -70,11 +70,11 @@ $idusu = $_SESSION['idusu'];
                         <td>$feccom</td>
                         <td>$dirent</td>  
                         <td>$detent</td> 
-                        <td>$estent</td>                                 
+                                                       
                        ";
               echo '<td>                      
                       
-                <a class="btn btn-success m-1" href="SegRep.php?ident=' . $ident . '&dir='.urlencode($dirent).'">Iniciar entrega</a>                                             
+                <a class="btn btn-outline-success m-1" href="SegRep.php?ident=' . $ident . '&dir='.urlencode($dirent).'"><b>Iniciar entrega</b></a>                                             
                     </td>
                   </tr>';
             }

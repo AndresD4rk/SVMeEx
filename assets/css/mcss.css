@@ -23,7 +23,7 @@
     --color-clam: #fedc00;
     --color-clng: #24262d;
     --color-clbl2: #f5f1f0;
-    --color-bgwi:#fefefe;    
+    --color-bgwi: #fefefe;
 }
 
 @font-face {
@@ -32,17 +32,18 @@
     src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-    font-display: swap;    
-  }
-  html{
+    font-display: swap;
+}
+
+html {
     min-height: 100vh;
-  }
-  
-  body {
+}
+
+body {
     background-color: var(--color-bgwi);
-    font-family: "OpenSans", sans-serif; 
-    min-height: 100vh;   
-  }
+    font-family: "OpenSans", sans-serif;
+    min-height: 100vh;
+}
 
 .header-bg-color {
     /* background-color: rgb(1, 230, 0); rgb(0, 179, 0) rgb(0, 153, 0)*/
@@ -50,7 +51,7 @@
 }
 
 .footer-bg-color {
-    background-color: rgb(1, 230, 0);       
+    background-color: rgb(1, 230, 0);
 }
 
 .car-bg-color {
@@ -128,6 +129,7 @@ background-attachment: fixed; */
     --color-clng: #24262d;
     --color-clbl2: #f5f1f0;
 }
+
 .swal-overlay {
     background-color: rgba(36, 38, 45, 0.5);
     backdrop-filter: brightness(0, 5);
@@ -139,38 +141,45 @@ background-attachment: fixed; */
 }
 
 .swal-modal {
-    
+
     backdrop-filter: brightness(0, 5);
     border: 0.7px solid black;
 }
+
 /* Estilos para el botón de confirmación en el tipo "danger" */
 .swal-button--danger {
-    background-color: var(--color-clrj); /* Utiliza el color base */
-    color: white; /* Cambia el color del texto a blanco o el color deseado */
+    background-color: var(--color-clrj);
+    /* Utiliza el color base */
+    color: white;
+    /* Cambia el color del texto a blanco o el color deseado */
 }
 
 /* Estilos para el botón de confirmación en estado hover */
 .swal-button--danger:not([disabled]):hover {
-    background-color: #ff3366; /* Cambia el color de fondo al hacer hover */
+    background-color: #ff3366;
+    /* Cambia el color de fondo al hacer hover */
 }
 
 /* Estilos para el botón de confirmación en estado activo */
 .swal-button--danger:active {
-    background-color: #ff3366; /* Cambia el color de fondo al hacer clic */
+    background-color: #ff3366;
+    /* Cambia el color de fondo al hacer clic */
 }
 
-.swal-button--confirm{
-    background-color:var(--color-clvr);
-    color:var(--color-clng)    
-  }
-  .swal-button--confirm:not([disabled]):hover{
-    background-color:#009900;
-  }
+.swal-button--confirm {
+    background-color: var(--color-clvr);
+    color: var(--color-clng)
+}
 
-  .swal-button--confirm:active{
-    background-color:#009900;
-  }
-  .swal-content__input{
+.swal-button--confirm:not([disabled]):hover {
+    background-color: #009900;
+}
+
+.swal-button--confirm:active {
+    background-color: #009900;
+}
+
+.swal-content__input {
     display: block;
     width: 100%;
     padding: 0.375rem 0.75rem;
@@ -186,13 +195,15 @@ background-attachment: fixed; */
     appearance: none;
     border-radius: var(--bs-border-radius);
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  }
+}
 
-  .swal-content__input:focus, .swal-content__textarea:focus {
+.swal-content__input:focus,
+.swal-content__textarea:focus {
     outline: none;
     border-color: var(--color-clng);
 }
+
 .swal-button:focus {
     outline: none;
-    box-shadow: 0 0 0 1px #fff,0 0 0 3px rgba(36, 38, 45,.29);
+    box-shadow: 0 0 0 1px #fff, 0 0 0 3px rgba(36, 38, 45, .29);
 }

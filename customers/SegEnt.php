@@ -40,7 +40,7 @@ include "../includes/conexion.php";
     <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
     <!-- Fin Carrito -->
 
-    <div class="content-wrapper mt-5">
+    <div class="content-wrapper mt-3">
       <div class="container-fluid">
         <table class="table table-responsive table-hover" id="dataTable-1">
           <thead>
@@ -77,9 +77,9 @@ include "../includes/conexion.php";
                         <td>$estent</td>";
               echo '<td>';
               if ($estent == 0) {
-                echo '<a class="col btn btn-danger" onclick="eliminar(' . $idcom . ',' . $ident . ',' . $idcar . ')">Cancelar</a>';
+                echo '<a class="col btn btn-outline-danger" onclick="eliminar(' . $idcom . ',' . $ident . ',' . $idcar . ')"><b>Cancelar</b></a>';
               } else if ($estent == 1) {
-                echo '<a class="col btn btn-success" href="DetalleCompra.php?idcom=' . $idcom . '&ident=' . $ident . '">Ver</a>';
+                echo '<a class="col btn btn-outline-success" href="DetalleCompra.php?idcom=' . $idcom . '&ident=' . $ident . '"><b>Ver</b></a>';
               }
               echo '                        
                       

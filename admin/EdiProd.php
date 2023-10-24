@@ -51,10 +51,10 @@ WHERE p.idpro =" . $_GET['producto'] . "");
 ?>
 
         <form class="row" action="process/editprod.php" method="POST" enctype="multipart/form-data">
-            <div class="col-12">
-                <h1 class="text-center">MercaExpress</h1>
+            <div class="col-12">                
+                <h2 class="text-center">Actualizar Producto</h2>
                 <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 170px; max-width: 170px;">
-                <h2 class="text-center">Registro de Productos</h2>
+                
             </div>
             <!-- FAMILIA DEL PRODUCTO
                         <div class="col-6 mb-3 mt-3">
@@ -120,12 +120,13 @@ WHERE p.idpro =" . $_GET['producto'] . "");
                     }
                     ?>
                 </select>
-                <button type="button" class="btn btn-warning mt-2" onclick="mostrarFormulario(1)">Agregar Categoria</button>
-            </div>
+                <div class="text-end">
+                <button type="button" class="btn btn-outline-warning mt-2" onclick="mostrarFormulario(1)"><b>Agregar Categoría</b></button>
+            </div></div>
 
             <div class="row mt-5">
-                <div class="col-6 text-start"><a href="../public/main.php" class="btn btn-warning">Regresar</a></div>
-                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-success">Registrarse</button></div>
+                <div class="col-6 text-start"><a href="../public/main.php" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Registrar</b></button></div>
             </div>
 
         </form>

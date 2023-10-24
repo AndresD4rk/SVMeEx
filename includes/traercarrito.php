@@ -64,11 +64,11 @@ include "conexion.php";
             </div>
             <div class="d-flex justify-content-end align-content-end">
                 <div class="justify-content-end align-items-end me-1">
-                    <button onclick="cancelcompra(<?php echo $carrito ?>)" class="btn btn-danger float-right">Cancelar</button>
+                    <button onclick="cancelcompra(<?php echo $carrito ?>)" class="btn btn-outline-danger float-right"><b>Cancelar</b></button>
                 </div>
                 <div class="justify-content-end align-items-end">
 
-                    <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-success2  float-right">Comprar</button>
+                    <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-outline-dark  float-right"><b>Comprar</b></button>
                 </div>
             </div>
         </div><?php

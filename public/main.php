@@ -41,6 +41,11 @@ $rol = $_SESSION['rol'];
         <!-- Fin Menu LATERAL -->
 
         <!-- Inicio Carrito -->
+        <?php 
+        if ($rol==3) {
+            
+        }
+        ?>
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Carrito -->
 

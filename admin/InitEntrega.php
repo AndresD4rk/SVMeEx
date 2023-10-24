@@ -4,6 +4,7 @@ session_start();
 //     header("location:page-404.html");
 // }
 include "../includes/conexion.php";
+$entrega=$_GET['ident'];
 ?>
 
 
@@ -40,13 +41,12 @@ include "../includes/conexion.php";
         <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Carrito -->
     
-        <div class="content-wrapper mt-5">
+        <div class="content-wrapper mt-3">
             <div class="container-fluid">
             <form class="row" action="process/initentrega.php" method="POST">
                     <div class="col-12">
-                        <h1 class="text-center">Iniciar Entrega</h1>
-                        <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 120px; max-width: 120px;">
-                        <h2 class="text-center">Registro de Productos</h2>
+                        <h1 class="text-center">Asignar Entrega</h1>
+                        <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 120px; max-width: 120px;">                        
                     </div>                   
                     <!-- Direccio entrega -->
                     <div class="col-lg-4 col-12">
@@ -65,18 +65,28 @@ include "../includes/conexion.php";
                     </div>
                     <!-- Descripcion de entrega -->
                     <div class="col-lg-4 col-12">
-                        <label for="exampleInputEmail1" class="form-label text-truncate">Id Entrega</label>
-                        <input type="text" class="form-control" name="" value="<?php echo $_GET['ident'];?>" required disabled>
-                        <input type="text" class="form-control" name="ident" value="<?php echo $_GET['ident'];?>" required hidden>
+                        <label for="exampleInputEmail1" class="form-label text-truncate">Entrega #</label>
+                        <input type="text" class="form-control" name="" value="<?php echo $entrega;?>" required disabled>
+                        <input type="text" class="form-control" name="ident" value="<?php echo $entrega;?>" required hidden>
                     </div>
                     <!-- Valor total -->
                     <div class="col-lg-4 col-12">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Total de compra</label>
-                        <input type="number" class="form-control" name="Precio" value="100000" required disabled>
+                        <?php 
+                            $sql = $conexion->query("SELECT tolcar FROM entrega AS e
+                                INNER JOIN compra AS c ON e.idcom = c.idcom
+                                INNER JOIN carrito AS a ON a.idcar = c.idcar                           
+                             WHERE e.ident=$entrega");
+                             if ($datos = $sql->fetch_array()) {
+                                $total = number_format($datos['tolcar'],2);
+                                echo"<input type='text' class='form-control' name='Precio' value= '$ $total' required disabled>";
+                             }
+                        ?>
+                        
                     </div>
                     <div class="row mt-5">
-                        <div class="col-6 text-start"><a href="main.php" class="btn btn-warning">Regresar</a></div>
-                        <div class="col-6 text-end mb-2"><button type="submit" class="btn btn-success">Iniciar</button></div>
+                        <div class="col-6 text-start"><a href="main.php" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                        <div class="col-6 text-end mb-2"><button type="submit" class="btn btn-outline-success"><b>Iniciar</b></button></div>
                     </div>
                 </form>
             </div>
