@@ -41,42 +41,51 @@
                 <div class="row">
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Primer Nombre</label>
-                        <input type="text" class="form-control" name="nom1" aria-describedby="emailHelp" placeholder="Ingresa tu primer nombre">
+                        <input type="text" class="form-control" name="nom1" aria-describedby="emailHelp" placeholder="Ingrese primer nombre">
                     </div>
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Segundo Nombre</label>
-                        <input type="text" class="form-control" name="nom2" aria-describedby="emailHelp" placeholder="Ingresa tu segundo nombre">
+                        <input type="text" class="form-control" name="nom2" aria-describedby="emailHelp" placeholder="Ingrese segundo nombre">
                     </div>
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Primer Apellido</label>
-                        <input type="text" class="form-control" name="ape1" aria-describedby="emailHelp" placeholder="Ingresa tu primer apellido">
+                        <input type="text" class="form-control" name="ape1" aria-describedby="emailHelp" placeholder="Ingrese primer apellido">
                     </div>
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Segundo Apellido</label>
-                        <input type="text" class="form-control" name="ape2" aria-describedby="emailHelp" placeholder="Ingresa tu segundo apellido">
+                        <input type="text" class="form-control" name="ape2" aria-describedby="emailHelp" placeholder="Ingrese segundo apellido">
                     </div>
-                    <div class="col-7 mb-3 mt-3">
-                        <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
-                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingresa el correo">
-                    </div>
-                    <div class="col-5 mb-3 mt-3">
+                    <div class="row">
+                        <div class="col-6 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingrese correo">
+                            <!-- <div id="emailHelp" class="form-text">Su correo electrónico está seguro con nosotros.</div> -->
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label">Numero Celular</label>
+                            <input type="number" class="form-control" name="cel" aria-describedby="emailHelp" placeholder="Ingrese numero celular">
+                            <!-- <div id="emailHelp" class="form-text">Su numero celular está seguro con nosotros.</div> -->
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Rol</label>
-                        <select id="select-categoria" class="form-select" aria-label="Default select example" name="SelRol" required>                            
+                        <select id="select-categoria" class="form-select" aria-label="Default select example" name="SelRol" required>
                             <option value="2">Cliente</option>
                             <option value="3">Repartidor</option>
                             <option value="4">Empleado</option>
-                            <option value="1">Administrador</option>                            
-                        </select>                       
+                            <option value="1">Administrador</option>
+                        </select>
                     </div>
+                    </div>
+                    
                 </div>
                 <div class="row">
                     <div class="col-6 mb-3">
                         <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control" name="clave" placeholder="Ingresa la contraseña">
+                        <input type="password" class="form-control" name="clave" placeholder="Ingrese contraseña">
                     </div>
                     <div class="col-6 mb-3">
                         <label for="exampleInputPassword1" class="form-label">Verifica la Contraseña</label>
-                        <input type="password" class="form-control" name="clave2" placeholder="Ingresa la nuevamente contraseña">
+                        <input type="password" class="form-control" name="clave2" placeholder="Ingrese nuevamente la contraseña ">
                     </div>
                 </div>
                 <!-- <div class="mb-3 form-check">

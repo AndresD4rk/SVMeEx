@@ -24,11 +24,13 @@ if (empty($_POST['email'])) {
     $nom2 = $_POST["nom2"];
     $ape1 = $_POST["ape1"];
     $ape2 = $_POST["ape2"];
+    $cel = $_POST["cel"];
     $rol = $_POST["SelRol"];
     $idusu=$_POST["id"];
 
     $sql1 = $conexion->query("UPDATE usuario
-        SET prinom='$nom1', segnom='$nom2', priape='$ape1', segape='$ape2', rol=$rol
+        SET prinom='$nom1', segnom='$nom2', priape='$ape1',     
+        segape='$ape2', numcel='$cel', rol=$rol
         WHERE idusu=$idusu");
     if ($sql1) {
         $sql2 = $conexion->query("UPDATE seguridad 

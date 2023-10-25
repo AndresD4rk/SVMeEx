@@ -65,11 +65,15 @@ $idusu = $_GET['id']
                             <label for="exampleInputEmail1" class="form-label ">Segundo Apellido</label>
                             <input type="text" class="form-control" name="ape2" aria-describedby="emailHelp" value="<?php echo $datos['segape'] ?>">
                         </div>
-                        <div class="col-7 mb-3 mt-3">
+                        <div class="col-6 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
                             <input type="email" class="form-control" name="email" aria-describedby="emailHelp" value="<?php echo $datos['correo'] ?>">
                         </div>
-                        <div class="col-5 mb-3 mt-3">
+                        <div class="col-3 mb-3 mt-3">
+                            <label for="exampleInputEmail1" class="form-label">Numero Celular</label>
+                            <input type="number" class="form-control" name="cel" aria-describedby="emailHelp" value="<?php echo $datos['numcel'] ?>">                           
+                        </div>
+                        <div class="col-3 mb-3 mt-3">
                             <label for="exampleInputEmail1" class="form-label text-truncate ">Rol</label>
                             <select id="select-categoria" class="form-select" aria-label="Default select example" name="SelRol" required>
                                 <option value="2" <?php if ($datos['rol'] === "2") echo "selected"; ?>>Cliente</option>

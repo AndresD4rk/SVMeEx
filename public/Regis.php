@@ -45,10 +45,17 @@
     <input type="text" class="form-control" name="ape2" aria-describedby="emailHelp" placeholder="Ingresa tu segundo apellido">
   </div>
 </div>
-  <div  class="col-12 mb-3 mt-3">
-    <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+<div class="row">
+  <div  class="col-6 mb-3 mt-3">
+    <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
     <input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Ingresa el correo">
-    <div id="emailHelp" class="form-text">Su correo electrónico está seguro con nosotros. Nunca lo compartiremos con terceros.</div>
+    <div id="emailHelp" class="form-text">Su correo electrónico está seguro con nosotros.</div>
+  </div>
+  <div  class="col-6 mb-3 mt-3">
+    <label for="exampleInputEmail1" class="form-label">Numero Celular</label>
+    <input type="number" class="form-control" name="cel" aria-describedby="emailHelp" placeholder="Ingresa un numero celular">
+    <div id="emailHelp" class="form-text">Su numero celular está seguro con nosotros.</div>
+  </div>
   </div>
   <div class="row">
   <div class="col-6 mb-3">

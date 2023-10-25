@@ -43,20 +43,22 @@
             <tr style="text-align: center;">
               <!-- <th scope="col">#</th> -->
               <th scope="col">Nombre</th>
-              <th scope="col">Email</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Celular</th>
               <th scope="col">Rol</th>
               <th scope="col">Acción</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $sql = $conexion->query("SELECT u.idusu, prinom, segnom, priape,segape,correo,rol FROM usuario as u
+            $sql = $conexion->query("SELECT u.idusu, prinom, segnom, priape,segape,numcel,correo,rol FROM usuario as u
                         INNER JOIN seguridad as s on s.idusu = u.idusu
                         ");
             while ($datos = $sql->fetch_array()) {
               $idusu = $datos['idusu'];
               $Nombre = $datos['prinom'] . " " . $datos['segnom'] . " " . $datos['priape'] . ' ' . $datos['segape'];
               $Email = $datos['correo'];
+              $Cel = $datos['numcel'];
               $Rol = $datos['rol'];
               $roles = [
                 1 => 'Administrador',
@@ -73,6 +75,7 @@
               echo  "<tr style='text-align: center;''>                         
                         <td>$Nombre</td>  
                         <td>$Email</td> 
+                        <td>$Cel</td> 
                         <td>$nombreRol</td>                                               
                        ";
 

@@ -28,6 +28,7 @@ if (empty($_POST['email'])) {
     $ape1 = $_POST["ape1"];
     $ape2 = $_POST["ape2"];
     $rol = $_POST["SelRol"];
+    $cel = $_POST["cel"];
     $sql = $conexion->query("SELECT MAX(idusu) FROM usuario");
     $datos = $sql->fetch_array();
     if ($datos) {
@@ -38,8 +39,8 @@ if (empty($_POST['email'])) {
     }
 
     $sql1 = $conexion->query("INSERT INTO
-        usuario (idusu,prinom,segnom,priape,segape,rol)
-        VALUES ($idusu,'$nom1','$nom2','$ape1','$ape2', $rol)");
+        usuario (idusu,prinom,segnom,priape,segape,numcel,rol)
+        VALUES ($idusu,'$nom1','$nom2','$ape1','$ape2','$cel',$rol)");
     if ($sql1) {
         $sql2 = $conexion->query("INSERT INTO
         seguridad (correo, clave, idusu)
