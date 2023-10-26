@@ -25,7 +25,7 @@ $rol = $_SESSION['rol'];
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/mcss.css">
     <script src="../assets/js/bootstrap.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc" async defer></script>
     <script src="../assets/js/fetch.js"></script>
 </head>
 <!-- Inicio Menu TOP -->
@@ -55,11 +55,11 @@ $rol = $_SESSION['rol'];
                 <div class="row">
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Dirección</label>
-                        <input type="text" class="form-control" name="direccion" placeholder="Ejemplo (Carrera 1 12 3)" required>
+                        <input type="text" id="dir" class="form-control" name="direccion" placeholder="Ejemplo (Carrera 1 12 3)" required>
                     </div>   
                     <div class="col-6 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Municipio</label>
-                        <input type="text" class="form-control" name="municipio" placeholder="Ingrese el Municipio" required>
+                        <input type="text" id="mun" class="form-control" name="municipio" placeholder="Ingrese el Municipio" required>
                     </div> 
                     <div class="col-12 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label ">Detalle</label>
@@ -120,7 +120,7 @@ $rol = $_SESSION['rol'];
 
 
 <script>
-    var myLatLng;
+    var myLatLng;    
 function showPosition(position) {
         var lat = position.coords.latitude;
         var lng = position.coords.longitude;
@@ -129,14 +129,58 @@ function showPosition(position) {
               
     }
 
+    
 
-    function initMap() {        
-        if (navigator.geolocation) {
-        //navigator.geolocation.watchPosition(showPosition);
-        navigator.geolocation.watchPosition(showPosition);        
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        // Aquí puedes realizar la acción que desees cuando se pulsa Enter.
+        const apiKey = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
+var ddir =document.getElementById('dir');
+var dmun =document.getElementById('mun');
+var dir=ddir.value;
+var mun=dmun.value;
+var direccion=dir+", "+mun+", Santander, Colombia";
+        console.log(direccion);
+        const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(direccion)}&key=${apiKey}`;
+        fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Verifica si la solicitud fue exitosa y si se encontraron resultados
+    if (data.status === "OK" && data.results.length > 0) {
+      // Obtiene las coordenadas de latitud y longitud
+      const latitud = data.results[0].geometry.location.lat;
+      const longitud = data.results[0].geometry.location.lng;
+
+      // Haz algo con las coordenadas (por ejemplo, imprímelas en la consola)
+      console.log("Latitud:", latitud);
+      console.log("Longitud:", longitud);
+      myLatLng={ lat: latitud, lng: longitud };
+      initMap();
     } else {
-        console.log("La geolocalización no es compatible con este navegador.");
-    }  
+      console.log("No se encontraron resultados para la dirección proporcionada.");
+    }
+  })
+  .catch(error => {
+    console.error("Hubo un error en la solicitud:", error);
+  });
+    }
+}); 
+
+
+
+
+
+    function initMap() {
+        console.log(myLatLng);
+    if (myLatLng==undefined){
+        
+    }else{
+    //     if (navigator.geolocation) {
+    //     //navigator.geolocation.watchPosition(showPosition);
+    //     navigator.geolocation.watchPosition(showPosition);        
+    // } else {
+    //     console.log("La geolocalización no es compatible con este navegador.");
+    // }  
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 18,
     center: myLatLng,
@@ -148,17 +192,21 @@ function showPosition(position) {
     title: "Hello World!",
   });
   map.addListener('click', function(event) {
-    moverMarcador(event.latLng);
+    moverMarcador(event.latLng);    
   });
 }
 function moverMarcador(latLng) {
   // Mueve el marcador a la ubicación donde se hizo clic
   marker.setPosition(latLng);
+  console.log(myLatLng);  
+  myLatLng={ lat: latLng.lat(), lng: latLng.lng() };
+  console.log(myLatLng);  
 }
-window.initMap = initMap;
+//window.initMap = initMap;
     //initMap();
+}
 </script>
 <script>
     // Llamar a la función initMap() una vez que la página se haya cargado
-    window.addEventListener('load', initMap);
+  //  window.addEventListener('load', initMap);
 </script>
