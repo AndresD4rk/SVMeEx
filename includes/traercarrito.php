@@ -68,7 +68,8 @@ include "conexion.php";
                 </div>
                 <div class="justify-content-end align-items-end">
 
-                    <button onclick="irCompras(<?php echo $vtc ?>)" class="btn btn-outline-dark  float-right"><b>Comprar</b></button>
+                    <!-- <button onclick="irCompras(<?php //echo $vtc ?>)" class="btn btn-outline-dark  float-right"><b>Comprar</b></button> -->
+                    <a href="../customers/Compras2.php" class="btn btn-outline-dark  float-right"><b>Comprar</b></a>
                 </div>
             </div>
         </div><?php

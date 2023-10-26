@@ -46,5 +46,37 @@
         "lonrep": -73.2642923,
         "latent": 6.4736204,
         "lonent": -73.2593095
+    },
+    {
+        "ident": 45,
+        "idrep": -1,
+        "latrep": 0,
+        "lonrep": 0,
+        "latent": 0,
+        "lonent": null
+    },
+    {
+        "ident": 46,
+        "idrep": 2,
+        "latrep": 6.9952,
+        "lonrep": -73.05,
+        "latent": 6.548771496511048,
+        "lonent": -73.13714466403027
+    },
+    {
+        "ident": 47,
+        "idrep": 2,
+        "latrep": 6.9952,
+        "lonrep": -73.05,
+        "latent": 6.548771496511048,
+        "lonent": -73.13714466403027
+    },
+    {
+        "ident": 48,
+        "idrep": 2,
+        "latrep": 6.9952,
+        "lonrep": -73.05,
+        "latent": 6.548771496511048,
+        "lonent": -73.13714466403027
     }
 ]
