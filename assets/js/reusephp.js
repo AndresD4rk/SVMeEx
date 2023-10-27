@@ -54,7 +54,9 @@ window.onload = function() {
             success: function(data) {
                 // Actualizar la sección del carrito con los datos recibidos
                 $("#getprod").html(data);            
-                window.history.replaceState({}, document.title, window.location.pathname);                
+                window.history.replaceState({}, document.title, window.location.pathname);
+                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))                
             }
         });
        }else{
@@ -84,7 +86,8 @@ function filtroproducto(event) {
             }
         });
         } else {
-            window.location="/SVMeEx/public/main.php?filt="+valorInput+"";            
+            window.location="/SVMeEx/public/main.php?filt="+valorInput+""; 
+                       
         } 
 
     }
