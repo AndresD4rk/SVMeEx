@@ -18,9 +18,11 @@ die;
                     $nompro = $datos['nompro'];
                     $precio = $datos['precio'];
                     $nomcat = $datos['nomcat'];
+                    $descripcion = $datos['despro'];                    
                     $cansto = $datos['caninv'];                    
                     echo '  <div class="card col-md-4 mx-1 my-2" style="width: 18rem;">                                
-                                <img class="card-img-top mx-auto mt-1 img-fluid h-50" src="../assets/img/productos/' . $idpro . '.webp" alt="Card image cap">                            
+                                <img data-bs-toggle="tooltip" data-bs-placement="right" data-bs-title="'.$descripcion.'" class="card-img-top mx-auto mt-1 img-fluid h-50" src="../assets/img/productos/' . $idpro . '.webp" alt="Card image cap">                            
+                                
                                 <div class="card-body">
                                     <p class="card-title text-center fw-semibold">' . $nompro . '</p>                                   
                                     <p class="card-text">
@@ -38,4 +40,4 @@ die;
                 }
                 echo '</div></div>';
                 ?>
-            </div>
+            </div>            

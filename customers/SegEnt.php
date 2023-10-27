@@ -42,6 +42,9 @@ include "../includes/conexion.php";
 
     <div class="content-wrapper mt-3">
       <div class="container-fluid">
+      <div class="col-12 text-center my-2">
+                    <h3><b>Seguimiento de Entregas</b></h3>
+                </div>
         <table class="table table-responsive table-hover" id="dataTable-1">
           <thead>
             <tr style="text-align: center;">
@@ -67,6 +70,12 @@ include "../includes/conexion.php";
               $dirent = $datos['dirent'];
               $detent = $datos['detent'];
               $estent = $datos['estent'];
+              $detallent= "...";
+              if($estent==0){
+                $detallent="En espera";
+              }else if ($estent==1){
+                $detallent="En reparto";
+              }
               $idcom = $datos['idcom'];
               $feccom = $datos['feccom'];
               echo  "<tr style='text-align: center;''> 
@@ -74,7 +83,7 @@ include "../includes/conexion.php";
                         <td>$feccom</td>
                         <td>$dirent</td>  
                         <td>$detent</td> 
-                        <td>$estent</td>";
+                        <td>$detallent</td>";
               echo '<td>';
               if ($estent == 0) {
                 echo '<a class="col btn btn-outline-danger" onclick="eliminar(' . $idcom . ',' . $ident . ',' . $idcar . ')"><b>Cancelar</b></a>';

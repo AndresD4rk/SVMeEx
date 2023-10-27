@@ -35,6 +35,8 @@ function getprod(){
         success: function(data) {
             // Actualizar la sección del carrito con los datos recibidos
             $("#getprod").html(data);
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
         }
     });
 }
@@ -51,8 +53,8 @@ window.onload = function() {
             url: "../includes/filtprod.php?filtbusq="+valor+"", // Reemplaza con la URL de tu script PHP que obtiene el carrito
             success: function(data) {
                 // Actualizar la sección del carrito con los datos recibidos
-                $("#getprod").html(data);
-                window.history.replaceState({}, document.title, window.location.pathname);
+                $("#getprod").html(data);            
+                window.history.replaceState({}, document.title, window.location.pathname);                
             }
         });
        }else{
@@ -77,6 +79,8 @@ function filtroproducto(event) {
             success: function(data) {
                 // Actualizar la sección del carrito con los datos recibidos
                 $("#getprod").html(data);
+                const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+                const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
             }
         });
         } else {

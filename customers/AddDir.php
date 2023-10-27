@@ -67,7 +67,8 @@ $rol = $_SESSION['rol'];
                             <label for="exampleInputEmail1" class="form-label ">Detalle</label>
                             <input type="text" class="form-control" name="detalle" placeholder="Describa la Dirección">
                         </div>
-                        <div class="col-12" id="map" style="height: 75vh;">
+                        <div class="col-12 text-center" id="map" style="height: 35vh;">
+                        <p >Pulse Enter</p>              
                         </div>
                         <!-- <div class="col-5 mb-3 mt-3">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Rol</label>
@@ -80,8 +81,8 @@ $rol = $_SESSION['rol'];
                     </div>
                 </div>                 -->
 
-                        <div class="row">
-                            <!-- <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-outline-danger"><b>Regresar</b></a></div> -->
+                        <div class="row mt-2">
+                            <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-outline-danger"><b>Regresar</b></a></div>
                             <div class="col-6 text-end   mb-2"><a  onclick="formid.submit()" class="btn btn-outline-success"><b>Registrar</b></a></div>
                         </div>
 

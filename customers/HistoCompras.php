@@ -42,8 +42,8 @@ include "../includes/conexion.php";
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 text-center mt-2">
-                    <h4>Compras</h4>
+                <div class="col-12 text-center my-2">
+                    <h3><b>Historial de Compras</b></h3>
                 </div>
                 <div class="col-12">
                     <table class="table table-responsive table-hover" id="dataTable-1">
@@ -51,7 +51,7 @@ include "../includes/conexion.php";
                             <tr style="text-align: center;">
                                 <th scope="col">#</th>
                                 <th scope="col">Fecha</th>
-                                <th scope="col">Direccion</th>
+                                <th scope="col">Dirección</th>
                                 <th scope="col">Detalles</th>                                
                                 <th scope="col">Acción</th>
                             </tr>

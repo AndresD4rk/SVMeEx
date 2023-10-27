@@ -23,7 +23,7 @@ include "conexion.php";
                         <div class="card col-12">
                             <div class="row p-1">
                                 <div class="col my-auto">
-                                    <img class="card-img  mx-auto my-auto img-fluid" src="../assets/img/productos/<?php echo $datos['idpro'] ?>.webp" alt="Card image cap" style="max-height: 120px;">
+                                    <img class="card-img  mx-auto my-auto img-fluid" src="../assets/img/productos/<?php echo $datos['idpro'] ?>.webp" alt="Card image cap" style="max-height: 120px;">                                  
                                 </div>
                                 <div class="col my-auto">
                                     <div class="row">

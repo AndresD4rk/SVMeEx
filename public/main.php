@@ -24,6 +24,7 @@ $rol = $_SESSION['rol'];
     <link rel="shortcut icon" href="../assets/img/logoMER.webp" />
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/mcss.css">
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="../assets/js/bootstrap.js"></script>
     <script src="../assets/js/fetch.js"></script>
 </head>
@@ -35,7 +36,7 @@ $rol = $_SESSION['rol'];
 
 <body>
     <!-- Inicio Main -->
-    <main class="mb-5">
+    <main class="mb-5">   
         <!-- Inicio Menu LATERAL -->
         <div class="offcanvas offcanvas-start menulat" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
         <!-- Fin Menu LATERAL -->

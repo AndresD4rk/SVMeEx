@@ -60,7 +60,7 @@ $rol = $_SESSION['rol'];
                 $TipoUsu = $datos['rol'];
             ?>
                 <div class="row mt-3">
-                    <div class="col text-center h4 my-auto">
+                    <div class=" col-md-6 col-12 text-center h4 my-auto">
                         <label class="m-1"><b>Primer Nombre: </b><?php echo $Nom1; ?></label>
                         <br>
                         <label class="m-1"><b>Segundo Nombre: </b><?php echo $Nom2; ?></label>
@@ -71,9 +71,9 @@ $rol = $_SESSION['rol'];
                         <br>
                         <label class="m-1"><b>Correo: </b><?php echo $Email; ?></label>
                     </div>
-                    <div class="col text-center my-auto">
-                        <img src="../assets/img/logoMER.webp" alt="">
-                        <br>
+                    <div class="col-md-6 col-12 text-center my-auto">
+
+
                         <label class="m-2 h4"><b>Tipo de Usuario: </b><?php
                                                                         switch ($TipoUsu) {
                                                                             case 1:
@@ -92,7 +92,8 @@ $rol = $_SESSION['rol'];
                                                                                 echo 'no reconocido';
                                                                         }
 
-                                                                        ?></label>
+                                                                        ?></label><br>
+                        <img src="../assets/img/logoMER.webp" alt="" style="height: 130px; width: 130px;">
                     </div>
                     <?php
                     if ($rol == 2) {
@@ -153,7 +154,7 @@ $rol = $_SESSION['rol'];
 
                             }
                         </script>
-                        <div class="col-12 text-center  mb-2">
+                        <div class="col-12 text-center  my-3">
                             <a href="../customers/AddDir.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>NUEVA DIRRECCIÓN</b></a>
                         </div>
                         <?php

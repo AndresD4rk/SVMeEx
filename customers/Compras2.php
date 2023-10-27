@@ -43,14 +43,14 @@ include "../includes/conexion.php";
 
 
         <div class="container-fluid">
-            <div class="row">
+            <div class="row mx-auto">
                 <form class="row" action="process/newcom2.php" method="POST">
                     <div class="col-12 mt-1 mb-3">
                         <h3 class="text-center">Datos de Entrega</h3>
                         <img src="../assets/img/logoMER.png" class="col-2 rounded mx-auto d-block" alt="..." style="max-height: 150px; max-width: 150px;">
                     </div>
                     <!-- Direccio entrega -->
-                    <div class="col-lg-6 col-12 mx-auto">
+                    <div class="col-12 mx-auto">
                         <label for="exampleInputEmail1" class="form-label text-truncate ">Dirección</label>
                         <select id="dirauto" class="form-select" aria-label="Default select example" name="dira" required>
                             <option value="" selected>Elija su Dirección</option>
@@ -75,7 +75,7 @@ include "../includes/conexion.php";
                                 WHERE idusu='" . $_SESSION['idusu'] . "' AND estado = 1");
                     if ($datos = $sql->fetch_array()) {
                     ?>
-                        <div class="col-lg-6 col-12  text-end mt-2 text-end">
+                        <div class="col-12  text-end mt-2 text-end">
                             <label for="exampleInputEmail1" class="form-label text-truncate me-2">
                                 <h4>Total de compra: </h4>
                                 <h1>$ <?php echo number_format(doubleval( $datos['tolcar'])) ?> </h1>
@@ -89,7 +89,7 @@ include "../includes/conexion.php";
 
                     <div class="row mt-5">
                         <div class="col-6 text-start"><a href="main.php" class="btn btn-outline-danger"><b>Regresar</b></a></div>
-                        <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Registrarse</b></button></div>
+                        <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Comprar</b></button></div>
                     </div>
 
                 </form>

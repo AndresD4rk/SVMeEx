@@ -39,13 +39,13 @@ include "../includes/conexion.php";
     <!-- Inicio Carrito -->
     <div class="offcanvas offcanvas-end car-bg-color" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions1" aria-labelledby="offcanvasWithBothOptionsLabel"></div>
     <!-- Fin Carrito -->
-    <div class="row">
-    <div class="col text-start ms-4 my-auto">
-    <a id="fechcomp"></a>
-    </div>
-    <div class="col text-end m-1">      
-      <a class="btn btn-outline-danger" href="HistoCompras.php"><b>Regresar</b></a>
-    </div>
+    <div class="row my-2">
+      <div class="col text-start ms-4 my-auto">
+        <a id="fechcomp"></a>
+      </div>
+      <div class="col text-end m-1">
+        <a class="btn btn-outline-danger" href="HistoCompras.php"><b>Regresar</b></a>
+      </div>
     </div>
     <div class="container-fluid">
       <div class="row">
@@ -92,12 +92,12 @@ include "../includes/conexion.php";
 
               $timestamp = strtotime($fecha);
               $fecha_formateada = date('d/m/Y H:i:s', $timestamp);
-              
+
 
               ?>
               <script>
                 var afecha = document.getElementById("fechcomp");
-                afecha.innerHTML = "<b>Fecha de compra: </b><?php echo $fecha_formateada?>";
+                afecha.innerHTML = "<b>Fecha de compra: </b><?php echo $fecha_formateada ?>";
               </script>
               <tr class="fs-4">
                 <td></td>
