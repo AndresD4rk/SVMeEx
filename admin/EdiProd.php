@@ -104,7 +104,7 @@ WHERE p.idpro =" . $_GET['producto'] . "");
             </div>
             <!-- CATEGORIA DEL PRODUCTO -->
             <div class="col-lg-4 col-12">
-                <label for="exampleInputEmail1" class="form-label text-truncate ">Categoria</label>
+                <label for="exampleInputEmail1" class="form-label text-truncate ">Categoría</label>
                 <select id="select-categoria" class="form-select" aria-label="Default select example" name="SelCat" required>
                     <option value="">Elija una Categoria</option>
                     <?php
@@ -125,8 +125,8 @@ WHERE p.idpro =" . $_GET['producto'] . "");
             </div></div>
 
             <div class="row mt-5">
-                <div class="col-6 text-start"><a href="../public/main.php" class="btn btn-outline-danger"><b>Regresar</b></a></div>
-                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Registrar</b></button></div>
+                <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                <div class="col-6 text-end   mb-2"><button type="submit" class="btn btn-outline-success"><b>Actualizar</b></button></div>
             </div>
 
         </form>

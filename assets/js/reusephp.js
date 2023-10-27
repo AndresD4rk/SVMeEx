@@ -89,3 +89,15 @@ function filtroproducto(event) {
 
     }
 }
+function validarInput(input) {
+    // Expresión regular que no permite el carácter comilla simple (').
+    var patron = /['']/g;
+  
+    // Valor actual del campo de entrada.
+    var valor = input.value;
+  
+    // Verifica si el valor contiene comillas simples y las elimina.
+    if (patron.test(valor)) {
+      input.value = valor.replace(/['']/g, '');
+    }
+  }

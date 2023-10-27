@@ -85,7 +85,7 @@ $entrega=$_GET['ident'];
                         
                     </div>
                     <div class="row mt-5">
-                        <div class="col-6 text-start"><a href="main.php" class="btn btn-outline-danger"><b>Regresar</b></a></div>
+                        <div class="col-6 text-start"><a onclick="history.back()" class="btn btn-outline-danger"><b>Regresar</b></a></div>
                         <div class="col-6 text-end mb-2"><button type="submit" class="btn btn-outline-success"><b>Iniciar</b></button></div>
                     </div>
                 </form>

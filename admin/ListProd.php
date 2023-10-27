@@ -33,7 +33,7 @@
   <main class="container-fluid mt-2">
     <div class="row">
       <div class="col-12  mb-2">
-        <a href="AddProd.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>AGREGAR PRODUCTO</b></a>
+        <a href="AddProd.php" class="btn btn-outline-success w-100"><i class="fa-solid fa-circle-plus me-2"></i><b>Agregar Producto</b></a>
       </div>
       <div class="col-12">
         <table class="table table-responsive table-hover" id="dataTable-1">
