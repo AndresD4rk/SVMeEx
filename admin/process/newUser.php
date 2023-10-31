@@ -50,8 +50,8 @@ if (empty($_POST['email'])) {
                 <script>                    
                     document.addEventListener("DOMContentLoaded", function() {
                         swal({
-                                title: 'Ha registrado a:!',
-                                text: '<?php echo $nom1 . " " . $ape1 ?>',
+                                title: 'Registro Exitoso',
+                                text: ' ',
                                 icon: '../../assets/img/logoMER.webp',
                                 buttons: false,
                                 timer: 1600,

@@ -62,6 +62,8 @@ include "../includes/conexion.php";
                                 <tr style="text-align: center;">
                                     <th scope="col">Producto</th>
                                     <th scope="col">Cantidad</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Subtotal</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -75,17 +77,25 @@ include "../includes/conexion.php";
                         INNER JOIN producto AS p ON p.idpro=d.idpro
                         WHERE c.idcom=$idcom                  
                         ORDER BY c.feccom");
+                        $total;
                                 while ($datos = $sql->fetch_array()) {
-
                                     $nompro = $datos['nompro'];
                                     $canpro = $datos['canpro'];
+                                    $vcompra = number_format($datos['precom'],2);
+                                    $subtotal=number_format(doubleval($datos['precom'])*doubleval($canpro),2);
+                                    $total=number_format($datos['tolcar'],2);
                                     echo  "<tr style='text-align: center;''> 
                         
                         <td>$nompro</td>
-                        <td>$canpro</td>                                                        
-                       ";
-                                    echo '</tr>';
+                        <td>$canpro</td>  
+                        <td>$vcompra</td>   
+                        <td>$subtotal</td>                                                       
+                        </tr>";
                                 }
+                                echo "<tr class='h4'>
+                                <th colspan='2' class='text-end'>Total:</th>
+                                <th colspan='2'>$ $total</th>
+                                </tr>";
                                 ?>
                             </tbody>
                         </table>
