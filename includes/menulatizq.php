@@ -7,7 +7,7 @@ $rol = $_SESSION['rol'];
         <!-- <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button> -->
         <div class="">
             <img class="logonav" src="../assets/img/logoMER.webp" alt="..." style="height:55px;">
-            <a class="navbar-brand mx-auto align-text-top" style="font-size: 30px; color:#24262d;">enu</a>
+            <a class="navbar-brand mx-auto align-text-top" style="font-size: 30px; color:#24262d;">enú</a>
         </div>
     </div>
     <div class="offcanvas-body">
