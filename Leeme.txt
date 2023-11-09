@@ -1,0 +1,12 @@
+Usuarios Registrado Por defecto:
+
+Usuario                 |Contraseña  |Rol
+admin@svmeex.com        |admin123    |administrador
+alejandroR@svmeex.com   |alejandror  |repartidor
+mariaR@svmeex.com       |mariar      |repartidor
+juan@gmail.com          |juan123     |cliente
+laura@gmail.com         |laura123    |cliente
+
+---------------------------------------------------
+
+La carpeta "z" son copias y pruebas
