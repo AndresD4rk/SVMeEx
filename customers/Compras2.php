@@ -62,7 +62,7 @@ include "../includes/conexion.php";
                             }
                             ?>
                         </select>
-                        <a id="btnewdir" class="btn btn-outline-warning mt-2" href="DireNew.php"><b>Agregar Dirección</b></a>
+                        <a id="btnewdir" class="btn btn-outline-warning mt-2" href="AddDir.php"><b>Agregar Dirección</b></a>
                         </div>
                     <!-- Descripcion de entrega -->
                     <!-- <div class="col-lg-6 col-12">
