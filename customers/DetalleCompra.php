@@ -27,7 +27,7 @@ include "../includes/conexion.php";
     <link rel="stylesheet" href="../assets/css/mcss.css">
     <script src="../assets/js/bootstrap.js"></script>
     <script src="../assets/js/fetch.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=xxx&callback=initMap" async defer></script>
 </head>
 <header class="header-bg-color" id="topheader">
 

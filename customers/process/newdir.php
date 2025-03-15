@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $municipio = $_POST['municipio'];
     $det = $_POST['detalle'];
     $dir = $direccion . ", " . $municipio . ", Santander, Colombia";
-    $api_key = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
+    $api_key = "xxx";
     $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($dir) . "&key=" . $api_key;
     $response = file_get_contents($url);
     // Decodifica la respuesta JSON

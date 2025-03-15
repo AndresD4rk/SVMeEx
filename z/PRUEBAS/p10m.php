@@ -104,6 +104,6 @@ var request = {
 
     
   </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc&callback=initMap" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=xxx&callback=initMap" async defer></script>
 </body>
 </html>

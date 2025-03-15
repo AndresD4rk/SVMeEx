@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          history.back();
          </script>';
    }
-   $api_key = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
+   $api_key = "xxx";
    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($dirent) . "&key=" . $api_key;
    $response = file_get_contents($url);
 

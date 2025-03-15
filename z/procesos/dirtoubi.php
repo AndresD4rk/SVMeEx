@@ -3,7 +3,7 @@
 $direccion = "Carrera 15 12 32, Socorro, Santander, Colombia";
 
 // Llave de API de Google Maps
-$api_key = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
+$api_key = "xxx";
 
 // Construye la URL de la solicitud
 $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($direccion) . "&key=" . $api_key;

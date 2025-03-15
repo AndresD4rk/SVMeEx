@@ -35,7 +35,7 @@ include "../includes/conexion.php";
     <link href="https://fonts.googleapis.com/css2?family=Quicksand" rel="stylesheet">
     <script src="../assets/js/bootstrap.js"></script>
     <script src="../assets/js/fetch.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=xxx&callback=initMap" async defer></script>
     <script src="https://kit.fontawesome.com/70d8b545d5.js" crossorigin="anonymous"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous"> -->

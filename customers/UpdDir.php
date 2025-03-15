@@ -25,7 +25,7 @@ $rol = $_SESSION['rol'];
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <link rel="stylesheet" href="../assets/css/mcss.css">
     <script src="../assets/js/bootstrap.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=xxx" async defer></script>
     <script src="../assets/js/fetch.js"></script>
 </head>
 <!-- Inicio Menu TOP -->
@@ -177,7 +177,7 @@ $rol = $_SESSION['rol'];
 
     function actdatmap() {
         // Aquí puedes realizar la acción que desees cuando se pulsa Enter.
-        const apiKey = "AIzaSyBNh9upGiODKKUJAevmZsSAtKTQ4f76odc";
+        const apiKey = "xxx";
         var ddir = document.getElementById('dir');
         var dmun = document.getElementById('mun');
         var dir = ddir.value;
